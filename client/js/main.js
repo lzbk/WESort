@@ -8,7 +8,7 @@ define(function(){
         Blabla = Test.extend({
             init: function(test){
                 this._super();
-                window.alert(test);
+                $("#users").html(test);
             }
         });
         top = new Blabla(msg);
