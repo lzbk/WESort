@@ -4,17 +4,9 @@
  * Date: 10/09/13 (10:32)
  * Content: A class to describe the cards
  */
+// For score handling see git branch "withScore" to be completed…
 
 define(['position', 'history'], function(Position, History) {
-
-
-        var ScoreItem=History.Item.extend({
-            init: function(usr, pos, val){
-                this._super(usr);
-                this.position = pos;
-                this.value = val;
-            }
-        });
 
         var PositionItem=History.Item.extend({
             init: function(usr, pos){
@@ -31,9 +23,8 @@ define(['position', 'history'], function(Position, History) {
         });
 
         var Card = Class.extend({
-            positions: new History(), //will condition the rest…
-            comments: {},
-            scores: {},
+            positions: new History(),
+            comments: new History(),
             init: function(id, name, categories, img, desc){
                 //TODO : type tests one day?
                 this.id = id;
@@ -58,32 +49,6 @@ define(['position', 'history'], function(Position, History) {
             getPosAuthor: function(){
                 var lastPos = this.positions.getLastItem();
                 return (lastPos !== false) && lastPos.getAuthor;
-            },
-            //ICITE
-            //**********************
-            // Score Handling
-            //**********************
-            setScore: function(usr, val){
-                this.scores[this.getPos().asString()][usr.id] = new Score(usr,pos,val);
-            },
-            getPosScore: function(pos, usr){
-                if(typeof pos === "undefined"){
-                    pos = this.getPos().asString();
-                }
-                else{
-                    pos = pos.asString();
-                }
-                var res = 0;
-                if(typeof usr === "undefined"){
-                    for(var i in this.scores[pos]){
-                        res = res + this.scores[pos][i].value ;
-                    }
-                    //this.scores[pos].forEach(function(element){res = res + element.value});
-                }
-                else{
-                    res = this.scores[pos][usr.id];
-                }
-                return res;
             },
 
             //**********************
@@ -112,12 +77,12 @@ define(['position', 'history'], function(Position, History) {
             //**********************
             // Comment Handling
             //**********************
-            getComment: function(){
-                return this.comment;
+            getComment: function(usr){
+                return this.comments.getLastItem(usr);
             },
 
-            setComment: function(aComment){
-                this.comment = aComment;
+            setComment: function(usr, textForAComment){
+                this.comments.addItem(new CommentItem(usr, textForAComment));
             }
 
             //**********************
