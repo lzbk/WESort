@@ -9,7 +9,9 @@ Coding conventions and tags
 ------------------------
 Many functionnalities will not be developped in the first versions. When modifications are necessary for a given anticipated functionnality, a tag will be added in the code.
 Existing tags are the following:
-* #3d → The current version only works with 2 categories associated to each card (table representation, this tags indicates where to change stuff to expand the number of categories).
+* #3d → The current version only works with 2 categories associated to each card (table representation, this tags indicates where to change stuff to expand the number of categories) ;
+* #render → Improve rendering ;
+* #msg → create constant file with all messages / translation.
 
 Order in which the javascript files call each other
 ---------------------------------------------------

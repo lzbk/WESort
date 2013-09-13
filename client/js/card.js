@@ -5,29 +5,34 @@
  * Content: A class to describe the cards
  */
 
-define(['position'], function(Position) {
-        var HistoryPoint=Class.extend({
-           init: function(usr, pos){
-               this.timestamp = new Date().valueOf();
-               this.author = usr;
-               this.position = pos;
-           }
-        });
+define(['position', 'history'], function(Position, History) {
 
-        var Score=Class.extend({
+
+        var ScoreItem=History.Item.extend({
             init: function(usr, pos, val){
-                this.author = usr;
+                this._super(usr);
                 this.position = pos;
-                this.value = val;
-            },
-            updateValue: function(val){
                 this.value = val;
             }
         });
 
+        var PositionItem=History.Item.extend({
+            init: function(usr, pos){
+                this._super(usr);
+                this.position = pos;
+            }
+        });
+
+        var CommmentItem=History.Item.extend({
+            init: function(usr, com){
+                this._super(usr);
+                this.comment = com;
+            }
+        });
+
         var Card = Class.extend({
-            comment: "",
-            posHistory: [],
+            positions: new History(), //will condition the rest…
+            comments: {},
             scores: {},
             init: function(id, name, categories, img, desc){
                 //TODO : type tests one day?
@@ -43,32 +48,23 @@ define(['position'], function(Position) {
             //**********************
             //updates the position
             updatePos: function(usr,x,y){
-                this.posHistory.push(new HistoryPoint(usr, new Position(x,y)));
+                this.positions.addItem(new PositionItem(usr, new Position(x,y)));
             },
             //gets the position which was assigned by usr or if usr is not provided, the current position
             getPos: function(usr){
-                if(typeof usr === "undefined"){
-                    return (typeof this.posHistory[this.posHistory.length - 1] !== "undefined") && this.posHistory[this.posHistory.length - 1].position;
-                }
-                else{
-                    for(var i=this.posHistory.length-1; !found && (i>=0); i--){
-                        if(this.posHistory[i].author == usr){
-                            return this.posHistory[i].position;
-                        }
-                    }
-                    return false;
-                }
+                this.positions.getLastItem(usr);
             },
             //returns the user who set the card's current position
             getPosAuthor: function(){
-                return (typeof this.posHistory[this.posHistory.length - 1] !== "undefined") && this.posHistory[this.posHistory.length - 1].author;
+                var lastPos = this.positions.getLastItem();
+                return (lastPos !== false) && lastPos.getAuthor;
             },
-
+            //ICITE
             //**********************
             // Score Handling
             //**********************
-            setScore: function(usr){
-                this.scores[this.getPos().asString()][usr.id] = new Score();
+            setScore: function(usr, val){
+                this.scores[this.getPos().asString()][usr.id] = new Score(usr,pos,val);
             },
             getPosScore: function(pos, usr){
                 if(typeof pos === "undefined"){
@@ -88,7 +84,7 @@ define(['position'], function(Position) {
                     res = this.scores[pos][usr.id];
                 }
                 return res;
-            }
+            },
 
             //**********************
             // Result Handling
@@ -111,6 +107,24 @@ define(['position'], function(Position) {
             //returns true if the card is well positioned
             evaluate: function(){
                 return this.getPos().compare(this.categories);
+            },
+
+            //**********************
+            // Comment Handling
+            //**********************
+            getComment: function(){
+                return this.comment;
+            },
+
+            setComment: function(aComment){
+                this.comment = aComment;
+            }
+
+            //**********************
+            // Rendering
+            //**********************
+            render: function(){
+                return "<div id='"+this.id+"'>"+this.name+"</div>";
             }
 
         });

@@ -1,8 +1,8 @@
-define(['position'], function(Position){ //testing
+define(['card'], function(Card){ //testing
     var initApp = function(msg){
-        var aPosition = new Position("mausolée","gallo-romain");
+        var aCard = new Card("carte1", "Le super mausolée", ["mausolée","gallo-romain"], "img/blabla.jpg", "Voilà un super mausolée");
         window.alert(msg);
-        $('#stack').html(aPosition.asString());
+        $('table').html(aCard.render());
     }
     initApp("youpi");
 });

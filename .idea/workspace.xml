@@ -2,26 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c201a165-fcde-4cd7-9a2b-28b4f1321663" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/js/History.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/card.js" afterPath="$PROJECT_DIR$/client/js/card.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/home.js" afterPath="$PROJECT_DIR$/client/js/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/lib/json.jquery.js" afterPath="$PROJECT_DIR$/client/js/lib/json.jquery.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/main.js" afterPath="$PROJECT_DIR$/client/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/position.js" afterPath="$PROJECT_DIR$/client/js/position.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/lib/utils.js" afterPath="$PROJECT_DIR$/client/js/lib/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ClasCol.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379004590017" ignored="false" />
     <file path="/table.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1378731794611" ignored="false" />
-    <file path="/main.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379061654833" ignored="false" />
+    <file path="/main.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379067158100" ignored="false" />
     <file path="/home.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379060736811" ignored="false" />
     <file path="/json.jquery.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379061088936" ignored="false" />
-    <file path="/card.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379065025415" ignored="false" />
-    <file path="/position.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379000423923" ignored="false" />
+    <file path="/card.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379080998943" ignored="false" />
+    <file path="/position.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379080518482" ignored="false" />
     <file path="/traces.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1378804561986" ignored="false" />
-    <file path="/utils.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379060663089" ignored="false" />
-    <file path="/README.md" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379059654724" ignored="false" />
+    <file path="/utils.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379080401558" ignored="false" />
+    <file path="/README.md" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379080145097" ignored="false" />
+    <file path="/History.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379078509121" ignored="false" />
+    <file path="/a.dummy" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379080275633" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,25 +36,35 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="card.js" pinned="false" current="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/client/js/card.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="61" column="19" selection-start="1950" selection-end="1950" vertical-scroll-proportion="0.51724136">
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="ClasCol" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="card.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/card.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="48" selection-start="2705" selection-end="2705" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="position.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="position.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/position.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="78" selection-start="544" selection-end="544" vertical-scroll-proportion="0.3275862">
+            <state line="48" column="83" selection-start="1527" selection-end="1527" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,7 +73,7 @@
       <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="21" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0">
+            <state line="13" column="62" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,7 +82,7 @@
       <file leaf-file-name="utils.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/lib/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0">
+            <state line="35" column="0" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -86,19 +97,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/lib/class.js">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="62" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
+            <state line="7" column="87" selection-start="310" selection-end="311" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/main.js">
+      <file leaf-file-name="History.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/js/History.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="36" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0">
+            <state line="0" column="83" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -108,17 +119,6 @@
         <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="34" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery-2.0.3.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/lib/jquery-2.0.3.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -157,12 +157,13 @@
         <option value="$PROJECT_DIR$/shared/traces.js" />
         <option value="$PROJECT_DIR$/client/js/traces.js" />
         <option value="$PROJECT_DIR$/client/js/coordinate_system.js" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/client/js/position.js" />
         <option value="$PROJECT_DIR$/client/js/home.js" />
         <option value="$PROJECT_DIR$/client/js/lib/json.jquery.js" />
-        <option value="$PROJECT_DIR$/client/js/lib/utils.js" />
         <option value="$PROJECT_DIR$/client/js/main.js" />
+        <option value="$PROJECT_DIR$/client/js/History.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/client/js/lib/utils.js" />
+        <option value="$PROJECT_DIR$/client/js/position.js" />
         <option value="$PROJECT_DIR$/client/js/card.js" />
       </list>
     </option>
@@ -379,13 +380,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="25" width="1920" height="1055" extended-state="0" />
+    <frame x="1920" y="25" width="1920" height="1055" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24669836" sideWeight="0.6703663" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24669836" sideWeight="0.6711111" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2469657" sideWeight="0.2863485" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -394,7 +396,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -461,15 +462,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="7" selection-start="269" selection-end="1043" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/lib/require-jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="142" column="59" selection-start="5687" selection-end="5688" vertical-scroll-proportion="-0.035629455" />
@@ -503,25 +495,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/lib/jquery-2.0.3.min.js">
+    <entry file="file://$PROJECT_DIR$/client/js/lib/class.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="64" selection-start="843" selection-end="843" vertical-scroll-proportion="-9.375">
+        <state line="26" column="71" selection-start="912" selection-end="912" vertical-scroll-proportion="0.44827586">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
+    <entry file="file://$PROJECT_DIR$/client/js/lib/jquery-2.0.3.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -535,44 +518,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/lib/class.js">
+    <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="62" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
+        <state line="34" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="87" selection-start="310" selection-end="311" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="64" selection-start="843" selection-end="843" vertical-scroll-proportion="-9.375">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="21" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0">
+        <state line="13" column="62" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/lib/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="36" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/card.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="48" selection-start="2705" selection-end="2705" vertical-scroll-proportion="0.0">
+        <state line="35" column="0" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/position.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="78" selection-start="544" selection-end="544" vertical-scroll-proportion="0.3275862">
+        <state line="48" column="83" selection-start="1527" selection-end="1527" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/card.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="19" selection-start="1950" selection-end="1950" vertical-scroll-proportion="0.51724136">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/History.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="83" selection-start="3" selection-end="3" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
