@@ -2,20 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c201a165-fcde-4cd7-9a2b-28b4f1321663" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/card.js" afterPath="$PROJECT_DIR$/client/js/card.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/home.js" afterPath="$PROJECT_DIR$/client/js/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/lib/json.jquery.js" afterPath="$PROJECT_DIR$/client/js/lib/json.jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/main.js" afterPath="$PROJECT_DIR$/client/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/position.js" afterPath="$PROJECT_DIR$/client/js/position.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/lib/utils.js" afterPath="$PROJECT_DIR$/client/js/lib/utils.js" />
     </list>
     <ignored path="ClasCol.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1378999211174" ignored="false" />
+    <file path="/Dummy.txt" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379004590017" ignored="false" />
     <file path="/table.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1378731794611" ignored="false" />
-    <file path="/main.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1378744912891" ignored="false" />
-    <file path="/home.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1378738679461" ignored="false" />
-    <file path="/json.jquery.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1378824226371" ignored="false" />
-    <file path="/card.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1378821705362" ignored="false" />
+    <file path="/main.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379061654833" ignored="false" />
+    <file path="/home.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379060736811" ignored="false" />
+    <file path="/json.jquery.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379061088936" ignored="false" />
+    <file path="/card.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379065025415" ignored="false" />
     <file path="/position.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379000423923" ignored="false" />
     <file path="/traces.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1378804561986" ignored="false" />
-    <file path="/utils.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1378976825990" ignored="false" />
+    <file path="/utils.js" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379060663089" ignored="false" />
+    <file path="/README.md" changelist="c201a165-fcde-4cd7-9a2b-28b4f1321663" time="1379059654724" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,37 +41,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="table.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/table.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="category.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/category.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="card.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/card.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="54" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="traces.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/traces.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="41" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0">
+            <state line="74" column="48" selection-start="2705" selection-end="2705" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -74,7 +53,16 @@
       <file leaf-file-name="position.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/position.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="61" selection-start="326" selection-end="326" vertical-scroll-proportion="0.18965517">
+            <state line="19" column="78" selection-start="544" selection-end="544" vertical-scroll-proportion="0.3275862">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="21" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -83,16 +71,25 @@
       <file leaf-file-name="utils.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/lib/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="14" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0">
+            <state line="9" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/user.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="15" column="64" selection-start="843" selection-end="843" vertical-scroll-proportion="-9.375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/lib/class.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="62" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,7 +98,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="39" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+            <state line="2" column="36" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -110,7 +107,29 @@
       <file leaf-file-name="json.jquery.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="58" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
+            <state line="34" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery-2.0.3.min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/lib/jquery-2.0.3.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -135,15 +154,16 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/client/js/table.js" />
-        <option value="$PROJECT_DIR$/client/js/home.js" />
-        <option value="$PROJECT_DIR$/client/js/main.js" />
         <option value="$PROJECT_DIR$/shared/traces.js" />
         <option value="$PROJECT_DIR$/client/js/traces.js" />
-        <option value="$PROJECT_DIR$/client/js/card.js" />
+        <option value="$PROJECT_DIR$/client/js/coordinate_system.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/client/js/position.js" />
+        <option value="$PROJECT_DIR$/client/js/home.js" />
         <option value="$PROJECT_DIR$/client/js/lib/json.jquery.js" />
         <option value="$PROJECT_DIR$/client/js/lib/utils.js" />
-        <option value="$PROJECT_DIR$/client/js/coordinate_system.js" />
-        <option value="$PROJECT_DIR$/client/js/position.js" />
+        <option value="$PROJECT_DIR$/client/js/main.js" />
+        <option value="$PROJECT_DIR$/client/js/card.js" />
       </list>
     </option>
   </component>
@@ -259,9 +279,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="fileTemplates" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/index.html" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -275,6 +298,53 @@
       <option name="filePath" />
       <option name="scope" value="ALL" />
       <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeunitConfigurationType" factoryName="Nodeunit">
+      <setting name="nodePath" value="/usr/local/bin/node" />
+      <envs />
+      <setting name="passParentEnvVars" value="true" />
+      <setting name="nodeunitModuleDir" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="testType" value="JS_FILE" />
+      <setting name="jsFile" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSRemoteDebug" factoryName="Node.js Remote Debug">
+      <node-js-remote-debug />
+      <method />
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="$PROJECT_DIR$">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="firefox" />
+        <option name="fileUrl" value="file://$PROJECT_DIR$/client/index.html" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <list size="0" />
@@ -393,52 +463,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="58" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="39" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/traces.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="41" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="7" selection-start="269" selection-end="1043" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/lib/require-jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="142" column="59" selection-start="5687" selection-end="5688" vertical-scroll-proportion="-0.035629455" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="16" selection-start="94" selection-end="94" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/table.js">
@@ -455,9 +489,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/main.js">
+    <entry file="file://$PROJECT_DIR$/client/js/category.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="39" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -469,30 +503,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
+    <entry file="file://$PROJECT_DIR$/client/js/lib/jquery-2.0.3.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="58" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="64" selection-start="843" selection-end="843" vertical-scroll-proportion="-9.375">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/card.js">
+    <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="54" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0">
+        <state line="34" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/lib/class.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="62" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="21" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/lib/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="14" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0">
+        <state line="9" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="36" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/card.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="48" selection-start="2705" selection-end="2705" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/position.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="61" selection-start="326" selection-end="326" vertical-scroll-proportion="0.18965517">
+        <state line="19" column="78" selection-start="544" selection-end="544" vertical-scroll-proportion="0.3275862">
           <folding />
         </state>
       </provider>

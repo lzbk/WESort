@@ -5,7 +5,7 @@
  * Content: A class to describe the position of each card
  */
 
-define([lib/utils], function(Util){
+define(['lib/utils'], function(Util){
         var Position = Class.extend({
             coordinates: [],
             //By default 2 dimension but can handle x being an array…

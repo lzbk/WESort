@@ -9,7 +9,6 @@ define(function(){
     var Util = {
         loadJSON: function (url, async, success){
             var theJSON;
-            /**/window.alert('using jquery');
             if(typeof async === "undefined"){
                 async = false;//in our context, we need it now
             }

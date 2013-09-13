@@ -1,18 +1,8 @@
-define(function(){
+define(['position'], function(Position){ //testing
     var initApp = function(msg){
-        Test = Class.extend({
-            init : function(){
-                window.alert('youpo');
-            }
-        });
-        Blabla = Test.extend({
-            init: function(test){
-                this._super();
-                $("#users").html(test);
-            }
-        });
-        top = new Blabla(msg);
+        var aPosition = new Position("mausolée","gallo-romain");
+        window.alert(msg);
+        $('#stack').html(aPosition.asString());
     }
-
     initApp("youpi");
 });

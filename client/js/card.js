@@ -26,7 +26,7 @@ define(['position'], function(Position) {
         });
 
         var Card = Class.extend({
-            comments: "",
+            comment: "",
             posHistory: [],
             scores: {},
             init: function(id, name, categories, img, desc){
@@ -107,6 +107,11 @@ define(['position'], function(Position) {
                     return found;
                 }
             },
+
+            //returns true if the card is well positioned
+            evaluate: function(){
+                return this.getPos().compare(this.categories);
+            }
 
         });
         return Card;

@@ -3,10 +3,11 @@
  * Date: 10/09/13 (16:42)
  * Content: Some utility functions
  */
-define(['json.jquery'], function(Util){
+define(['lib/json.jquery'], function(Util){
     //says whether a1 is included in a2 or if a1==a2 if equality is set to true
     //we consider that if either set is empty the result is false, but true if both are (even though this is not inclusion per se)
     //IMPORTANT: works only if each table contains unique values…
+
     Util.compareTags = function(t1,t2,equality){
         if( (t2.length==0) || (t1.length==0) ){
             return (t2.length==0) && (t1.length==0);
@@ -33,6 +34,5 @@ define(['json.jquery'], function(Util){
         }
      };
 
-    Util.equal
     return Util;
 });
