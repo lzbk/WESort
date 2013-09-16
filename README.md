@@ -18,3 +18,9 @@ Order in which the javascript files call each other
 * home calls class / jquery and then main
 * main calls ??
 * card calls position
+
+
+List of css classes used:
+-------------------------
+* selected : for cards to say whether they are selected
+* zoomedInOn : for cards, chatboxes and such when they come to the foreground

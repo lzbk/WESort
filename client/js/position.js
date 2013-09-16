@@ -2,7 +2,7 @@
  * ClasCol
  * User: loizbek
  * Date: 10/09/13 (10:32)
- * Content: A class to describe the position of each card
+ * Content: A class to describe the position of each card. x & y are the ids from category objects
  */
 
 define(['lib/utils'], function(Util){
@@ -59,6 +59,9 @@ define(['lib/utils'], function(Util){
                     res = this.inTable() && (this.coordinates[0] == values[0] && this.coordinates[1] == values[1]);
                 }
                 return res;
+            },
+            print: function(){
+                return "("+this.getX+", "+this.getY+")";
             }
         });
         return Position;

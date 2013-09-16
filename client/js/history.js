@@ -18,7 +18,11 @@ define(['lib/utils'], function(Util){
             },
             getAuthor: function(){
                 return this.author;
+            },
+            printDate: function(){
+                return this.timestamp.toLocaleString();
             }
+
         }),
 
         init: function(){

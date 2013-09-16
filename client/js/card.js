@@ -2,9 +2,9 @@
  * ClasCol
  * User: loizbek
  * Date: 10/09/13 (10:32)
- * Content: A class to describe the cards
+ * Content: A class to describe the cards, x & y are the ids of the categories in the category class…
  */
-// For score handling see git branch "withScore" to be completed…
+// For score handling see git branch "withScore", to be completed…
 
 define(['position', 'history'], function(Position, History) {
 
@@ -12,6 +12,10 @@ define(['position', 'history'], function(Position, History) {
             init: function(usr, pos){
                 this._super(usr);
                 this.position = pos;
+            },
+            print: function(){
+                return Util.print("<span class='date'>{2}</span> {0} ({1})",
+                [this.usr, this.position.print(), this.printDate()]);
             }
         });
 
@@ -19,6 +23,10 @@ define(['position', 'history'], function(Position, History) {
             init: function(usr, com){
                 this._super(usr);
                 this.comment = com;
+            },
+            print: function(){
+                return Util.print("{0}: {1} <span class='date'>{2}</span>",
+                    [this.usr, this.comment, this.printDate()];
             }
         });
 
@@ -32,6 +40,8 @@ define(['position', 'history'], function(Position, History) {
                 this.categories = categories;
                 this.img = img;
                 this.desc = desc;
+                this.print();
+                this.selectedBy = false;
             },
 
             //**********************
@@ -83,14 +93,53 @@ define(['position', 'history'], function(Position, History) {
 
             setComment: function(usr, textForAComment){
                 this.comments.addItem(new CommentItem(usr, textForAComment));
-            }
+            },
 
             //**********************
             // Rendering
             //**********************
-            render: function(){
-                return "<div id='"+this.id+"'>"+this.name+"</div>";
+            print: function(){
+
+                return Util.print("<details id='{0}'><summary>{1}<span>&nbsp;</span></summary>
+                <img src='{2}' />
+                    <p>{3}</p>
+                    <footer>
+                        <p class='comments'>{4}</p>
+                        <p class='position'>{5}</p>
+                    </footer>
+                </div>",[this.id, this.name, this.img, this.description, this.getComment(), ]);
+            },
+
+            open: function(){
+                $('#'+this.id).addClass("zoomedInOn");
+            },
+
+            close: function(){
+                $('#'+this.id).removeClass("zoomedInOn");
+            },
+
+            //**********************
+            // Actions
+            //**********************
+            select: function(usr){
+                $('#'+this.id).addClass("selected");
+                this.selectedBy = usr;
+            },
+
+            unselect: function(){
+                $('#'+this.id).removeClass("selected");
+                this.selectedBy = false;
+            },
+
+            move: function(usr,x,y){
+                if(usr === this.selectedBy){
+                    this.updatePos(usr,x,y);
+                    this.unselect();
+                    this.print();
+                }
             }
+
+
 
         });
         return Card;

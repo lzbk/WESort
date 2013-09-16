@@ -34,5 +34,27 @@ define(['lib/json.jquery'], function(Util){
         }
      };
 
+    //taken from http://www.codeproject.com/Tips/201899/String-Format-in-JavaScript
+    //replaces {\d} in a string by the corresponding value in an Array
+    Util.print=function(str, rplc){
+        var regex = new RegExp("{[oc0-9]+}", "g");
+        return str.replace(regex, function(item) {
+            var val = item.substring(1, item.length - 1);
+            var replace="";
+            if(val==="o"){
+                replace="{";
+            }
+            else if (val === "c"){
+                replace = "}";
+            }
+            else{
+                val = parseInt(val);
+                if ( (val >= 0) && (val<rplc.length)){
+                    replace = rplc[val];
+                }
+            }
+            return replace;
+        });
+    }
     return Util;
 });
