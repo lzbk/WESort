@@ -14,7 +14,7 @@ define(['lib/utils','position', 'history'], function(Util, Position, History) {
                 this.comment = com;
             },
             print: function(){
-                return Util.print("{0}: {1} <span class='date'>{2}</span>",
+                return Util.print(Patterns.COMMENTITEM,
                     [this.author, this.comment, this.printDate()]);
             }
         });
@@ -25,7 +25,7 @@ define(['lib/utils','position', 'history'], function(Util, Position, History) {
                 this.position = pos;
             },
             print: function(){
-                return Util.print("<li><span class='date'>{2}</span> {0} ({1})</li>\n",
+                return Util.print(Patterns.POSITIONITEM,
                 [this.author, this.position.print(), this.printDate()]);
             }
         });
@@ -110,12 +110,7 @@ define(['lib/utils','position', 'history'], function(Util, Position, History) {
                 else{
                      comment=comment.print();
                 }
-                return Util.print("<details id='{0}'><summary>{1}<span>&nbsp;</span></summary>"+
-                    "\n\t<img src='{2}' />\n\t<p>{3}</p>"+
-                    "\n\t<footer>"+
-                    "\n\t\t<p class='comments'>{4}</p>"+
-                    "\n\t\t<ul class='position'>{5}</ul>"+
-                    "\n\t\t</footer>\n</summary>",
+                return Util.print(Patterns.CARD,
                     [this.id, this.name, this.img, this.desc, comment, this.positions.print()]);
             },
 

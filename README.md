@@ -25,3 +25,7 @@ List of css classes used:
 -------------------------
 * selected : for cards to say whether they are selected
 * zoomedInOn : for cards, chatboxes and such when they come to the foreground
+
+TODO
+* changer structure de summary à header (toujours visible) contenu+footer à cacher montrer
+* table

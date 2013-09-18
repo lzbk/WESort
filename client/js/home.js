@@ -1,5 +1,5 @@
 
-define(['lib/class', 'lib/json.jquery'], function() {
+define(['lib/class', 'patterns'], function() {
     //require(["main"]);
     require(["test"]);
 });
