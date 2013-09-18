@@ -1,7 +1,51 @@
-.selected{
-    font-weight: bolder;
+/*Common*/
+article{
+    width: 11%;
+    padding: 2px;
+    margin: 0;
 }
 
-[open=open]{
-    background-color: orange;
+article h2{
+    font-size: medium;
+    padding: 0;
+    margin: 0;
 }
+
+article header span{
+    float: right;
+}
+
+/*selection*/
+article.selected{
+    background-color: gainsboro;
+}
+
+/*Info display*/
+article img{
+    float: right;
+    width: 300px;
+}
+
+/*** Hidden ***/
+article .details, article footer{display: none;}
+
+/*** Visible ***/
+article[open=open] .details, article[open=open] footer{
+    display: block;
+}
+
+article[open=open]{
+    background-color: orange;
+    position: absolute;
+    top: 2em;
+    bottom: 2em;
+    right: 2em;
+    left: 2em;
+    width: auto;
+    padding: 1em;
+}
+
+article[open=open] h2{
+    padding-bottom: 0.5em;
+}
+
