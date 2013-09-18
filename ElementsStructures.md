@@ -12,6 +12,6 @@ card.js
     <p>*desc*</p>
     <footer>
         <p class="comments">*comments.last*</p>
-        <p class="position">positions</p>
+        <ul class="position">positions</ul>
     </footer>
 </div>

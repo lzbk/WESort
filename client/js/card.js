@@ -6,42 +6,45 @@
  */
 // For score handling see git branch "withScore", to be completed…
 
-define(['position', 'history'], function(Position, History) {
+define(['lib/utils','position', 'history'], function(Util, Position, History) {
 
-        var PositionItem=History.Item.extend({
-            init: function(usr, pos){
-                this._super(usr);
-                this.position = pos;
-            },
-            print: function(){
-                return Util.print("<span class='date'>{2}</span> {0} ({1})",
-                [this.usr, this.position.print(), this.printDate()]);
-            }
-        });
-
-        var CommmentItem=History.Item.extend({
+        var CommentItem = History.Item.extend({
             init: function(usr, com){
                 this._super(usr);
                 this.comment = com;
             },
             print: function(){
                 return Util.print("{0}: {1} <span class='date'>{2}</span>",
-                    [this.usr, this.comment, this.printDate()];
+                    [this.author, this.comment, this.printDate()]);
             }
         });
 
+        var PositionItem = History.Item.extend({
+            init: function(usr, pos){
+                this._super(usr);
+                this.position = pos;
+            },
+            print: function(){
+                return Util.print("<li><span class='date'>{2}</span> {0} ({1})</li>\n",
+                [this.author, this.position.print(), this.printDate()]);
+            }
+        });
+
+
         var Card = Class.extend({
-            positions: new History(),
-            comments: new History(),
             init: function(id, name, categories, img, desc){
-                //TODO : type tests one day?
+                //#types
                 this.id = id;
                 this.name = name;
                 this.categories = categories;
                 this.img = img;
                 this.desc = desc;
-                this.print();
                 this.selectedBy = false;
+                this.opened = false;
+                this.positions= new History(),
+                this.comments= new History(),
+                this.updatePos("origin");
+                this.print();
             },
 
             //**********************
@@ -49,16 +52,17 @@ define(['position', 'history'], function(Position, History) {
             //**********************
             //updates the position
             updatePos: function(usr,x,y){
+                //var self = this;
                 this.positions.addItem(new PositionItem(usr, new Position(x,y)));
             },
             //gets the position which was assigned by usr or if usr is not provided, the current position
             getPos: function(usr){
-                this.positions.getLastItem(usr);
+                return this.positions.getLastItem(usr);
             },
             //returns the user who set the card's current position
             getPosAuthor: function(){
                 var lastPos = this.positions.getLastItem();
-                return (lastPos !== false) && lastPos.getAuthor;
+                return (lastPos !== false) && lastPos.getAuthor();
             },
 
             //**********************
@@ -99,23 +103,53 @@ define(['position', 'history'], function(Position, History) {
             // Rendering
             //**********************
             print: function(){
+                var comment = this.getComment();
+                if(!comment){
+                    comment="no comments";
+                }
+                else{
+                     comment=comment.print();
+                }
+                return Util.print("<details id='{0}'><summary>{1}<span>&nbsp;</span></summary>"+
+                    "\n\t<img src='{2}' />\n\t<p>{3}</p>"+
+                    "\n\t<footer>"+
+                    "\n\t\t<p class='comments'>{4}</p>"+
+                    "\n\t\t<ul class='position'>{5}</ul>"+
+                    "\n\t\t</footer>\n</summary>",
+                    [this.id, this.name, this.img, this.desc, comment, this.positions.print()]);
+            },
 
-                return Util.print("<details id='{0}'><summary>{1}<span>&nbsp;</span></summary>
-                <img src='{2}' />
-                    <p>{3}</p>
-                    <footer>
-                        <p class='comments'>{4}</p>
-                        <p class='position'>{5}</p>
-                    </footer>
-                </div>",[this.id, this.name, this.img, this.description, this.getComment(), ]);
+            spawn: function(father){
+                $(father).append(this.print());
+                this.setUpEvents();
             },
 
             open: function(){
-                $('#'+this.id).addClass("zoomedInOn");
+                $('#'+this.id).attr("open", "open");
+                this.opened = true;
             },
 
             close: function(){
-                $('#'+this.id).removeClass("zoomedInOn");
+                $('#'+this.id).removeAttr("open");
+                this.opened = false;
+            },
+
+            toggleOpenness: function(){
+                if(this.opened===false){
+                    this.open();
+                }
+                else{
+                    this.close();
+                }
+            },
+
+            setUpEvents: function(){
+                var self=this;
+                new Util.longClick('#'+self.id,
+                    {action:function(){self.toggleSelection();}},
+                    {action:function(data){self.toggleOpenness();window.alert(data);},
+                     data: self.desc}
+                );
             },
 
             //**********************
@@ -129,6 +163,15 @@ define(['position', 'history'], function(Position, History) {
             unselect: function(){
                 $('#'+this.id).removeClass("selected");
                 this.selectedBy = false;
+            },
+
+            toggleSelection: function(){
+                if(this.selectedBy===false){
+                    this.select();
+                }
+                else{
+                    this.unselect();
+                }
             },
 
             move: function(usr,x,y){

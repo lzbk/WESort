@@ -55,6 +55,37 @@ define(['lib/json.jquery'], function(Util){
             }
             return replace;
         });
-    }
+    };
+
+    //long&short = {action: **, data:**} #types
+    Util.longClick = Class.extend({
+        init: function(elt, short, long, length){
+            if(typeof length === "undefined"){
+                length = 500;
+            }
+            this.duration = length;
+            this.startedShort = false;
+            this.long = function(){long["action"](long["data"]);};
+            var self=this;
+            this.short= function(){
+                var time = (new Date().getTime()) - self.timer;
+                if(time<=self.duration){
+                    window.clearTimeout(self.timeout);
+                    short["action"](short["data"]);
+                    self.timer = undefined;
+                }
+                self.startedShort = false;
+            };
+
+            $(elt).mousedown(function(){
+                self.timer = new Date().getTime();
+                self.timeout = window.setTimeout(self.long, self.duration);
+            });
+
+            $(elt).mouseup(function(){if(!self.startedShort){self.startedShort = true;    self.short();}});
+            $(elt).mouseleave(function(){if(!self.startedShort){self.startedShort = true; self.short();}});
+        }
+    });
     return Util;
+
 });

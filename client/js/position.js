@@ -7,32 +7,34 @@
 
 define(['lib/utils'], function(Util){
         var Position = Class.extend({
-            coordinates: [],
-            STACK:0;
+            coordinates: undefined,
             //By default 2 dimension but can handle x being an array…
             init: function(x,y){
                 this.setCoordinates(x,y);
             },
             //setters
             setCoordinates: function(x,y){
-                if(typeof x == "undefined"){
-                    this.coordinates = this.STACK;
+                if(typeof x === "undefined"){
+                    this.coordinates = undefined;
                 }
                 else{
+                    if(!this.inTable()){
+                        this.coordinates = [];
+                    }
                     this.coordinates[0]=x;
                     this.coordinates[1]=y;
                 }
             },
 
             inTable: function(){
-                return this.coordinates !== this.STACK;
-            }
+                return (typeof this.coordinates !== "undefined");
+            },
             //2d getters
             getX: function(){
-                return this.inTable() && this.getDimension[0];
+                return this.inTable() && this.coordinates[0];
             },
             getY: function(){
-                return this.inTable() && this.getDimension[1];
+                return this.inTable() && this.coordinates[1];
             },
             asString: function(){
                 var res="";
@@ -61,7 +63,7 @@ define(['lib/utils'], function(Util){
                 return res;
             },
             print: function(){
-                return "("+this.getX+", "+this.getY+")";
+                return this.getX()+", "+this.getY();
             }
         });
         return Position;

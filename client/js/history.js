@@ -8,23 +8,6 @@
 define(['lib/utils'], function(Util){
 
     var History=Class.extend({
-        Item:Class.extend({
-            init: function(usr){
-                this.timestamp = new Date().valueOf();
-                this.author = usr;
-            },
-            getDate: function(){
-                return this.timestamp;
-            },
-            getAuthor: function(){
-                return this.author;
-            },
-            printDate: function(){
-                return this.timestamp.toLocaleString();
-            }
-
-        }),
-
         init: function(){
             this.history = [];
         },
@@ -39,6 +22,7 @@ define(['lib/utils'], function(Util){
                 return (typeof this.history[this.history.length - 1] !== "undefined") && this.history[this.history.length - 1];
             }
             else{
+                var found = false;
                 for(var i=this.history.length-1; !found && (i>=0); i--){
                     if(this.history[i].author == usr){
                         return this.history[i];
@@ -46,7 +30,42 @@ define(['lib/utils'], function(Util){
                 }
                 return false;
             }
+        },
+
+        //prints the last n items  (from user usr)
+        print: function(nLast, usr){
+            var res="";
+            if(typeof nLast === "undefined"){
+                nLast = this.history.length;
+            }
+            for(var i=this.history.length-1; (this.history.length-i<=nLast) && (i>=0); i--){
+                if( (typeof usr === "undefined")
+                  ||(this.history[i].author === usr)){
+                    res += this.history[i].print();
+                }
+            }
+            return res;
         }
     });
 
+    History.Item = Class.extend({
+        init: function(usr){
+            this.timestamp = new Date();
+            this.author = usr;
+        },
+        getDate: function(){
+            return this.timestamp;
+        },
+        getAuthor: function(){
+            return this.author;
+        },
+        printDate: function(){
+            return this.timestamp.toLocaleString();
+        },
+        print: function(){//to be overloaded
+            return this.author+" ("+this.printDate()+")";
+        }
+    });
+
+    return History;
 });

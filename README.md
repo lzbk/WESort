@@ -12,6 +12,7 @@ Existing tags are the following:
 * #3d → The current version only works with 2 categories associated to each card (table representation, this tags indicates where to change stuff to expand the number of categories) ;
 * #render → Improve rendering ;
 * #msg → create constant file with all messages / translation.
+* #types → test data types
 
 Order in which the javascript files call each other
 ---------------------------------------------------

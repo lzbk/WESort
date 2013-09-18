@@ -1,0 +1,7 @@
+.selected{
+    font-weight: bolder;
+}
+
+[open=open]{
+    background-color: orange;
+}
