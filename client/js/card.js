@@ -6,7 +6,7 @@
  */
 // For score handling see git branch "withScore", to be completed…
 
-define(['lib/utils','position', 'history'], function(Util, Position, History) {
+define(['position', 'history'], function(Position, History) {
 
         var CommentItem = History.Item.extend({
             init: function(usr, com){
@@ -140,11 +140,13 @@ define(['lib/utils','position', 'history'], function(Util, Position, History) {
 
             setUpEvents: function(){
                 var self=this;
-                new Util.longClick('#'+self.id,
+                delete this.doubleClick;
+                this.doubleClick = new Util.longClick('#'+self.id+' h2',
                     {action:function(){self.toggleSelection();}},
                     {action:function(data){self.toggleOpenness();window.alert(data);},
                      data: self.desc}
                 );
+                $('#'+this.id+' .closeButton').click(function(){self.close();});
             },
 
             //**********************

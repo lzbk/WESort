@@ -5,7 +5,6 @@
 	 * takes the content of a JSON file interprets it and 
 	 * returns it when synchronous or calls success(JSON content)
 	 */
-define(function(){
     var Util = {
         loadJSON: function (url, async, success){
             var theJSON;
@@ -32,5 +31,3 @@ define(function(){
             window.alert('testOK');
         }
     };
-    return Util;
-});

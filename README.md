@@ -24,8 +24,11 @@ Order in which the javascript files call each other
 List of css classes used:
 -------------------------
 * selected : for cards to say whether they are selected
-* zoomedInOn : for cards, chatboxes and such when they come to the foreground
+* [open=open] : for cards, chatboxes and such when they come to the foreground
+* closeButton : for whatever comes in the foreground
+* lock : for cards, where we will put the user's name
 
 TODO
-* changer structure de summary à header (toujours visible) contenu+footer à cacher montrer
+* Category
 * table
+* card.move()

@@ -5,7 +5,7 @@
  * Content: A class to describe the position of each card. x & y are the ids from category objects
  */
 
-define(['lib/utils'], function(Util){
+define(function(){
         var Position = Class.extend({
             coordinates: undefined,
             //By default 2 dimension but can handle x being an array…
@@ -52,9 +52,9 @@ define(['lib/utils'], function(Util){
                 return res;
             },
             //says whether the position is compliant with the values provided.
-            compare: function(values){
+            compare: function(values){//#TODO peut être laisser le test au niveau du jeu.
                 var res;
-                if(!values.isArray()){
+                if(typeof values === "undefined"){
                     res = !this.inTable();
                 }
                 else{

@@ -13,20 +13,30 @@
         <link rel="stylesheet" href="style/clascol.css" type="text/css">
         <title>Classement Collaboratif</title>
 	</head>
-    <body>
+    <body class="intro">
 	    <noscript>
 	       <div class="alert">
 	           Vous devez permettre l'exécution de javascript pour pouvoir utiliser cette application
 	       </div>
 	    </noscript>
-        <header><!-- for the instructions --></header>
 	    <section>
+			<header><!-- for the instruction --></header>
 			<menu>
 				<div id="stack"><!-- items to sort --></div>
 				<div id="users"><!-- users involved --></div>
 			</menu>
-			<article id="main">
-				<table><!-- where to sort the items --></table>
+			<article>
+                <div id="res"></div>
+				<table>
+                    <colgroup>
+                        <col id="col1" />
+                        <col id="col2" />
+                    </colgroup>
+                    <tbody>
+                    <tr id="l1"><td>col1xl1</td><td>col2xl1</td></tr>
+                    <tr id="l2"><td class="tt">col1xl2</td><td>col2xl2</td></tr>
+                    </tbody>
+				</table>
 			</article>
 		</section>
         <script data-main="js/home" src="js/lib/require-jquery.js"></script>

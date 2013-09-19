@@ -3,7 +3,7 @@
  * Date: 10/09/13 (16:42)
  * Content: Some utility functions
  */
-define(['lib/json.jquery'], function(Util){
+define(['lib/json.jquery'], function(){
     //says whether a1 is included in a2 or if a1==a2 if equality is set to true
     //we consider that if either set is empty the result is false, but true if both are (even though this is not inclusion per se)
     //IMPORTANT: works only if each table contains unique values…
@@ -86,6 +86,20 @@ define(['lib/json.jquery'], function(Util){
             $(elt).mouseleave(function(){if(!self.startedShort){self.startedShort = true; self.short();}});
         }
     });
+
+    //takes array 'a' and returns it in a different random order (destroys a)
+    Util.shuffle = function(a){
+        var res=[], i= 0, randId, tmp;
+        while(a.length>1){
+            randId = Math.floor(Math.random()* a.length);
+            res[i] = a[randId];
+            a[randId] = a[a.length-1];
+            a.pop();
+            i++;
+        }
+        res.push(a.pop());
+        return res;
+    };
     return Util;
 
 });
