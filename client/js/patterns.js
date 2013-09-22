@@ -28,14 +28,40 @@ Patterns = {
      * 8 → Concat THC ;
      * 9 → Concat TD ;
      */
-    THEAD: "<thead>"+
-           "\n\t<caption>{0}</caption>" +
-           "\n\t<tr><td colspan='2' rowspan='2'></td><th colspan='{3}'>{1}</th></tr>" +
-           "\n\t<tr>{8}</tr>" +
-           "\n</thead>" +
-           "\n\t<tr id='{5}'><th rowspan='{4}'>{2}</th><th scope='row' title='{6}'>{7}</th>{9}</tr>",
-    THC: "<th scope='col' title='{0}'>{1}</th>",
-    TR: "<tr id='{2}'><th scope='row' title='{0}'>{1}</th>{3}</tr>",
-    TD : "<td data-cat='{0}'></td>"
+    tableP:
+       {THEAD: "<thead>"+
+          "\n\t<tr><td colspan='2' rowspan='2'></td><th colspan='{2}'>{0}</th></tr>" +
+          "\n\t<tr>{7}</tr>" +
+          "\n</thead>" +
+          "\n\t<tr id='{4}'><th class='vertical' rowspan='{3}'><div>{1}</div></th><th scope='row' title='{5}'>{6}</th>{8}</tr>",
+        THC: "<th scope='col' title='{0}'>{1}</th>",
+        TR: "<tr id='{2}'><th scope='row' title='{0}'>{1}</th>{3}</tr>",
+        TD : "<td data-cat='{0}'></td>",
+        setSizes: function(nbCatX, nbCatY){//
+            /*should try to find a minimum height #security*/
+            var tableWidth = parseInt($("table").css("width")), tableHeight = parseInt($("table").css("height"));
+            var headX = 50 / (2*nbCatX + 1.5), headY = 100 / (2*nbCatY+2) ;
+            var Xpercent = 2*headX, Ypercent = 2*headY;
+            /**/var tmpX = ((headX/100) * tableWidth), tmpY = headY/100 * tableHeight;
+            /**/window.alert("X: "+headX+"→"+tmpX+"/"+tableWidth);
+            /**/window.alert("Y: "+headY+"→"+tmpY+"/"+tableHeight);
+
+            if( (headY/100 * tableHeight) > 45){
+                window.alert("trop haut");
+                headY = (45/tableHeight)*100;
+                Ypercent = (100-2*headY)/nbCatY;
+            }
+            if( (headX/100 * tableWidth) > 45){
+                window.alert("trop large");
+                headX = (45/tableWidth) * 100;
+                Xpercent = (100-headX)/(2*nbCatX + 1);
+            }
+            $('table>tr').css("height", Ypercent+'%');
+            $('thead tr').css("height", headY+'%');
+            $('th').css("width", Xpercent+'%');
+            $('td[data-cat]').css('width', Xpercent*2+'%');
+            $('.vertical').css('width', headX+'%').css('height', $('table').css('height') - $('thead').css('height'));
+        },
+       }
 
 };

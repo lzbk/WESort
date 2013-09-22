@@ -1,0 +1,17 @@
+{
+    categories:{/* The dimensions which are going to be used to sort the cards and the values which the dimensions can take*/
+        dim: {X:{id:"typ", caption:"Type de Monument", explanation:"Les monuments n'ont pas tous la même fonction, c'est un critère de classement"},
+              Y:{id:"loc", caption:"Lieu", explanation:"Dans plusieurs civilisations on retrouve des bâtiments ayant la même fonction, cependant selon les époques et les endroits, ils ont leurs spécificités architecturales"}},
+        /*The X categories descend from the X dimensions (Y respectively)*/
+        X:[{id:"fun", caption:"Funéraire", explanation: "Pour mettre les morts"},
+           {id:"adm", caption:"Administratif", explanation: "Pour remplir des papiers"},
+           {id:"bouf", caption:"Restoration", explanation: "Pour remplir son ventre"}],
+        Y:[{id:"gal", caption:"Gallo-romain", explanation: "Romain mais avec influences régionales gauloises"},
+           {id:"rus", caption:"Russe", explanation:"Ou ex-URSS"},
+           {id:"grc", caption:"Grèce Antique", explanation:"Des trucs dédiés aux mêmes dieux mais qui s'appellent pas pareil"},
+           {id:"zh", caption:"La chine millénaire", explanation:"Zhong Guo Zhen"}],
+    },
+    shuffle: true,
+    title: "Un exemple de jeu collab",
+
+}

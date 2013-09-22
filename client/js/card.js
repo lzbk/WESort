@@ -33,7 +33,7 @@ define(['position', 'history'], function(Position, History) {
 
         var Card = Class.extend({
             init: function(id, name, categories, img, desc){
-                //#types
+                //#security
                 this.id = id;
                 this.name = name;
                 this.categories = categories;

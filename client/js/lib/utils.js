@@ -57,7 +57,7 @@ define(['lib/json.jquery'], function(){
         });
     };
 
-    //long&short = {action: **, data:**} #types
+    //long&short = {action: **, data:**} #security
     Util.longClick = Class.extend({
         init: function(elt, short, long, length){
             if(typeof length === "undefined"){
