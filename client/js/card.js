@@ -39,7 +39,6 @@ define(['position', 'history'], function(Position, History) {
                 this.categories = categories;
                 this.img = img;
                 this.desc = desc;
-                this.selectedBy = false;
                 this.opened = false;
                 this.positions= new History(),
                 this.comments= new History(),
@@ -114,8 +113,13 @@ define(['position', 'history'], function(Position, History) {
                     [this.id, this.name, this.img, this.desc, comment, this.positions.print()]);
             },
 
-            spawn: function(father){
-                $(father).append(this.print());
+            spawn: function(){
+                if(!this.getPos().inTable()){
+                    $('#stack').append(this.print());
+                }
+                else{
+                   $('#'+this.getPos().getY()+' .'+this.getPos().getX()).append(this.print());
+                }
                 this.setUpEvents();
             },
 
@@ -142,7 +146,7 @@ define(['position', 'history'], function(Position, History) {
                 var self=this;
                 delete this.doubleClick;
                 this.doubleClick = new Util.longClick('#'+self.id+' h2',
-                    {action:function(){self.toggleSelection();}},
+                    {action:function(){self.toggleSelection("test"/*changera quand on déplacera le setupevents*/);}},
                     {action:function(data){self.toggleOpenness();window.alert(data);},
                      data: self.desc}
                 );
@@ -152,36 +156,73 @@ define(['position', 'history'], function(Position, History) {
             //**********************
             // Actions
             //**********************
-            select: function(usr){
-                $('#'+this.id).addClass("selected");
-                this.selectedBy = usr;
+            selected: function(){
+                return (typeof $('#'+this.id).attr("data-selected-by") !== "undefined");
             },
 
-            unselect: function(){
-                $('#'+this.id).removeClass("selected");
-                this.selectedBy = false;
-            },
-
-            toggleSelection: function(){
-                if(this.selectedBy===false){
-                    this.select();
+            selectedBy: function(usr){
+                if(typeof usr === "undefined"){
+                    return $('#'+this.id).attr("data-selected-by") ;
                 }
                 else{
-                    this.unselect();
+                    return $('#'+this.id).attr("data-selected-by") == usr ;
+                }
+            },
+
+            select: function(usr){
+                if(!this.selected()){
+                    $("[data-selected-by="+usr+"]").removeAttr("data-selected-by");
+                    $('#'+this.id).attr("data-selected-by", usr);
+                }
+            },
+
+            unselect: function(usr){
+                if(this.selectedBy(usr)){
+                    $('#'+this.id).removeAttr("data-selected-by");
+                }
+            },
+
+            toggleSelection: function(usr){
+                if(!this.selected()){ //doubles the select test (who cares?)
+                    this.select(usr);
+                }
+                else{
+                    this.unselect(usr); //will unselect only if selected by usr
                 }
             },
 
             move: function(usr,x,y){
-                if(usr === this.selectedBy){
+                if(this.selectedBy(usr)){
                     this.updatePos(usr,x,y);
                     this.unselect();
-                    this.print();
+                    var elt = $('#' + this.id).detach();
+                    if(!this.getPos().inTable()){
+                        elt.appendTo('#stack');
+                    }
+                    else{
+                        elt.appendTo('#'+this.getPos().getY()+' .'+this.getPos().getX());
+                    }
                 }
             }
 
 
 
         });
+
+        Card.compare = function(a,b){
+            var res;
+            if(a.name< b.name){
+                res = -1;
+            }
+            else if(a.name== b.name){
+                res = 0;
+            }
+            else{
+                res = 1;
+            }
+            return res;
+        };
+
         return Card;
     }
 );

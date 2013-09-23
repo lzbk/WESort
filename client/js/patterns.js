@@ -30,10 +30,10 @@ Patterns = {
      */
     tableP:
        {THEAD: "<thead>"+
-          "\n\t<tr><td colspan='2' rowspan='2'></td><th colspan='{2}'>{0}</th></tr>" +
+          "\n\t<tr><td colspan='2' rowspan='2'></td><th colspan='{2}' title='{9}'>{0}</th></tr>" +
           "\n\t<tr>{7}</tr>" +
           "\n</thead>" +
-          "\n\t<tr id='{4}'><th class='vertical' rowspan='{3}'><div>{1}</div></th><th scope='row' title='{5}'>{6}</th>{8}</tr>",
+          "\n\t<tr id='{4}'><th class='vertical' rowspan='{3}' title='{10}'><div>{1}</div></th><th scope='row' title='{5}'>{6}</th>{8}</tr>",
         THC: "<th scope='col' title='{0}'>{1}</th>",
         TR: "<tr id='{2}'><th scope='row' title='{0}'>{1}</th>{3}</tr>",
         TD : "<td data-cat='{0}'></td>",

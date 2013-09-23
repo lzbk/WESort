@@ -1,0 +1,49 @@
+{   id : "act1",
+    categories:{/* The dimensions which are going to be used to sort the cards and the values which the dimensions can take*/
+        dim: {X:{id:"typ", caption:"Type de Monument", explanation:"Les monuments n'ont pas tous la même fonction, c'est un critère de classement"},
+              Y:{id:"loc", caption:"Lieu", explanation:"Dans plusieurs civilisations on retrouve des bâtiments ayant la même fonction, cependant selon les époques et les endroits, ils ont leurs spécificités architecturales"}},
+        /*The X categories descend from the X dimensions (Y respectively)*/
+        X:[{id:"fun", caption:"Funéraire", explanation: "Pour remplir la mémoire"},
+           {id:"rel", caption:"Religion", explanation: "Pour remplir son âme/dominer les masses"},
+           {id:"art", caption:"Art et culture", explanation: "Pour remplir sa tête, que ça existait même avant télérama"}],
+        Y:[{id:"gal", caption:"Gallo-romain", explanation: "Romain mais avec influences régionales gauloises"},
+           {id:"rus", caption:"Russe", explanation:"Ou ex-URSS"},
+           {id:"grc", caption:"Grèce Antique", explanation:"Des trucs dédiés aux mêmes dieux mais qui s'appellent pas pareil"},
+           {id:"zh", caption:"La chine millénaire", explanation:"Zhong Guo Zhen"}]
+    },
+    shuffle: true,
+    title: "Un exemple de jeu collab",
+    cards:[
+        {id: "c_Len",
+         name: "Мавзолей Ленина",
+         categories: ["fun","rus"], /*correction cf. "id" dans les champs X et Y*/
+         img: "img/lenin.jpg", /*Le chemin depuis le présent fichier pour arriver à l'image*/
+         desc: "C'est là que repose le corps embaumé du camarade Vladimir Ilitch Oulianov (Moscou)"},
+        {id: "c_Mao",
+         name: "毛主席纪念堂 - Máo Zhǔxí Jìniàntáng",
+         categories: ["fun", "zh"]
+         img: "img/mao.jpg",
+         desc: "Situé quelque part dans l'empire du milieu, genre Pékin-Beijing, le mausolé de Mao"},
+        {id: "c_Wer",
+         name: "Mausolée de Trion",
+         categories: ["fun", "gal"]
+         img: "img/trion.jpg",
+         desc: "Situé place Wernert, vous remarquerez les ligatures sur les inscriptions"},
+        {id: "c_Ora",
+         name:"Théâtre antique d'orange",
+         categories: ["art", "gal"],
+         img: "http://http://upload.wikimedia.org/wikipedia/commons/7/70/Le_Th%C3%A9%C3%A2tre_Antique_d%27Orange%2C_2007.jpg", /*lien externe*/
+         desc: "À part une propension à voter FN, Orange c'est aussi un climat sympa et de jolis vestiges"},
+        {id: "c_bol",
+         name: "Большой Театр",
+         categories: ["art", "rus"],
+         img: "img/bolchoi.jpg",
+         desc: 'Le "grand" théâtre de Moscou (et oui, c\'est ça que ça veut dire et puis ça se prononce bAlchoï)'},
+        {id: "c_acr",
+         name: "Ακρόπολη Αθηνών",
+         categories: ["rel","grc"],
+         img: "img/acropole.jpg",
+         desc: "Comme toute acropole, c'est le point culminant de la ville, bien le bonjour à Athéna."}
+         /*etc.*/
+    ]
+}

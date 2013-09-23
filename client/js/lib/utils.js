@@ -100,6 +100,11 @@ define(['lib/json.jquery'], function(){
         res.push(a.pop());
         return res;
     };
+
+    Util.isUrl = function(str){//simplified regexp lots of false positives #security
+        var urlpattern = new RegExp( "(http|ftp|https):\/\/.+");
+        return urlpattern.test(str);
+    };
     return Util;
 
 });

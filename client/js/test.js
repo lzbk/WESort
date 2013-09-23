@@ -17,9 +17,9 @@ define(['card','table', 'category'], function(Card, Table, Category){ //testing
         aCard.setUpEvents();
         var anotherCard = new Card("carte2", "un mausolée nul", ["mausolée", "grec"], "http://3.bp.blogspot.com/_-ZL9GG5XpXI/TLgNBZ9vbOI/AAAAAAAAGR8/wZ0wTZ9ForU/s400/lenine_sarcophage.jpg", "celui là il est mieux ou pas ?");
         anotherCard.spawn($('#stack'));
-        var dimension1 = new Category("typ", "Type de Monument", "Les monuments n'ont pas tous la même fonction, c'est un critère de classement");
-        var dimension2 = new Category("loc", "Lieu", "Dans plusieurs civilisations on retrouve des bâtiments ayant la même fonction, cependant selon les époques et les endroits, ils ont leurs spécificités architecturales");
-        var maTable = new Table({dim: [dimension1, dimension2],
+        var dimension1 = new Category("typ", "Type de Monument", "Les monuments n&apos;ont pas tous la même fonction, c&apos;est un critère de classement.");
+        var dimension2 = new Category("loc", "Lieu", "Dans plusieurs civilisations on retrouve des bâtiments ayant la même fonction, cependant selon les époques et les endroits, ils ont leurs spécificités architecturales.");
+        var maTable = new Table({dim: {X: dimension1, Y: dimension2},
                                X:[new Category("fun", "Funéraire", "Pour mettre les morts", dimension1.id),
                                    new Category("pfun", "Pas funéraire", "Pas pour mettre les morts", dimension1.id)],
                                Y:[new Category("gal", "Gallo-romain", "Romain mais avec influences régionales gauloises", dimension2.id),
