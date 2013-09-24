@@ -25,7 +25,7 @@ define(['game'], function(Game){ //testing
                                Y:[new Category("gal", "Gallo-romain", "Romain mais avec influences régionales gauloises", dimension2.id),
                                    new Category("rus", "Russe", "Ou ex-URSS", dimension2.id)]}, "Un super exo", true);
         maTable.spawn();*/
-        var jeu = new Game("example");
+        var jeu = new Game("example", "moi");
 
     }
     initApp("youpi");

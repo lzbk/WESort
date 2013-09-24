@@ -12,6 +12,7 @@ define(['table', 'card', 'category'], function(Table, Card, Category){
                 path = dataSource;
                 dataSource = Util.loadJSON(dataSource+"/game_data.json");
             }
+            this.user = usr;
             this.id = dataSource.id;//#todo test server before loading
             dataSource.categories.dim.X = new Category(dataSource.categories.dim.X.id, dataSource.categories.dim.X.caption, dataSource.categories.dim.X.explanation);
             dataSource.categories.dim.Y = new Category(dataSource.categories.dim.Y.id, dataSource.categories.dim.Y.caption, dataSource.categories.dim.Y.explanation);
@@ -23,7 +24,7 @@ define(['table', 'card', 'category'], function(Table, Card, Category){
             }
             this.board = new Table(dataSource.categories, dataSource.title, dataSource.shuffle);
             this.board.spawn();
-            this.cards=[];
+            this.cards={};
             for(i=0;i<dataSource.cards.length;i++){
                 var img;
                 if(Util.isUrl(dataSource.cards[i].img)){
@@ -32,29 +33,42 @@ define(['table', 'card', 'category'], function(Table, Card, Category){
                 else{
                     img = path + "/" + dataSource.cards[i].img;
                 }
-                this.cards.push(new Card(dataSource.cards[i].id, dataSource.cards[i].name, dataSource.cards[i].cat, img, dataSource.cards[i].desc));
+                dataSource.cards[i]=(new Card(dataSource.cards[i].id, dataSource.cards[i].name, dataSource.cards[i].cat, img, dataSource.cards[i].desc));
             }
-            this.cards.sort(Card.compare);
-            for(i=0;i<this.cards.length;i++){
-                this.cards[i].spawn();
+            dataSource.cards.sort(Card.compare); //Allows to sort them before being able to access them directly through their ids (link evt→object through html element id)
+            for(i=0;i<dataSource.cards.length;i++){
+                this.cards[dataSource.cards[i].id] = dataSource.cards[i];
+                this.cards[dataSource.cards[i].id].spawn(this.user);
             }
-            this.user = usr;
+            this.setUpEvents();
+        },
+
+        getSelectedCard: function(){
+            var id = $("[data-selected-by="+this.user+"]").attr("id");
+            if(typeof id=="undefined"){
+                return false;
+            }
+            else{
+                return this.cards[id];
+            }
         },
 
         setUpEvents: function(){
             var self = this;
-            $('td').click(function(){
+            $('td[data-cat]').click(function(){
                 var card = self.getSelectedCard();
                 if(card !== false){
-                    card.move(self.usr, $(this).attr("data-cat"), $(this).parent.attr("id"));
+                    card.move(self.user, $(this).attr("data-cat"), $(this).parent().attr("id"));
                 }
             });
-            for(var i=0; i<this.categories.X.length; i++){
-
-            }
-            for(i=0; i<this.categories.Y.length; i++){
-
-            }
+            //As #stack has no "data-cat" attribute, "undefined" will be provided which is what corresponds to setting a neutral position, which is interpreted as #stack by Card.
+            //used menu, because stack only extends as far as the last card in the column uncomfortable for a click… #security
+            $("menu").click(function(){
+                var card = self.getSelectedCard();
+                if(card !== false){
+                    card.move(self.user);
+                }
+            });
         }
     });
     return Game;

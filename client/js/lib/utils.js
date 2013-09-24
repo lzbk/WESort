@@ -77,10 +77,11 @@ define(['lib/json.jquery'], function(){
                 self.startedShort = false;
             };
 
-            $(elt).mousedown(function(){
+            $(elt).mousedown(function(evt){
                 self.timer = new Date().getTime();
                 self.timeout = window.setTimeout(self.long, self.duration);
             });
+            $(elt).click(function(event){event.stopPropagation();}); //to prevent a click on this to be propagated to the parent…
 
             $(elt).mouseup(function(){if(!self.startedShort){self.startedShort = true;    self.short();}});
             $(elt).mouseleave(function(){if(!self.startedShort){self.startedShort = true; self.short();}});

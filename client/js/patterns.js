@@ -42,17 +42,12 @@ Patterns = {
             var tableWidth = parseInt($("table").css("width")), tableHeight = parseInt($("table").css("height"));
             var headX = 50 / (2*nbCatX + 1.5), headY = 100 / (2*nbCatY+2) ;
             var Xpercent = 2*headX, Ypercent = 2*headY;
-            /**/var tmpX = ((headX/100) * tableWidth), tmpY = headY/100 * tableHeight;
-            /**/window.alert("X: "+headX+"→"+tmpX+"/"+tableWidth);
-            /**/window.alert("Y: "+headY+"→"+tmpY+"/"+tableHeight);
 
             if( (headY/100 * tableHeight) > 45){
-                window.alert("trop haut");
                 headY = (45/tableHeight)*100;
                 Ypercent = (100-2*headY)/nbCatY;
             }
             if( (headX/100 * tableWidth) > 45){
-                window.alert("trop large");
                 headX = (45/tableWidth) * 100;
                 Xpercent = (100-headX)/(2*nbCatX + 1);
             }

@@ -5,7 +5,6 @@ body{
     bottom:1em;
     right: 1em;
     left: 1em;
-    background-color: yellow;
 }
 body>header, body>footer{
     height: 7.5%;
@@ -33,6 +32,11 @@ menu{
     margin:0;
     background-color: orange;
 }
+
+menu:hover{
+    background-color:lightsalmon;
+}
+
 #users{
     position: absolute;
     bottom: 0px;
@@ -47,12 +51,11 @@ menu{
     width: 80%;
     padding:0;
     margin: 0;
-    background-color: blue;
 }
 
 
 /*Card*/
-#stack article, td article{
+article{
     padding: 2px;
     margin-top: 2px;
     margin-left:4px;
@@ -61,20 +64,20 @@ menu{
     background-color: red;
 }
 
-#stack article header, td article header{
+article header{
     position: relative;
     margin: 0;
     padding: 0;
 }
 
-#stack article h2, td article h2{
+article h2{
     font-size: medium;
     padding: 2px;
     margin: 0;
     cursor: pointer;
 }
 
-#stack article header span, td article header span{
+article header span{
     float: right;
 }
 
@@ -92,25 +95,25 @@ menu{
 }
 
 /*selection*/
-#stack article[data-selected-by]{
+article[data-selected-by]{
     background-color: gainsboro;
 }
 
 /*Info display*/
-#stack article img, td article img{
+article img{
     float: right;
     width: 300px;
 }
 
 /*** Hidden ***/
-#stack article .details, #stack article footer, #stack article .closeButton{display: none;}
+article .details, article footer, article .closeButton{display: none;}
 
 /*** Visible ***/
-#stack article[open=open] .details, #stack article[open=open] footer, #stack article[open=open] .closeButton{
+article[open=open] .details, article[open=open] footer, article[open=open] .closeButton{
     display: block;
 }
 
-#stack article[open=open]{
+article[open=open]{
     background-color: orange;
     position: fixed;
     top: 2em;
@@ -121,7 +124,7 @@ menu{
     z-index: 20;
 }
 
-#stack article[open=open] h2{
+article[open=open] h2{
     padding-bottom: 0.5em;
 }
 
@@ -145,8 +148,14 @@ td,th {
 
     border: 1px solid #CCCCCC;
     padding: 5px 10px;
+}
+th{
     vertical-align: middle;
 }
+td{
+    vertical-align: top;
+}
+
 caption {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -173,16 +182,13 @@ th.vertical div{
 
 }
 
-thead td, thead th{
-
+td[data-cat]:hover{
+    background-color: lightblue;
 }
 
-th.vertical{
-
+td[data-cat]{
+    background-color: blue;
 }
-
-
-
 
 div{
     padding:0;

@@ -56,7 +56,7 @@ define(['position', 'history'], function(Position, History) {
             },
             //gets the position which was assigned by usr or if usr is not provided, the current position
             getPos: function(usr){
-                return this.positions.getLastItem(usr);
+                return this.positions.getLastItem(usr).position;
             },
             //returns the user who set the card's current position
             getPosAuthor: function(){
@@ -113,14 +113,14 @@ define(['position', 'history'], function(Position, History) {
                     [this.id, this.name, this.img, this.desc, comment, this.positions.print()]);
             },
 
-            spawn: function(){
+            spawn: function(usr){
                 if(!this.getPos().inTable()){
                     $('#stack').append(this.print());
                 }
                 else{
-                   $('#'+this.getPos().getY()+' .'+this.getPos().getX()).append(this.print());
+                   $('#'+this.getPos().getY()+' [data-cat='+this.getPos().getX()+"]").append(this.print());
                 }
-                this.setUpEvents();
+                this.setUpEvents(usr);
             },
 
             open: function(){
@@ -142,13 +142,12 @@ define(['position', 'history'], function(Position, History) {
                 }
             },
 
-            setUpEvents: function(){
+            setUpEvents: function(usr){
                 var self=this;
                 delete this.doubleClick;
                 this.doubleClick = new Util.longClick('#'+self.id+' h2',
-                    {action:function(){self.toggleSelection("test"/*changera quand on déplacera le setupevents*/);}},
-                    {action:function(data){self.toggleOpenness();window.alert(data);},
-                     data: self.desc}
+                    {action:function(){self.toggleSelection(usr);}},
+                    {action:function(){self.toggleOpenness();}}
                 );
                 $('#'+this.id+' .closeButton').click(function(){self.close();});
             },
@@ -195,13 +194,8 @@ define(['position', 'history'], function(Position, History) {
                 if(this.selectedBy(usr)){
                     this.updatePos(usr,x,y);
                     this.unselect();
-                    var elt = $('#' + this.id).detach();
-                    if(!this.getPos().inTable()){
-                        elt.appendTo('#stack');
-                    }
-                    else{
-                        elt.appendTo('#'+this.getPos().getY()+' .'+this.getPos().getX());
-                    }
+                    $('#' + this.id).remove();
+                    this.spawn(usr);
                 }
             }
 
