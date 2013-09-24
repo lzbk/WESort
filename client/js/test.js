@@ -1,7 +1,7 @@
-define(['card','table', 'category'], function(Card, Table, Category){ //testing
+define(['game'], function(Game){ //testing
     var initApp = function(msg){
 
-        var aCard = new Card("carte1", "Le super mausolée", ["mausolée","gallo-romain"], "http://www.cevennes-parcnational.fr/var/cevennes/storage/images/mediatheque/images/un-patrimoine-d-exception/histoire-et-prehistoire/mausolee-de-lanuejols2/136949-4-fre-FR/Mausolee-de-Lanuejols_lightbox.jpg", "Voilà un super mausolée");
+        /*var aCard = new Card("carte1", "Le super mausolée", ["mausolée","gallo-romain"], "http://www.cevennes-parcnational.fr/var/cevennes/storage/images/mediatheque/images/un-patrimoine-d-exception/histoire-et-prehistoire/mausolee-de-lanuejols2/136949-4-fre-FR/Mausolee-de-Lanuejols_lightbox.jpg", "Voilà un super mausolée");
         aCard.spawn('#stack');
         aCard.updatePos("Moithieu", 0,0);
         aCard.updatePos("Moithieu", 5,5);
@@ -24,7 +24,8 @@ define(['card','table', 'category'], function(Card, Table, Category){ //testing
                                    new Category("pfun", "Pas funéraire", "Pas pour mettre les morts", dimension1.id)],
                                Y:[new Category("gal", "Gallo-romain", "Romain mais avec influences régionales gauloises", dimension2.id),
                                    new Category("rus", "Russe", "Ou ex-URSS", dimension2.id)]}, "Un super exo", true);
-        maTable.spawn();
+        maTable.spawn();*/
+        var jeu = new Game("example");
 
     }
     initApp("youpi");

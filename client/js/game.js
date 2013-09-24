@@ -4,7 +4,7 @@
  * Date: 20/09/13 (00:45)
  * Content: The game itself, linking cards, table and user
  */
-define([table, card], function(Table, Card){
+define(['table', 'card', 'category'], function(Table, Card, Category){
     var Game = Class.extend({
         init: function(dataSource, usr){//dataSource, either an object or a string pointing to a directory containing a game_data.json file (no '/' at the end of the path)
             var path="";
@@ -21,8 +21,9 @@ define([table, card], function(Table, Card){
             for(i=0;i<dataSource.categories.Y.length;i++){
                 dataSource.categories.Y[i] = new Category(dataSource.categories.Y[i].id, dataSource.categories.Y[i].caption, dataSource.categories.Y[i].explanation, dataSource.categories.dim.Y.id);
             }
-            this.board = new Table(dataSource, dataSource.title, dataSource.shuffle);
+            this.board = new Table(dataSource.categories, dataSource.title, dataSource.shuffle);
             this.board.spawn();
+            this.cards=[];
             for(i=0;i<dataSource.cards.length;i++){
                 var img;
                 if(Util.isUrl(dataSource.cards[i].img)){
