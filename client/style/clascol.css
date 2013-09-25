@@ -144,7 +144,7 @@ menu{
 }
 
 /*Could do with a target class to make sure an element is selected*/
-menu:hover{
+menu.destination:hover{
     background: #157b80;
     background:
         linear-gradient(135deg,  transparent 1rem, #157b80 1rem),
@@ -152,13 +152,11 @@ menu:hover{
     background-position: left, right;
     background-size:50% 100%;
     background-repeat:no-repeat;
-    cursor: crosshair;
 }
 
-td[data-cat]:hover{
-    cursor: crosshair;
+.destination{
+    cursor:crosshair;
 }
-
 
 #users{
     position: absolute;
@@ -446,7 +444,7 @@ tbody tr:first-child td:nth-child(3){
     background-repeat:no-repeat;
     padding-left: 1.4rem;
 }
-tbody tr:first-child td:nth-child(3):hover{
+tbody tr:first-child td.destination:nth-child(3):hover{
     background:
         linear-gradient(135deg,  transparent 1rem, #157b80 1rem),
         linear-gradient(225deg, #157b80 1rem, #157b80 1rem);
@@ -455,7 +453,7 @@ tbody tr:first-child td:nth-child(3):hover{
     background-repeat:no-repeat;
 }
 
-tbody tr:last-child td:last-child{
+tbody tr:last-child td.destination:last-child{
     padding-right:1.4rem;
     background:
         linear-gradient(135deg, #c1bfbf  1rem, #c1bfbf 1rem),
@@ -464,7 +462,7 @@ tbody tr:last-child td:last-child{
     background-size:50% 100%;
     background-repeat:no-repeat;
 }
-tbody tr:last-child td:last-child:hover{
+tbody tr:last-child td.destination:last-child:hover{
     background:
         linear-gradient(315deg,  transparent 1rem, #157b80 1rem),
         linear-gradient(225deg, #157b80 1rem, #157b80 1rem);
@@ -490,7 +488,7 @@ th.vertical div{
     writing-mode: lr-tb;
 }
 
-td[data-cat]:hover{
+td[data-cat].destination:hover{
     background-color: #157b80;
 }
 

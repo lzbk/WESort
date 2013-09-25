@@ -155,7 +155,9 @@ define(['position', 'history'], function(Position, History) {
 
             setUpEvents: function(usr){
                 var self=this;
-                delete this.longClick;
+                if(typeof this.longClick !== "undefined"){
+                    this.longClick.unbind();
+                }
                 this.longClick = new Util.longClick('#'+self.id+' h2',
                     {action:function(){self.toggleSelection(usr);}},
                     {action:function(){self.toggleOpenness();}}
@@ -173,8 +175,8 @@ define(['position', 'history'], function(Position, History) {
                         if(key === 13) {//enter
                             self.setComment(usr, val);
                             $(this).html(self.getCommentValue());
-                            self.setUpEvents(usr);
                             $(this).unbind("keydown");
+                            self.setUpEvents(usr);
                         }
                     });
                 });
@@ -200,12 +202,16 @@ define(['position', 'history'], function(Position, History) {
                 if(!this.selected()){
                     $("[data-selected-by="+usr+"]").removeAttr("data-selected-by");
                     $('#'+this.id).attr("data-selected-by", usr);
+                    $("td[data-cat]").addClass("destination");
+                    $("menu").addClass("destination");
                 }
             },
 
             unselect: function(usr){
                 if(this.selectedBy(usr)){
                     $('#'+this.id).removeAttr("data-selected-by");
+                    $("td[data-cat]").removeClass("destination");
+                    $("menu").removeClass("destination");
                 }
             },
 

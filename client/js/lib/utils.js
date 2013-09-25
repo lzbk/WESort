@@ -64,6 +64,7 @@ define(['lib/json.jquery'], function(){
                 length = 500;
             }
             this.duration = length;
+            this.elt = elt;
             this.startedShort = false;
             this.long = function(){long["action"](long["data"]);};
             var self=this;
@@ -85,6 +86,13 @@ define(['lib/json.jquery'], function(){
 
             $(elt).mouseup(function(){if(!self.startedShort){self.startedShort = true;    self.short();}});
             $(elt).mouseleave(function(){if(!self.startedShort){self.startedShort = true; self.short();}});
+        },
+        unbind: function(){
+            delete this.duration;
+            delete this.startedShort;
+            delete this.timer;
+            delete this.timeout;
+            $(this.elt).unbind();
         }
     });
 
