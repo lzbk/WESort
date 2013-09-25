@@ -10,12 +10,18 @@
 Patterns = {
     COMMENTITEM: "{0}: {1} <span class='date'>{2}</span>",
     POSITIONITEM: "<li><span class='date'>{2}</span> {0} ({1})</li>\n",
-    CARD: "<article id='{0}'><header><h2>{1}</h2><span class='lock'>&nbsp;</span><div class='closeButton'></div></header>"+
-        "\n\t<section class='details'><img src='{2}' />\n\t<p>{3}</p></section>"+
+    CARD: "<article id='{0}'><div class='illustration' style='background-image:url({2});' >&nbsp;</div>"+
+        "\n\t<header><h2>{1}</h2><span class='lock'>&nbsp;</span><div class='closeButton'></div></header>"+
+        "\n\t<section class='details'>\n\t<p>{3}</p></section>"+
         "\n\t<footer>"+
-        "\n\t\t<p class='comments'>{4}</p>"+
+        "\n\t\t<div class='comments'>{4}</div>"+
         "\n\t\t<ul class='position'>{5}</ul>"+
         "\n\t\t</footer>\n</article>",
+    HELP:"<header><h2>Aide</h2><div class='closeButton'></div></header>\n"+
+         "<section class='details'>{0}</section>",
+    COMMENTING://'<form accept-charset="utf-8">' +
+            "\n\t<input id='commentInput' type='text' value="+'"{0}">',/*+
+            "</form>",
     /**
      * 0 → caption;
      * 1 → dimX ;
@@ -37,26 +43,26 @@ Patterns = {
         THC: "<th scope='col' title='{0}'>{1}</th>",
         TR: "<tr id='{2}'><th scope='row' title='{0}'>{1}</th>{3}</tr>",
         TD : "<td data-cat='{0}'></td>",
-        setSizes: function(nbCatX, nbCatY){//
+        setSizes: function(nbCatX, nbCatY){
             /*should try to find a minimum height #security*/
             var tableWidth = parseInt($("table").css("width")), tableHeight = parseInt($("table").css("height"));
             var headX = 50 / (2*nbCatX + 1.5), headY = 100 / (2*nbCatY+2) ;
             var Xpercent = 2*headX, Ypercent = 2*headY;
 
-            if( (headY/100 * tableHeight) > 45){
-                headY = (45/tableHeight)*100;
+            if( (headY/100 * tableHeight) > 20){
+                headY = (20/tableHeight)*100;
                 Ypercent = (100-2*headY)/nbCatY;
             }
             if( (headX/100 * tableWidth) > 45){
                 headX = (45/tableWidth) * 100;
                 Xpercent = (100-headX)/(2*nbCatX + 1);
             }
-            $('table>tr').css("height", Ypercent+'%');
+            $('tbody tr').css("height", Ypercent+'%');
             $('thead tr').css("height", headY+'%');
             $('th').css("width", Xpercent+'%');
             $('td[data-cat]').css('width', Xpercent*2+'%');
             $('.vertical').css('width', headX+'%').css('height', $('table').css('height') - $('thead').css('height'));
-        },
+        }
        }
 
 };

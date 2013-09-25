@@ -93,6 +93,22 @@ define(['position', 'history'], function(Position, History) {
             getComment: function(usr){
                 return this.comments.getLastItem(usr);
             },
+            //if justContent, do not call print…
+            getCommentValue: function(justContent){
+                var comment = this.getComment();
+                if(!comment){
+                    comment="no comments";
+                }
+                else{
+                    if((typeof justContent !== "undefined") && justContent){
+                        comment=comment.comment;
+                    }
+                    else{
+                        comment=comment.print();
+                    }
+                }
+                return comment;
+            },
 
             setComment: function(usr, textForAComment){
                 this.comments.addItem(new CommentItem(usr, textForAComment));
@@ -102,15 +118,8 @@ define(['position', 'history'], function(Position, History) {
             // Rendering
             //**********************
             print: function(){
-                var comment = this.getComment();
-                if(!comment){
-                    comment="no comments";
-                }
-                else{
-                     comment=comment.print();
-                }
                 return Util.print(Patterns.CARD,
-                    [this.id, this.name, this.img, this.desc, comment, this.positions.print()]);
+                    [this.id, this.name, this.img, this.desc, this.getCommentValue(), this.positions.print()]);
             },
 
             spawn: function(usr){
@@ -125,11 +134,13 @@ define(['position', 'history'], function(Position, History) {
 
             open: function(){
                 $('#'+this.id).attr("open", "open");
+                $('#overlay').attr("class", "show");
                 this.opened = true;
             },
 
             close: function(){
                 $('#'+this.id).removeAttr("open");
+                $('#overlay').removeAttr("class");
                 this.opened = false;
             },
 
@@ -144,12 +155,29 @@ define(['position', 'history'], function(Position, History) {
 
             setUpEvents: function(usr){
                 var self=this;
-                delete this.doubleClick;
-                this.doubleClick = new Util.longClick('#'+self.id+' h2',
+                delete this.longClick;
+                this.longClick = new Util.longClick('#'+self.id+' h2',
                     {action:function(){self.toggleSelection(usr);}},
                     {action:function(){self.toggleOpenness();}}
                 );
                 $('#'+this.id+' .closeButton').click(function(){self.close();});
+                $('#'+this.id+' .comments').click(function(){
+                    $(this).html(Util.print(Patterns.COMMENTING, [self.getCommentValue(true)]));
+                    $(this).unbind("click");
+                    $('#commentInput').focus();
+                    $('#commentInput')[0].selectionStart = 0;
+                    $('#commentInput')[0].selectionEnd = $('#commentInput').val().length;
+                    $(this).keydown(function(e) {
+                        var key = e.which,
+                            val = $('#commentInput').val();
+                        if(key === 13) {//enter
+                            self.setComment(usr, val);
+                            $(this).html(self.getCommentValue());
+                            self.setUpEvents(usr);
+                            $(this).unbind("keydown");
+                        }
+                    });
+                });
             },
 
             //**********************

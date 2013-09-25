@@ -40,6 +40,7 @@ define(['table', 'card', 'category'], function(Table, Card, Category){
                 this.cards[dataSource.cards[i].id] = dataSource.cards[i];
                 this.cards[dataSource.cards[i].id].spawn(this.user);
             }
+            $("#help").html(Util.print(Patterns.HELP, [dataSource.help]));
             this.setUpEvents();
         },
 
@@ -68,6 +69,14 @@ define(['table', 'card', 'category'], function(Table, Card, Category){
                 if(card !== false){
                     card.move(self.user);
                 }
+            });
+            $("#helpButton").click(function(){
+                $("#help").attr("open", "open");
+                $('#overlay').attr("class", "show");
+                $("#help .closeButton").click(function(){
+                    $("#help").removeAttr("open");
+                    $("#overlay").removeAttr("class");
+                });
             });
         }
     });

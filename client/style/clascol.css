@@ -1,198 +1,502 @@
+/* Eric Meyer's CSS reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+
+
+
+/****************
+ * Color scheme :
+ * Blue : 16528d (0090B3)
+ * lightgray:f3f3f3
+ * grayer:c1bfbf
+ * salmon: e8846b
+ * redhover: e44a4a
+ * lightgreen: a2c5be
+ * greenhover:157b80
+ *****************/
 /* Page Layout */
 body{
-    position: absolute;
-    top:1em;
-    bottom:1em;
-    right: 1em;
-    left: 1em;
+    font-size: small;
+    font-family: sans-serif;
+    position: fixed;
+    top:2em;
+    bottom:2em;
+    right: 2em;
+    left: 2em;
+    background-color: #16528d;
 }
+
 body>header, body>footer{
-    height: 7.5%;
-    background-color: green;
-    color: white;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left:1em;
-    padding-right: 1em;
-    font-size: smaller;
+    background: #e3e3e3;
+    font-size: small;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1.5rem;
 }
+
+body>footer{
+    height: calc(7.5% - 1rem);
+    background:
+        linear-gradient(45deg,  transparent 1.5rem, #f3f3f3 1.5rem),
+        linear-gradient(135deg, #f3f3f3 20px, #f3f3f3 20px);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
+}
+
+body>header{
+    height: calc(7.5% - 1rem);
+    position:relative;
+    background:
+        linear-gradient(45deg,  #f3f3f3 20px, #f3f3f3 20px),
+        linear-gradient(225deg, transparent 1.5rem, #f3f3f3 1.5rem);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
+}
+
+body>header #helpButton{
+    position:absolute;
+    top:0;
+    right:0;
+    width: 2.2rem;
+    height: 2.2rem;
+    padding:0;
+    background-repeat:no-repeat;
+    background-image: url(../assets/help.png);
+    background-position: top right;
+    cursor:pointer;
+}
+
 body>section{
     position: relative;
+    background-color: #f3f3f3;
     height: 85%;
 }
 
 /* Section Layout */
 menu{
     position: absolute;
-    top:0px;
-    left:0px;
-    bottom:0px;
-    width: 20%;
-    padding:0;
+    top:0.5rem;
+    left:0.5rem;
+    bottom:0.5rem;
+    width: calc(20% - 2rem);
+    padding:0.5rem;
     margin:0;
-    background-color: orange;
+    background: #c1bfbf;
+    background:
+        linear-gradient(135deg,  transparent 1rem, #c1bfbf 1rem),
+        linear-gradient(315deg, transparent 1rem, #c1bfbf 1rem);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
 }
 
+/*Could do with a target class to make sure an element is selected*/
 menu:hover{
-    background-color:lightsalmon;
+    background: #157b80;
+    background:
+        linear-gradient(135deg,  transparent 1rem, #157b80 1rem),
+        linear-gradient(315deg, transparent 1rem, #157b80 1rem);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
+    cursor: crosshair;
 }
+
+td[data-cat]:hover{
+    cursor: crosshair;
+}
+
 
 #users{
     position: absolute;
-    bottom: 0px;
-    width: 100%;
-    background-color: darkred;
+    bottom: 0.5rem;
+    width: calc(100% - 1rem);
+    color: white;
 }
+
 #main{
     position: absolute;
     top:0;
     right:0;
     bottom:0;
-    width: 80%;
+    width: calc(80% - 1rem);
     padding:0;
-    margin: 0;
+    margin: 0.5em;
 }
 
 
-/*Card*/
+
+/*Cards*/
+    /*Shape*/
 article{
-    padding: 2px;
-    margin-top: 2px;
-    margin-left:4px;
-    margin-right:4px;
-    margin-bottom: 2px;
-    background-color: red;
+    padding: 0px;
+    margin-top: 0.2rem;
+    margin-left:0.3rem;
+    margin-right:0.3rem;
+    margin-bottom: 0.2rem;
+    color:white;
+    background: #e8856b;
+    background:
+        linear-gradient(45deg,  transparent 0.3rem, #e8856b 0.3rem),
+        linear-gradient(225deg, transparent 0.3rem, #e8856b 0.3rem),
+        linear-gradient(135deg,  transparent 0.3rem, #e8856b 0.3rem),
+        linear-gradient(315deg, transparent 0.3rem, #e8856b 0.3rem);
+    background-position: bottom left, top right, top left, bottom right;
+    background-size:50% 50%;
+    background-repeat:no-repeat;
 }
 
+article:hover{
+    background: #e44a4a;
+    background:
+        linear-gradient(45deg,  transparent 0.3rem, #e44a4a 0.3rem),
+        linear-gradient(225deg, transparent 0.3rem, #e44a4a 0.3rem),
+        linear-gradient(135deg,  transparent 0.3rem, #e44a4a 0.3rem),
+        linear-gradient(315deg, transparent 0.3rem, #e44a4a 0.3rem);
+    background-position: bottom left, top right, top left, bottom right;
+    background-size:50% 50%;
+    background-repeat:no-repeat;
+}
+
+        /*Selection*/
+article[data-selected-by]{
+    background: #f3f3f3;
+    color: black;
+    background:
+        linear-gradient(45deg,  transparent 0.3rem, #f3f3f3 0.3rem),
+        linear-gradient(225deg, transparent 0.3rem, #f3f3f3 0.3rem),
+        linear-gradient(135deg,  transparent 0.3rem, #f3f3f3 0.3rem),
+        linear-gradient(315deg, transparent 0.3rem, #f3f3f3 0.3rem);
+    background-position: bottom left, top right, top left, bottom right;
+    background-size:50% 50%;
+    background-repeat:no-repeat;
+}
+
+    /*Content*/
+        /*Common layout*/
 article header{
     position: relative;
     margin: 0;
     padding: 0;
 }
 
-article h2{
+        /*** Hidden ***/
+article .details, article footer, article .closeButton, #overlay,.illustration, #help{display: none;}
+
+        /*** Visible ***/
+article[open=open] .details, article[open=open] footer, article[open=open] .closeButton, article[open=open] .illustration, #help[open]{
+    display: block;
+}
+
+#overlay.show{
+    display:block;
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index:18;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.closeButton{
+    position:absolute;
+    top:0;
+    right:0;
+    z-index:19;
+    width: 2.2rem;
+    height: 2.2rem;
+    padding:0;
+    background-repeat:no-repeat;
+    background-image: url(../assets/close.png);
+    background-position: top right;
+    cursor:pointer;
+
+}
+
+article[open=open] .illustration{
+    position:absolute;
+    top:2.9rem;
+    bottom:2.9rem;
+    right:0;
+    width: 35%;
+    background-position: top right;
+    background-repeat:no-repeat;
+    background-size: 100% auto;
+}
+
+article[open=open], article[open=open]:hover{
+    position: fixed;
+    top: 15%;
+    bottom: 15%;
+    right: 15%;
+    left: 15%;
+    z-index: 20;
+    padding: 0px;
     font-size: medium;
-    padding: 2px;
+    color:white;
+    background: #e8856b;
+    background:
+        linear-gradient(45deg,  transparent 2rem, #e8856b 2rem),
+        linear-gradient(225deg, transparent 2rem, #e8856b 2rem),
+        linear-gradient(135deg,  transparent 2rem, #e8856b 2rem),
+        linear-gradient(315deg, transparent 2rem, #e8856b 2rem);
+    background-position: bottom left, top right, top left, bottom right;
+    background-size:50% 50%;
+    background-repeat:no-repeat;
+    cursor: default;
+}
+
+#help[open]{
+    position:fixed;
+    left:25%;
+    right:25%;
+    height:auto;
+    top:15%;
+    vertical-align: middle;
+    height:auto;
+    font-size: medium;
+    color:white;
+    background: #e8856b;
+    background:
+        linear-gradient(45deg,  transparent 2rem, #e8856b 2rem),
+        linear-gradient(225deg, transparent 2rem, #e8856b 2rem),
+        linear-gradient(135deg,  transparent 2rem, #e8856b 2rem),
+        linear-gradient(315deg, transparent 2rem, #e8856b 2rem);
+    background-position: bottom left, top right, top left, bottom right;
+    background-size:50% 50%;
+    background-repeat:no-repeat;
+    cursor: default;
+    z-index: 20;
+}
+
+#help[open] header{
+    padding-left: 2.82rem;
+    padding-right: 2.82rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    height: 1.82rem;
+    border-bottom: solid 1px;
+}
+#help[open] .details{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 2.82rem;
+    border-bottom: solid 1px;
+}
+
+#help[open] p{
+    padding-top: 0.5rem;
+}
+
+article[open=open] header{
+    padding-left: 2.82rem;
+    padding-right: 36%;
+}
+
+article[open=open] h2{
+    font-size: medium;
+}
+
+article[open=open] .details{
+    height: 70%;
+    padding-left: 1.82rem;
+    padding-right: 36%;
+}
+article[open=open] footer{
+    border-top: 1px solid;
+    padding-top: 1rem;
+    padding-left: 1.82rem;
+    padding-right: 36%;
+}
+article[open=open] footer .comments{
+    margin-bottom: 1rem;
+}
+#commentInput{
+    width:100%;
+}
+.comments:hover {
+    background-color:  #e44a4a;
+    cursor: pointer;
+}
+article[open=open] ul{
+    font-size: small;
+}
+
+        /*Common layout*/
+
+
+article h2{
+    font-size: small;
+    font-weight:bold;
+    padding: 0.3rem;
     margin: 0;
     cursor: pointer;
 }
 
-article header span{
+article header .lock{
     float: right;
 }
 
-.closeButton{
-    background-image: url('../assets/close.png');
-    width: 32px;
-    height:32px;
-    margin: 2px;
-    padding: 0;
-    position: absolute;
-    top: -1em;
-    right: -1em;
-    cursor: pointer;
-
-}
-
-/*selection*/
-article[data-selected-by]{
-    background-color: gainsboro;
-}
-
-/*Info display*/
-article img{
-    float: right;
-    width: 300px;
-}
-
-/*** Hidden ***/
-article .details, article footer, article .closeButton{display: none;}
-
-/*** Visible ***/
-article[open=open] .details, article[open=open] footer, article[open=open] .closeButton{
-    display: block;
-}
-
-article[open=open]{
-    background-color: orange;
-    position: fixed;
-    top: 2em;
-    bottom: 2em;
-    right: 2em;
-    left: 2em;
-    padding: 1em;
-    z-index: 20;
-}
-
-article[open=open] h2{
-    padding-bottom: 0.5em;
-}
 
 
 /* Table */
-th {
-    background-color: #EEEEEE;
-    border: 1px solid #CCCCCC;
-    color: #555555;
-    padding: 8px;
-    text-align: center;
-}
+
 table {
-    border-collapse: collapse;
     border-spacing: 0;
     margin:0;
     width: 100%;
     height: 100%;
+    padding:0;
 }
-td,th {
 
-    border: 1px solid #CCCCCC;
-    padding: 5px 10px;
-}
-th{
+th {
+    background-color: #a2c5be;
+    text-align: center;
+    color: white;
     vertical-align: middle;
 }
-td{
-    vertical-align: top;
+
+thead tr:first-child th {
+    background:
+        linear-gradient(45deg,  #a2c5be 1rem, #a2c5be 1rem),
+        linear-gradient(225deg, transparent 1rem, #a2c5be 1rem);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
 }
 
-caption {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background-color: #EFEFEF;
-    border-color: #CCCCCC #CCCCCC -moz-use-text-color;
-    border-image: none;
-    border-style: solid solid none;
-    border-width: 1px 1px medium;
-    font-weight: bold;
-    padding: 5px;
-    text-align: center;
+thead tr:nth-child(2) th:first-child{
+    background:
+        linear-gradient(45deg,  transparent 1rem, #a2c5be 1rem),
+        linear-gradient(315deg, #a2c5be 1rem, #a2c5be 1rem);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
+}
+
+tbody tr:first-child th:nth-child(2){
+    background:
+        linear-gradient(45deg,  #a2c5be 1rem, #a2c5be 1rem),
+        linear-gradient(225deg, transparent 1rem, #a2c5be 1rem);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
+}
+
+tbody tr:first-child td:nth-child(3){
+    background:
+        linear-gradient(135deg,  transparent 1rem, #c1bfbf 1rem),
+        linear-gradient(225deg, #c1bfbf 1rem, #c1bfbf 1rem);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
+    padding-left: 1.4rem;
+}
+tbody tr:first-child td:nth-child(3):hover{
+    background:
+        linear-gradient(135deg,  transparent 1rem, #157b80 1rem),
+        linear-gradient(225deg, #157b80 1rem, #157b80 1rem);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
+}
+
+tbody tr:last-child td:last-child{
+    padding-right:1.4rem;
+    background:
+        linear-gradient(135deg, #c1bfbf  1rem, #c1bfbf 1rem),
+        linear-gradient(315deg, transparent 1rem, #c1bfbf 1rem);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
+}
+tbody tr:last-child td:last-child:hover{
+    background:
+        linear-gradient(315deg,  transparent 1rem, #157b80 1rem),
+        linear-gradient(225deg, #157b80 1rem, #157b80 1rem);
+    background-position: right, left;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
+}
+
+th.vertical{
+    background:
+        linear-gradient(45deg,  transparent 1rem, #a2c5be 1rem),
+        linear-gradient(315deg, #a2c5be 1rem, #a2c5be 1rem);
+    background-position: left, right;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
 }
 
 th.vertical div{
-
     /*display: block;*/
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     writing-mode: lr-tb;
-
-
 }
 
 td[data-cat]:hover{
-    background-color: lightblue;
+    background-color: #157b80;
 }
 
 td[data-cat]{
-    background-color: blue;
-}
-
-div{
-    padding:0;
-    margin:0;
+    vertical-align: top;
+    background: #c1bfbf;
 }
 
 

@@ -17,7 +17,8 @@ define(function() {
             var tmp;
             this.dimensions = {};
             this.categories = {};
-             if(randomize === true){
+            this.title = caption;
+            if(randomize === true){
                  tmp = Util.shuffle([catList.dim.X, catList.dim.Y]);
                  this.dimensions.X=tmp[0];
                  this.dimensions.Y=tmp[1];
@@ -29,7 +30,6 @@ define(function() {
                      this.categories.Y = Util.shuffle(catList.X);
                      this.categories.X = Util.shuffle(catList.Y);
                  }
-                 this.caption = caption;
              }
             else{
                  this.dimensions = catList.dim;
@@ -40,6 +40,7 @@ define(function() {
 
         print:function(){
             var res, tds="", thc="";
+            $('title').html(this.title);
             for(var i=0; i<this.categories.X.length; i++){
                 tds += Util.print(Patterns.tableP.TD, [this.categories.X[i].id]);
                 thc += Util.print(Patterns.tableP.THC, [this.categories.X[i].explanation, this.categories.X[i].caption]);
@@ -57,7 +58,6 @@ define(function() {
                 this.dimensions.X.explanation,
                 this.dimensions.Y.explanation
             ]);
-            $('title').html(this.caption);
             for(i=1; i<this.categories.Y.length; i++){
                 res += Util.print(Patterns.tableP.TR, [
                     this.categories.Y[i].explanation,

@@ -3,26 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="5b4a7304-fef7-4054-a784-6c231c1d1cfb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/card.js" afterPath="$PROJECT_DIR$/client/js/card.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/style/clascol.css" afterPath="$PROJECT_DIR$/client/style/clascol.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/game.js" afterPath="$PROJECT_DIR$/client/js/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/patterns.js" afterPath="$PROJECT_DIR$/client/js/patterns.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/test.js" afterPath="$PROJECT_DIR$/client/js/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/lib/utils.js" afterPath="$PROJECT_DIR$/client/js/lib/utils.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ClasCol.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380012313281" ignored="false" />
-    <file path="/game_data.json" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1379951870463" ignored="false" />
-    <file path="/game.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380034323924" ignored="false" />
-    <file path="/patterns.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1379940792845" ignored="false" />
-    <file path="/table.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1379941323633" ignored="false" />
-    <file path="/a.dummy" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380034873187" ignored="false" />
+    <file path="/Dummy.txt" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380091819567" ignored="false" />
+    <file path="/game_data.json" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380123182420" ignored="false" />
+    <file path="/game.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380124683630" ignored="false" />
+    <file path="/patterns.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380124309249" ignored="false" />
+    <file path="/table.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380123889285" ignored="false" />
+    <file path="/a.dummy" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380127813030" ignored="false" />
     <file path="/test.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380012467624" ignored="false" />
     <file path="/utils.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380033953607" ignored="false" />
-    <file path="/card.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380033712564" ignored="false" />
-    <file path="/clascol.css" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380034855681" ignored="false" />
+    <file path="/card.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380127925330" ignored="false" />
+    <file path="/clascol.css" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380125670108" ignored="false" />
     <file path="/json.jquery.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380013007577" ignored="false" />
+    <file path="/index.html" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380125546620" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +41,16 @@
       <file leaf-file-name="table.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/table.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="58" selection-start="2056" selection-end="2056" vertical-scroll-proportion="0.0">
+            <state line="43" column="0" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="card.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/js/card.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="164" column="91" selection-start="6032" selection-end="6032" vertical-scroll-proportion="0.7749713">
               <folding />
             </state>
           </provider>
@@ -54,16 +59,7 @@
       <file leaf-file-name="game.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="0" selection-start="3660" selection-end="3660" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="36" column="32" selection-start="2197" selection-end="2197" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -81,17 +77,37 @@
       <file leaf-file-name="clascol.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/style/clascol.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0">
+            <state line="446" column="25" selection-start="10242" selection-end="10242" vertical-scroll-proportion="-5.464286">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="patterns.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="game_data.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/example/game_data.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="53" selection-start="2694" selection-end="2694" vertical-scroll-proportion="-3.3333333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="94" selection-start="1196" selection-end="1196" vertical-scroll-proportion="-15.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="patterns.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/patterns.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="2088" selection-end="2088" vertical-scroll-proportion="0.5818815">
-              <folding />
+            <state line="20" column="50" selection-start="983" selection-end="983" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1380124325500" expanded="true" signature="481:507" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,27 +124,7 @@
       <file leaf-file-name="utils.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/lib/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="77" selection-start="2799" selection-end="2799" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="json.jquery.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="22" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="43" selection-start="2276" selection-end="2276" vertical-scroll-proportion="0.0">
+            <state line="81" column="75" selection-start="2799" selection-end="2799" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -152,20 +148,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/client/js/table.js" />
         <option value="$PROJECT_DIR$/client/js/lib/json.jquery.js" />
-        <option value="$PROJECT_DIR$/client/example/game_data.json" />
         <option value="$PROJECT_DIR$/client/js/test.js" />
         <option value="$PROJECT_DIR$/client/js/lib/utils.js" />
-        <option value="$PROJECT_DIR$/client/js/card.js" />
+        <option value="$PROJECT_DIR$/client/example/game_data.json" />
+        <option value="$PROJECT_DIR$/client/js/table.js" />
         <option value="$PROJECT_DIR$/client/js/patterns.js" />
-        <option value="$PROJECT_DIR$/client/style/clascol.css" />
         <option value="$PROJECT_DIR$/client/js/game.js" />
+        <option value="$PROJECT_DIR$/client/index.html" />
+        <option value="$PROJECT_DIR$/client/style/clascol.css" />
+        <option value="$PROJECT_DIR$/client/js/card.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1919" />
+    <option name="x" value="-1" />
     <option name="y" value="25" />
     <option name="width" value="1922" />
     <option name="height" value="1056" />
@@ -196,7 +193,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -243,47 +239,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -305,8 +261,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClasCol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClasCol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -333,14 +308,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1919" y="25" width="1922" height="1056" extended-state="6" />
+    <frame x="-1" y="25" width="1922" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32963374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14828496" sideWeight="0.6703663" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09762533" sideWeight="0.6703663" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -415,13 +390,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/js/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/card.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="173" column="24" selection-start="6151" selection-end="6167" vertical-scroll-proportion="0.0">
@@ -431,30 +399,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="37" selection-start="1290" selection-end="1301" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="18" column="37" selection-start="1290" selection-end="1301" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/category.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="22" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="43" selection-start="2276" selection-end="2276" vertical-scroll-proportion="0.0">
+        <state line="27" column="43" selection-start="2276" selection-end="2276" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/position.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="69" selection-start="1567" selection-end="1567" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/lib/json.jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="147" selection-start="334" selection-end="334" vertical-scroll-proportion="0.13777268">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/lib/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="75" selection-start="2799" selection-end="2799" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/example/game_data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="53" selection-start="2694" selection-end="2694" vertical-scroll-proportion="-3.3333333">
           <folding />
         </state>
       </provider>
@@ -466,65 +452,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/position.js">
+    <entry file="file://$PROJECT_DIR$/client/js/patterns.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="69" selection-start="1567" selection-end="1567" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="20" column="50" selection-start="983" selection-end="983" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1380124325500" expanded="true" signature="481:507" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/lib/utils.js">
+    <entry file="file://$PROJECT_DIR$/client/js/table.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="77" selection-start="2799" selection-end="2799" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/card.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="82" selection-start="7017" selection-end="7017" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/example/game_data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="27" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.3607595">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="43" column="0" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="3660" selection-end="3660" vertical-scroll-proportion="0.0">
+        <state line="36" column="32" selection-start="2197" selection-end="2197" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="94" selection-start="1196" selection-end="1196" vertical-scroll-proportion="-15.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/style/clascol.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0">
+        <state line="446" column="25" selection-start="10242" selection-end="10242" vertical-scroll-proportion="-5.464286">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/table.js">
+    <entry file="file://$PROJECT_DIR$/client/js/card.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="58" selection-start="2056" selection-end="2056" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/patterns.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="2088" selection-end="2088" vertical-scroll-proportion="0.5818815">
+        <state line="164" column="91" selection-start="6032" selection-end="6032" vertical-scroll-proportion="0.7749713">
           <folding />
         </state>
       </provider>
