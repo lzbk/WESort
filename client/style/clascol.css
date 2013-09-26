@@ -343,6 +343,7 @@ article[open=open], article[open=open]:hover{
 article[open=open] header{
     padding-left: 2.82rem;
     padding-right: 36%;
+    max-height:15%;
 }
 
 article[open=open] h2{
@@ -350,7 +351,7 @@ article[open=open] h2{
 }
 
 article[open=open] .details{
-    height: 70%;
+    min-height: 45%;
     padding-left: 1.82rem;
     padding-right: 36%;
 }
@@ -359,9 +360,16 @@ article[open=open] footer{
     padding-top: 1rem;
     padding-left: 1.82rem;
     padding-right: 36%;
+    max-height:40%;
 }
+article[open=open] footer ul{
+    padding-left: 2.82rem;
+/*TODO scroll long history*/
+    font-size: small;
+}
+
 article[open=open] footer .comments{
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 #commentInput{
     width:100%;
@@ -369,9 +377,6 @@ article[open=open] footer .comments{
 .comments:hover {
     background-color:  #e44a4a;
     cursor: pointer;
-}
-article[open=open] ul{
-    font-size: small;
 }
 
         /*Common layout*/
@@ -453,7 +458,7 @@ tbody tr:first-child td.destination:nth-child(3):hover{
     background-repeat:no-repeat;
 }
 
-tbody tr:last-child td.destination:last-child{
+tbody tr:last-child td:last-child{
     padding-right:1.4rem;
     background:
         linear-gradient(135deg, #c1bfbf  1rem, #c1bfbf 1rem),

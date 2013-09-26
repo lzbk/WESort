@@ -166,12 +166,12 @@ define(['position', 'history'], function(Position, History) {
                 $('#'+this.id+' .comments').click(function(){
                     $(this).html(Util.print(Patterns.COMMENTING, [self.getCommentValue(true)]));
                     $(this).unbind("click");
-                    $('#commentInput').focus();
-                    $('#commentInput')[0].selectionStart = 0;
-                    $('#commentInput')[0].selectionEnd = $('#commentInput').val().length;
+                    $(this).find('#commentInput').focus();
+                    $(this).find('#commentInput')[0].selectionStart = 0;
+                    $(this).find('#commentInput')[0].selectionEnd = $(this).find('#commentInput').val().length;
                     $(this).keydown(function(e) {
                         var key = e.which,
-                            val = $('#commentInput').val();
+                            val = $(this).find('#commentInput').val();
                         if(key === 13) {//enter
                             self.setComment(usr, val);
                             $(this).html(self.getCommentValue());

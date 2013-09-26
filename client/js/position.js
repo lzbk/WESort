@@ -63,7 +63,12 @@ define(function(){
                 return res;
             },
             print: function(){
-                return this.getX()+", "+this.getY();
+                if(!this.inTable()){
+                    return "";
+                }
+                else{
+                    return this.getX()+", "+this.getY();
+                }
             }
         });
         return Position;

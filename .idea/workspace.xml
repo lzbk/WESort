@@ -2,25 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b4a7304-fef7-4054-a784-6c231c1d1cfb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/card.js" afterPath="$PROJECT_DIR$/client/js/card.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/style/clascol.css" afterPath="$PROJECT_DIR$/client/style/clascol.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/lib/utils.js" afterPath="$PROJECT_DIR$/client/js/lib/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ClasCol.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380091819567" ignored="false" />
-    <file path="/game_data.json" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380123182420" ignored="false" />
+    <file path="/game_data.json" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380153709612" ignored="false" />
     <file path="/game.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380124683630" ignored="false" />
     <file path="/patterns.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380124309249" ignored="false" />
     <file path="/table.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380123889285" ignored="false" />
     <file path="/a.dummy" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380127813030" ignored="false" />
     <file path="/test.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380012467624" ignored="false" />
     <file path="/utils.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380149616215" ignored="false" />
-    <file path="/card.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380150303407" ignored="false" />
-    <file path="/clascol.css" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380150544772" ignored="false" />
+    <file path="/card.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380151488351" ignored="false" />
+    <file path="/clascol.css" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380153071826" ignored="false" />
     <file path="/json.jquery.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380013007577" ignored="false" />
     <file path="/index.html" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380125546620" ignored="false" />
+    <file path="/position.js" changelist="5b4a7304-fef7-4054-a784-6c231c1d1cfb" time="1380152956262" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="card.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="card.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/card.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="212" column="35" selection-start="7978" selection-end="7978" vertical-scroll-proportion="0.72445464">
+            <state line="168" column="34" selection-start="6200" selection-end="6200" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -76,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clascol.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="clascol.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/style/clascol.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="490" column="24" selection-start="11609" selection-end="11609" vertical-scroll-proportion="-16.333334">
+            <state line="460" column="22" selection-start="10661" selection-end="10661" vertical-scroll-proportion="0.7781732">
               <folding />
             </state>
           </provider>
@@ -88,7 +86,7 @@
       <file leaf-file-name="game_data.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/example/game_data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="47" selection-start="0" selection-end="4290" vertical-scroll-proportion="-3.3333333">
+            <state line="14" column="754" selection-start="2014" selection-end="2014" vertical-scroll-proportion="-2.5925925">
               <folding />
             </state>
           </provider>
@@ -117,7 +115,7 @@
       <file leaf-file-name="position.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/position.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="69" selection-start="1567" selection-end="1567" vertical-scroll-proportion="0.0">
+            <state line="29" column="33" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -152,14 +150,15 @@
       <list>
         <option value="$PROJECT_DIR$/client/js/lib/json.jquery.js" />
         <option value="$PROJECT_DIR$/client/js/test.js" />
-        <option value="$PROJECT_DIR$/client/example/game_data.json" />
         <option value="$PROJECT_DIR$/client/js/table.js" />
         <option value="$PROJECT_DIR$/client/js/patterns.js" />
         <option value="$PROJECT_DIR$/client/js/game.js" />
         <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/client/js/lib/utils.js" />
-        <option value="$PROJECT_DIR$/client/style/clascol.css" />
         <option value="$PROJECT_DIR$/client/js/card.js" />
+        <option value="$PROJECT_DIR$/client/js/position.js" />
+        <option value="$PROJECT_DIR$/client/example/game_data.json" />
+        <option value="$PROJECT_DIR$/client/style/clascol.css" />
       </list>
     </option>
   </component>
@@ -361,7 +360,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09762533" sideWeight="0.6703663" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09762533" sideWeight="0.6703663" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -453,13 +452,6 @@
         <state line="27" column="43" selection-start="2276" selection-end="2276" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/position.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="69" selection-start="1567" selection-end="1567" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -500,13 +492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/example/game_data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="47" selection-start="0" selection-end="4290" vertical-scroll-proportion="-3.3333333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/lib/class.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="64" column="29" selection-start="2099" selection-end="2101" vertical-scroll-proportion="0.82206404">
@@ -530,16 +515,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/style/clascol.css">
+    <entry file="file://$PROJECT_DIR$/client/js/card.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="490" column="24" selection-start="11609" selection-end="11609" vertical-scroll-proportion="-16.333334">
+        <state line="168" column="34" selection-start="6200" selection-end="6200" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/card.js">
+    <entry file="file://$PROJECT_DIR$/client/js/position.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="35" selection-start="7978" selection-end="7978" vertical-scroll-proportion="0.72445464">
+        <state line="29" column="33" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/example/game_data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="754" selection-start="2014" selection-end="2014" vertical-scroll-proportion="-2.5925925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/style/clascol.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="460" column="22" selection-start="10661" selection-end="10661" vertical-scroll-proportion="0.7781732">
           <folding />
         </state>
       </provider>
