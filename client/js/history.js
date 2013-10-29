@@ -49,8 +49,13 @@ define(['lib/utils'], function(Util){
     });
 
     History.Item = Class.extend({
-        init: function(usr){
-            this.timestamp = new Date();
+        init: function(usr, time){
+            if(typeof time !== "undefined"){
+                this.timestamp = new Date(time);
+            }
+            else{
+                this.timestamp = new Date();
+            }
             this.author = usr;
         },
         getDate: function(){

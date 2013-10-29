@@ -5,9 +5,16 @@ Collaborative sorting of cards in a table. Runs with node.js and a couple provid
 
 The instantiation of a sorting is provided by a json file and a set of images.
 
+Requirements
+------------
+To run, clascol requires :
+* node.js
+* socket.io
+    * once socket.io is installed, you can fetch node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.min.js to replace the one provided as you might have a more recent version of socket.io. Or if you install socket.io/node properly replacing the link to it with : <script src="/socket.io/socket.io.js"></script> might just work…
+
 Coding conventions and tags
 ------------------------
-Many functionnalities will not be developped in the first versions. When modifications are necessary for a given anticipated functionnality, a tag will be added in the code.
+Many functionalities will not be developed in the first versions. When modifications are necessary for a given anticipated functionality, a tag will be added in the code.
 Existing tags are the following:
 * #3d → The current version only works with 2 categories associated to each card (table representation, this tags indicates where to change stuff to expand the number of categories) ;
 * #render → Improve rendering ;

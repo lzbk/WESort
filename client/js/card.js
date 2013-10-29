@@ -9,8 +9,8 @@
 define(['position', 'history'], function(Position, History) {
 
         var CommentItem = History.Item.extend({
-            init: function(usr, com){
-                this._super(usr);
+            init: function(usr, com, time){
+                this._super(usr, time);
                 this.comment = com;
             },
             print: function(){
@@ -20,8 +20,8 @@ define(['position', 'history'], function(Position, History) {
         });
 
         var PositionItem = History.Item.extend({
-            init: function(usr, pos){
-                this._super(usr);
+            init: function(usr, pos, time){
+                this._super(usr, time);
                 this.position = pos;
             },
             print: function(){

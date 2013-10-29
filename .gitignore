@@ -1,1 +1,4 @@
 /README.md~
+/server/node_modules/
+/.gitignore~
+/npm-debug.log

@@ -1,0 +1,12 @@
+{
+    "name": "ClasCol",
+    "description": "A server for the ClasCol app (developed for janus)",
+    "author": "lzbk",
+    "version": "0.0.1",
+    "main": "main.js",
+    "private": true,
+    "dependencies": {
+        "socket.io": ">=0.9",
+        "mongojs":">=0.9.6"
+    }
+}

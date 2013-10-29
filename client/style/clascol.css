@@ -262,7 +262,6 @@ article[open=open] .details, article[open=open] footer, article[open=open] .clos
     background-image: url(../assets/close.png);
     background-position: top right;
     cursor:pointer;
-
 }
 
 article[open=open] .illustration{
