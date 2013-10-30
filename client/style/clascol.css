@@ -119,7 +119,7 @@ body>header #helpButton{
     cursor:pointer;
 }
 
-body>section{
+body>section, form{
     position: relative;
     background-color: #f3f3f3;
     height: 85%;

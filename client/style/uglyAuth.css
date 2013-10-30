@@ -1,0 +1,11 @@
+.formError{
+    background-color: #ffd8d8;
+    color: #b90000;
+}
+.formOk{
+    background-color: #d3fdaa;
+    color: #21a36a;
+}
+.selected{
+    background-color: #21a36a;
+}

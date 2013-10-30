@@ -1,0 +1,35 @@
+{
+    "form":{
+        "header":"<header><h2>Connexion</h2><div class='closeButton'></div></header>",
+        "containerTag":"article",
+        "register":[
+            {"id":"username", "type":"text", "optional":false, "text":"Nom d'utilisateur"},
+            {"id":"email", "type":"e-mail", "optional": false, "text":"E-mail"},
+            {"id":"password", "type":"password", "optional": false, "text":"Mot de passe", "textVerification":"Vérification du mot de passe"},
+            {"id":"avatar", "type":"image", "optional":true, "text":"Choisissez un personnage", "images":[
+                {"id":"PJ1", "file":"assets/sampleUglyAuth/PJ1.png"},
+                {"id":"PJ2", "file":"assets/sampleUglyAuth/PJ2.png"},
+                {"id":"PJ3", "file":"assets/sampleUglyAuth/PJ3.png"},
+                {"id":"PJ4", "file":"assets/sampleUglyAuth/PJ4.png"},
+                {"id":"PJ5", "file":"assets/sampleUglyAuth/PJ5.png"}
+            ]}
+        ],
+        "login":[
+            {"id":"username", "type":"text", "optional":false, "text":"Nom d'utilisateur"},
+            {"id":"password", "type":"password", "optional": false, "text":"E-mail"}
+        ],
+        "classes":{
+            "form":"details",
+            "error":"formError",
+            "ok":"formOk",
+            "selected":"selected"
+        },
+        "text":{
+            "register":"Vous enregistrer",
+            "login":"Vous connecter",
+            "errorEmpty":"Information nécessaire",
+            "errorEmail":"Ce n'est pas une adresse e-mail",
+            "errorPsswd":"Mots de passe différents"
+        }
+    }
+}
