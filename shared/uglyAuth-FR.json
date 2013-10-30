@@ -1,6 +1,6 @@
 {
     "form":{
-        "header":"<header><h2>Connexion</h2><div class='closeButton'></div></header>",
+        "header":"<header><h2>Connexion</h2></header>",
         "containerTag":"article",
         "register":[
             {"id":"username", "type":"text", "optional":false, "text":"Nom d'utilisateur"},
@@ -16,7 +16,7 @@
         ],
         "login":[
             {"id":"username", "type":"text", "optional":false, "text":"Nom d'utilisateur"},
-            {"id":"password", "type":"password", "optional": false, "text":"E-mail"}
+            {"id":"password", "type":"password", "optional": false, "text":"Mot de passe"}
         ],
         "classes":{
             "form":"details",

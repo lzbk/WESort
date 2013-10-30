@@ -5,7 +5,27 @@
 .formOk{
     background-color: #d3fdaa;
     color: #21a36a;
+
+}
+span.formError{
+    padding: 2px;
+    font-size: smaller;
 }
 .selected{
     background-color: #21a36a;
+}
+
+input{
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+form>p{
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 3px;
+}
+
+form div img{
+    cursor: pointer;
 }

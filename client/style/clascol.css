@@ -76,6 +76,11 @@ body{
     background-color: #16528d;
 }
 
+a{
+    cursor: pointer;
+    color: #16528d;
+}
+
 body>header, body>footer{
     background: #e3e3e3;
     font-size: small;
@@ -119,7 +124,7 @@ body>header #helpButton{
     cursor:pointer;
 }
 
-body>section, form{
+body>section{
     position: relative;
     background-color: #f3f3f3;
     height: 85%;
@@ -297,7 +302,7 @@ article[open=open], article[open=open]:hover{
     cursor: default;
 }
 
-#help[open]{
+#help[open], #login[open]{
     position:fixed;
     left:25%;
     right:25%;
@@ -320,7 +325,7 @@ article[open=open], article[open=open]:hover{
     z-index: 20;
 }
 
-#help[open] header{
+#help[open] header, #login[open] header{
     padding-left: 2.82rem;
     padding-right: 2.82rem;
     padding-top: 0.5rem;
@@ -328,7 +333,7 @@ article[open=open], article[open=open]:hover{
     height: 1.82rem;
     border-bottom: solid 1px;
 }
-#help[open] .details{
+#help[open] .details, #login[open] .details{
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     margin-bottom: 2.82rem;

@@ -17,16 +17,16 @@ define(function(){
             this.classes = dataSource.form.classes;
             this.text = dataSource.form.text;
             this.elt = $("<"+dataSource.form.containerTag+' id="'+id+'">'+dataSource.form.header+'</'+dataSource.form.containerTag+'/>');
-            this.form = $("<form></form>");
+            this.form = $("<form id='login-form' action='javascript: window.alert("+ '"blabla"' +")'></form>");
             if(typeof this.classes.form !== "undefined"){
                 this.form.addClass(this.classes.form);
             }
             this.form.appendTo(this.elt);
             this.items = {};
             var self = this;
-            this.form.submit(function(){
+            /*this.form.submit(function(){
                 self.hideForm();
-            });
+            });*/
         },
 
         hideForm:function(){
@@ -61,36 +61,45 @@ define(function(){
 
         writeItem: function(item){
             this.items[item.id] = {type: item.type, optional: item.optional};
-            this.form.append("<label>"+ item.text +"</label>");
+            this.form.append("<p></p>");
+            this.form.children().last().append("<label>"+ item.text +"</label>");
             var self = this;
             switch(item.type){
                 case "text":
                 case "e-mail":
                     this.items[item.id].elt = $("<input type='text' id='"+ item.id +"' />");
-                    this.form.append(this.items[item.id].elt);
+                    this.form.children().last().append(this.items[item.id].elt);
                     this.items[item.id].elt.blur(function(){
                         self.checkField(item.id);
                     });
                     break;
                 case "password":
                     this.items[item.id].elt = $("<input type='password' id='"+ item.id +"' />");
-                    this.form.append(this.items[item.id].elt);
+                    this.form.children().last().append(this.items[item.id].elt);
                     this.items[item.id].elt.blur(function(){
                         self.checkField(item.id);
                     });
                     if(typeof item.textVerification == "string"){
+                        this.form.append("<p></p>");
                         this.items[item.id].elt2 = $("<input type='password' id='"+ item.id +"2' />");
-                        this.form.append("<label>"+ item.textVerification +"</label>");
-                        this.form.append(this.items[item.id].elt2);
+                        this.form.children().last().append("<label>"+ item.textVerification +"</label>");
+                        this.form.children().last().append(this.items[item.id].elt2);
                         this.items[item.id].elt2.blur(function(){
-                            self.checkField(item.id);
+                            if($(this).val()==""){
+                                if(!self.items[item.id].optional){
+                                    self.fieldError($(this), self.text.errorEmpty);
+                                }
+                            }
+                            else{
+                                self.checkField(item.id);
+                            }
                         });
                     }
                     break;
                 case "image":
                     var tmpElt;
                     this.items[item.id].elt = $("<div id='"+ item.id +"' value=''/></div>");
-                    this.form.append(this.items[item.id].elt);
+                    this.form.children().last().append(this.items[item.id].elt);
                     var imageId;
                     for(var i=0; i<item.images.length;i++){
                         imageId = item.images[i].id;
@@ -106,6 +115,7 @@ define(function(){
                             $(this).parent().attr("value", this.id);
                         });
                     }
+                    $("<div></div>").css("clear","both").appendTo(this.form);//dummy element for the next one…
             }
 
         },
@@ -128,11 +138,25 @@ define(function(){
             }
         },
 
+        fieldOK: function(elt){
+            elt.siblings("."+this.classes.error).remove();
+            elt.removeClass(this.classes.error);
+            elt.addClass(this.classes.ok);
+        },
+
+        fieldError: function(elt, msg){
+            elt.siblings("."+this.classes.error).remove();
+            elt.removeClass(this.classes.ok);
+            elt.addClass(this.classes.error);
+            if(typeof msg !== "undefined"){
+                elt.after("<span class='"+this.classes.error+"'>"+msg+"</span>");
+            }
+        },
+
         checkField: function(id){
             if(this.items[id].elt.val()==""){
                 if(!this.items[id].optional){
-                    this.items[id].elt.addClass(this.classes.error);
-                    this.items[id].elt.after("<span class='"+this.classes.error+"'>"+this.text.errorEmpty+"</span>");
+                    this.fieldError(this.items[id].elt, this.text.errorEmpty);
                 }
             }
             else{
@@ -140,31 +164,34 @@ define(function(){
                     case "e-mail":
                         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                         if (re.test(this.items[id].elt.val())){
-                            this.items[id].elt.addClass(this.classes.ok);
+                            this.fieldOK(this.items[id].elt);
                         }
                         else{
-                            this.items[id].elt.addClass(this.classes.error);
-                            this.items[id].elt.after("<span class='"+this.classes.error+"'>"+this.text.errorEmail+"</span>");
+                            this.fieldError(this.items[id].elt, this.text.errorEmail);
                         }
                         break;
                     case "password":
+                        console.log(this.items[id]);/**/
                         if( (typeof this.items[id].elt2 !== "undefined") &&
                             (this.items[id].elt2.val() !== "") ){//too bad if the user starts with the second
                             if(this.items[id].elt.val() != this.items[id].elt2.val()){
-                                this.items[id].elt.addClass(this.classes.error);
-                                this.items[id].elt2.addClass(this.classes.error);
-                                this.items[id].elt2.after("<span class='"+this.classes.error+"'>"+this.text.errorPsswd+"</span>");
+                                this.fieldError(this.items[id].elt);
+                                this.fieldError(this.items[id].elt2, this.text.errorPsswd);
                             }
                             else{
-                                this.items[id].elt.addClass(this.classes.ok);
-                                this.items[id].elt2.addClass(this.classes.ok);
+                                this.fieldOK(this.items[id].elt);
+                                this.fieldOK(this.items[id].elt2);
                             }
                         }
+                        else if(this.items[id].elt.val() != ""){
+                            this.fieldOK(this.items[id].elt);
+                        }
+                        else
                         break;
                     case "image":
                         break;
                     default:
-                        this.items[id].elt.addClass(this.classes.ok);
+                        this.fieldOK(this.items[id].elt);
                 }
             }
         }//end checkField
