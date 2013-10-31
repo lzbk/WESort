@@ -6,7 +6,7 @@
             {"id":"username", "type":"text", "optional":false, "text":"Nom d'utilisateur"},
             {"id":"email", "type":"e-mail", "optional": false, "text":"E-mail"},
             {"id":"password", "type":"password", "optional": false, "text":"Mot de passe", "textVerification":"Vérification du mot de passe"},
-            {"id":"avatar", "type":"image", "optional":true, "text":"Choisissez un personnage", "images":[
+            {"id":"avatar", "type":"image", "optional":false, "text":"Choisissez un personnage", "images":[
                 {"id":"PJ1", "file":"assets/sampleUglyAuth/PJ1.png"},
                 {"id":"PJ2", "file":"assets/sampleUglyAuth/PJ2.png"},
                 {"id":"PJ3", "file":"assets/sampleUglyAuth/PJ3.png"},

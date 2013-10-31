@@ -39,6 +39,10 @@ define(function(){
             tmpItem.click(function(){
                 self.showLogin();
             });
+            if (typeof this.register.submit === "undefined"){
+                this.register.submit = "<input type='submit' />";
+            }
+            this.form.append($(this.register.submit));
             this.form.append($("<p></p>").append(tmpItem));
         },
 
@@ -56,6 +60,7 @@ define(function(){
             for(var i=0; i<aForm.length;i++){
                 this.writeItem(aForm[i]);
             }
+
             $('#overlay').attr("class", "show").append(this.elt);
         },
 
@@ -98,24 +103,30 @@ define(function(){
                     break;
                 case "image":
                     var tmpElt;
-                    this.items[item.id].elt = $("<div id='"+ item.id +"' value=''/></div>");
+                    this.items[item.id].elt = $("<fieldset id='"+ item.id +"' value=''/></fieldset>");
                     this.form.children().last().append(this.items[item.id].elt);
                     var imageId;
                     for(var i=0; i<item.images.length;i++){
                         imageId = item.images[i].id;
-                        tmpElt = $('<div id="'+item.images[i].id+'"></div>');
+                        tmpElt = $('<button type="button" id="'+item.images[i].id+'"></button>');
                         tmpElt.append('<img src="'+item.images[i].file+'" />');
                         this.items[item.id].elt.append(tmpElt);
-                        tmpElt.css("float", "left");
-                        tmpElt.css("margin-right", "0.5rem");
                         tmpElt.click(function(){
-                            console.log(("#"+item.id+" ."+self.classes.selected));/**/
-                            $("#"+item.id+" div").removeClass(self.classes.selected);
+                            $("#"+item.id+" button").removeClass(self.classes.selected);
                             $(this).addClass(self.classes.selected);
                             $(this).parent().attr("value", this.id);
+                            self.fieldOK(self.items[item.id].elt);
+                        });
+                        tmpElt.blur(function(){
+                            console.log($(":focus").attr("id"));
+                            setTimeout(function(){
+                                if(document.activeElement.parentNode.id !== item.id){
+                                    self.checkField(item.id);
+                                }
+                            }, 10);
                         });
                     }
-                    $("<div></div>").css("clear","both").appendTo(this.form);//dummy element for the next one…
+                    $("<div></div>").css("clear","both").css("padding-bottom","6px").appendTo(this.form);//dummy element for the next one…
             }
 
         },
@@ -186,10 +197,8 @@ define(function(){
                         else if(this.items[id].elt.val() != ""){
                             this.fieldOK(this.items[id].elt);
                         }
-                        else
                         break;
                     case "image":
-                        break;
                     default:
                         this.fieldOK(this.items[id].elt);
                 }
