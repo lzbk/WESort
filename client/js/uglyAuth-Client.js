@@ -15,19 +15,30 @@ define(function(){
             this.register = dataSource.form.register ;
             this.login = dataSource.form.login ;
             this.classes = dataSource.form.classes;
+            this.loadingSrc = dataSource.form.loadingImg;
             this.text = dataSource.form.text;
             this.elt = $("<"+dataSource.form.containerTag+' id="'+id+'">'+dataSource.form.header+'</'+dataSource.form.containerTag+'/>');
-            this.form = $("<form id='login-form' action='javascript: window.alert("+ '"blabla"' +")'></form>");
+            this.form = $("<form id='login-form' action='javascript:void(0);'></form>");
             if(typeof this.classes.form !== "undefined"){
                 this.form.addClass(this.classes.form);
             }
             this.form.appendTo(this.elt);
             this.items = {};
-            var self = this;
-            /*this.form.submit(function(){
-                self.hideForm();
-            });*/
+            /**/var self = this;
+            /**/this.onSendForm(function(){self.hideForm();});
         },
+
+       onSendForm: function(sendFunction){
+           this.sendForm = sendFunction;
+           var self = this;
+           this.form.submit(function(){
+               if(self.checkForm()){
+                   self.showLoading();
+                   self.disableForm();
+                   self.sendForm();
+               }
+           });
+       },
 
         hideForm:function(){
             $('#overlay').removeAttr("class");
@@ -35,24 +46,33 @@ define(function(){
 
         showRegister: function(){
             this.showForm(this.register);
-            var self=this, tmpItem = $("<a>"+this.text.login+"</a>");
-            tmpItem.click(function(){
-                self.showLogin();
-            });
             if (typeof this.register.submit === "undefined"){
                 this.register.submit = "<input type='submit' />";
             }
-            this.form.append($(this.register.submit));
-            this.form.append($("<p></p>").append(tmpItem));
+            this.form.append($(this.register.submit).attr("id", 'uglyAuth-'+this.elt.id));
+            if(typeof this.text.login !== "undefined"){
+                var tmpItem = $("<a>"+this.text.login+"</a>"), self=this;
+                tmpItem.click(function(){
+                    self.showLogin();
+                });
+                this.form.append($("<p></p>").append(tmpItem));
+            }
+
         },
 
         showLogin: function(){
             this.showForm(this.login);
-            var self=this, tmpItem = $("<a>"+this.text.register+"</a>");
-            tmpItem.click(function(){
-                self.showRegister();
-            });
-            this.form.append($("<p></p>").append(tmpItem));
+            if (typeof this.login.submit === "undefined"){
+                this.login.submit = "<input type='submit' />";
+            }
+            this.form.append($(this.login.submit).attr("id",'uglyAuth-'+this.elt.id));
+            if(typeof this.text.register !== "undefined"){
+                var self=this, tmpItem = $("<a>"+this.text.register+"</a>");
+                tmpItem.click(function(){
+                    self.showRegister();
+                });
+                this.form.append($("<p></p>").append(tmpItem));
+            }
         },
 
         showForm: function(aForm){
@@ -132,13 +152,16 @@ define(function(){
         },
 
         clearForm: function(){
+            var self=this;
             Object.keys(this.items).forEach(function (key) {
-                this.items[key].elt.val("");
-                this.items[key].elt.attr("class","");
-                if(typeof this.items[key].elt2 !== "undefined"){
-                    this.items[key].elt2.val("");
-                    this.items[key].elt2.attr("class","");
+                self.items[key].elt.val("");
+                self.items[key].elt.attr("class","");
+                if(typeof self.items[key].elt2 !== "undefined"){
+                    self.items[key].elt2.val("");
+                    self.items[key].elt2.attr("class","");
+                    self.items[key].elt2.siblings("."+self.classes.error).remove();
                 }
+                self.items[key].elt.siblings("."+self.classes.error).remove();
             });
         },
 
@@ -165,6 +188,7 @@ define(function(){
         },
 
         checkField: function(id){
+            var res = false;
             if(this.items[id].elt.val()==""){
                 if(!this.items[id].optional){
                     this.fieldError(this.items[id].elt, this.text.errorEmpty);
@@ -176,13 +200,13 @@ define(function(){
                         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                         if (re.test(this.items[id].elt.val())){
                             this.fieldOK(this.items[id].elt);
+                            res = true;
                         }
                         else{
                             this.fieldError(this.items[id].elt, this.text.errorEmail);
                         }
                         break;
                     case "password":
-                        console.log(this.items[id]);/**/
                         if( (typeof this.items[id].elt2 !== "undefined") &&
                             (this.items[id].elt2.val() !== "") ){//too bad if the user starts with the second
                             if(this.items[id].elt.val() != this.items[id].elt2.val()){
@@ -192,18 +216,52 @@ define(function(){
                             else{
                                 this.fieldOK(this.items[id].elt);
                                 this.fieldOK(this.items[id].elt2);
+                                res = true;
                             }
                         }
                         else if(this.items[id].elt.val() != ""){
                             this.fieldOK(this.items[id].elt);
+                            res = true;
                         }
                         break;
                     case "image":
                     default:
                         this.fieldOK(this.items[id].elt);
+                        res=true;
                 }
             }
-        }//end checkField
+            return res;
+        },//end checkField
+
+        checkForm: function(){
+            var self=this, result = true;
+            Object.keys(this.items).forEach(function (key) {
+                result = self.checkField(key) && result;
+            });
+            return result;
+        },
+
+        showLoading: function(){
+
+            $("#uglyAuth-"+this.elt.id).after('<img src="'+this.loadingSrc+'" />');
+        },
+
+        disableForm: function(){
+            var self=this;
+            Object.keys(this.items).forEach(function (key) {
+                self.items[key].elt.attr("disabled", "disabled").removeAttr("class");
+                if(typeof self.items[key].elt2 !== "undefined"){//checked password
+                    self.items[key].elt2.attr("disabled", "disabled").removeAttr("class");
+                }
+                //images
+                if(self.items[key].type == "image"){
+                    self.items[key].elt.removeAttr("class");
+                    $("#"+key+" button").attr("disabled", "disabled");
+                }
+
+            });
+            this.form.attr("disabled", "disabled");
+        }
     });
     return UglyAuth;
 });
