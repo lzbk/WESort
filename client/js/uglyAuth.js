@@ -1,16 +1,14 @@
 /**
  * UglyAuthentication
  * User: loizbek
- * Content: Handling authentication
+ * Content: Handling authentication forms
  */
 
 define(function(){
     var UglyAuth = Class.extend({
         init: function(id, dataSource){
             if(typeof dataSource == "string"){
-                console.log(dataSource);
                 dataSource = Util.loadJSON(dataSource);
-                console.log(dataSource);
             }
             this.register = dataSource.form.register ;
             this.login = dataSource.form.login ;

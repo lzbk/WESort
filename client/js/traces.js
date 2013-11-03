@@ -23,7 +23,7 @@ define(function(){
     var Traces = Trace.extend({
         traces: null,
 
-        initialize: function(){
+        init: function(){
             this.traces = [];
         },
 

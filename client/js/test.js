@@ -1,4 +1,4 @@
-define(['game', 'uglyAuth-Client'], function(Game, UglyAuth){ //testing
+define(['game', 'uglyAuth.socket.io-client'], function(Game, UglyAuth_io){ //testing
     var initApp = function(msg){
 
         /*var aCard = new Card("carte1", "Le super mausolée", ["mausolée","gallo-romain"], "http://www.cevennes-parcnational.fr/var/cevennes/storage/images/mediatheque/images/un-patrimoine-d-exception/histoire-et-prehistoire/mausolee-de-lanuejols2/136949-4-fre-FR/Mausolee-de-Lanuejols_lightbox.jpg", "Voilà un super mausolée");
@@ -26,7 +26,7 @@ define(['game', 'uglyAuth-Client'], function(Game, UglyAuth){ //testing
                                    new Category("rus", "Russe", "Ou ex-URSS", dimension2.id)]}, "Un super exo", true);
         maTable.spawn();*/
         var jeu = new Game("example", "moi");
-        var login = new UglyAuth("login", "../shared/uglyAuth-FR.json");
+        var login = new UglyAuth_io("login", "config.json");
         login.showLogin();
         $('#overlay').attr("class", "show");
         login.elt.attr("open", "open");

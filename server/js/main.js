@@ -1,18 +1,25 @@
 var config = require('../config.json');
 var cls = require('./lib/class');
 var dbh = new require('./dbHandler');
+var auth = new require('./uglyAuth.socket.io-server');
 
 var Server = cls.Class.extend({
     init: function(){
         this.socketList = [];
         this.tst=[];
         this.db = new dbh(config.db);
+        console.log(this.db);/**/
+        this.db.test();
         this.io = require('socket.io').listen(config.websocket.port);
-        this.initEvents();
+
+        this.init_callbacks();
+        this.auth = new auth(this.io, this.db, "../../shared/uglyAuth-FR.json");
         this.io.sockets.on('connection', this.connect);
     },
 
-    initEvents: function(){
+
+
+    init_callbacks: function(){
         var self=this;
         this.connect = function(socket){
             console.log('ok');
@@ -35,14 +42,7 @@ var Server = cls.Class.extend({
 
 var hop;
 var theServer = new Server();
-theServer.db.db.games.find("", function(err, jeu){
-    console.log("2");
-    if(err || !jeu){console.log("merdouille");}
-    else{
-        console.log("Top"+jeu[0].dimension.X[0]+jeu[0].dimension.Y[1]);
-        hop="Top"+jeu[0].dimension.X[1]+jeu[0].dimension.Y[0];
-    }
-});
+theServer.db.test();
 console.log("3");
 
 /*db.prototype.content = function(){

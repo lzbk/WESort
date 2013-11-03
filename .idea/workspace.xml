@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a34b93bc-380f-454f-96d5-1f6266d0f8f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/uglyAuth-Client.js" afterPath="$PROJECT_DIR$/client/js/uglyAuth-Client.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/config.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/sha1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/js/uglyAuth.socket.io-server.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/uglyAuth-Client.js" afterPath="$PROJECT_DIR$/client/js/uglyAuth.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/js/dbHandler.js" afterPath="$PROJECT_DIR$/server/js/dbHandler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index.html" afterPath="$PROJECT_DIR$/client/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/js/main.js" afterPath="$PROJECT_DIR$/server/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/test.js" afterPath="$PROJECT_DIR$/client/js/test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/traces.js" afterPath="$PROJECT_DIR$/client/js/traces.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/uglyAuth-FR.json" afterPath="$PROJECT_DIR$/shared/uglyAuth-FR.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/style/uglyAuth.css" afterPath="$PROJECT_DIR$/client/style/uglyAuth.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ClasCol.iws" />
@@ -28,40 +37,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="uglyAuth-Client.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/js/uglyAuth-Client.js">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="57" selection-start="5256" selection-end="5256" vertical-scroll-proportion="0.6660959" vertical-offset="1366" max-vertical-offset="3210">
+            <state line="21" column="18" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="990">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uglyAuth-FR.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shared/uglyAuth-FR.json">
+      <file leaf-file-name="config.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="60" selection-start="502" selection-end="502" vertical-scroll-proportion="-4.375" vertical-offset="15" max-vertical-offset="600">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="255">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/game.js">
+      <file leaf-file-name="dbHandler.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/js/dbHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="71" selection-start="555" selection-end="572" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1335">
+            <state line="27" column="25" selection-start="900" selection-end="900" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="735">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="patterns.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/patterns.js">
+      <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="49" selection-start="866" selection-end="982" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1095">
-              <folding>
-                <marker date="1380124325500" expanded="false" signature="481:507" placeholder="..." />
-              </folding>
+            <state line="15" column="3" selection-start="877" selection-end="877" vertical-scroll-proportion="-5.375" vertical-offset="96" max-vertical-offset="810">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,34 +76,7 @@
       <file leaf-file-name="test.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="69" selection-start="2351" selection-end="2377" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="675">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clascol.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/style/clascol.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="344" column="1" selection-start="8192" selection-end="8192" vertical-scroll-proportion="0.0" vertical-offset="4606" max-vertical-offset="7740">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="uglyAuth.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/style/uglyAuth.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="23" selection-start="562" selection-end="562" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="1035">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="card.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/card.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="43" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="3915">
+            <state line="23" column="116" selection-start="1988" selection-end="1988" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="855">
               <folding />
             </state>
           </provider>
@@ -105,16 +85,43 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="51" selection-start="840" selection-end="840" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="705">
+            <state line="17" column="10" selection-start="1010" selection-end="1010" vertical-scroll-proportion="-1.625" vertical-offset="216" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="traces.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/traces.js">
+      <file leaf-file-name="home.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="908" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uglyAuth.socket.io-server.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/js/uglyAuth.socket.io-server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="19" selection-start="1218" selection-end="1218" vertical-scroll-proportion="0.48387095" vertical-offset="210" max-vertical-offset="855">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uglyAuth.socket.io-client.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="68" selection-start="689" selection-end="689" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/config.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="22" selection-start="42" selection-end="42" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="180">
               <folding />
             </state>
           </provider>
@@ -138,21 +145,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/client/js/test.js" />
         <option value="$PROJECT_DIR$/client/js/game.js" />
-        <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/client/style/clascol.css" />
-        <option value="$PROJECT_DIR$/shared/uglyAuth-FR.json" />
         <option value="$PROJECT_DIR$/client/style/uglyAuth.css" />
         <option value="$PROJECT_DIR$/client/js/uglyAuth-Client.js" />
+        <option value="$PROJECT_DIR$/client/js/uglyAuth.js" />
+        <option value="$PROJECT_DIR$/client/config.json" />
+        <option value="$PROJECT_DIR$/client/index.html" />
+        <option value="$PROJECT_DIR$/client/js/traces.js" />
+        <option value="$PROJECT_DIR$/shared/uglyAuth-FR.json" />
+        <option value="$PROJECT_DIR$/shared/sha1.js" />
+        <option value="$PROJECT_DIR$/client/js/test.js" />
+        <option value="$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js" />
+        <option value="$PROJECT_DIR$/server/js/dbHandler.js" />
+        <option value="$PROJECT_DIR$/server/js/main.js" />
+        <option value="$PROJECT_DIR$/server/js/uglyAuth.socket.io-server.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="25" />
-    <option name="width" value="1922" />
-    <option name="height" value="1056" />
+    <option name="x" value="694" />
+    <option name="y" value="26" />
+    <option name="width" value="1163" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -223,7 +238,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClasCol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClasCol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -238,10 +271,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -277,29 +306,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sampleUglyAuth" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -321,6 +332,12 @@
         </serverdata>
       </server>
     </servers>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/shared" />
+      <recent name="$PROJECT_DIR$/client" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -384,23 +401,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="25" width="1922" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="694" y="26" width="1163" height="1053" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="true" weight="0.33002207" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10911966" sideWeight="0.67142856" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32747254" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.6699779" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27192983" sideWeight="0.6699779" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819384" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -415,119 +432,119 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/js/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="69" selection-start="2351" selection-end="2377" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/style/clascol.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="351" column="27" selection-start="8265" selection-end="8272" vertical-scroll-proportion="0.0" vertical-offset="5265" max-vertical-offset="7665">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/style/uglyAuth.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="29" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="240">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/card.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="43" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="3915">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3915">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
+    <entry file="file://$PROJECT_DIR$/server/js/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="51" selection-start="840" selection-end="840" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="705">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/traces.js">
+    <entry file="file://$PROJECT_DIR$/server/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="908" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="582">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/patterns.js">
+    <entry file="file://$PROJECT_DIR$/client/js/position.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="49" selection-start="866" selection-end="982" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1110">
-          <folding>
-            <marker date="1380124325500" expanded="false" signature="481:507" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/card.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="43" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="3930">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="71" selection-start="555" selection-end="572" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1470">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="51" selection-start="840" selection-end="840" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="705">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="69" selection-start="2351" selection-end="2377" vertical-scroll-proportion="0.0" vertical-offset="159" max-vertical-offset="780">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/style/clascol.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="344" column="1" selection-start="8192" selection-end="8192" vertical-scroll-proportion="0.0" vertical-offset="4470" max-vertical-offset="7740">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/traces.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="908" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/uglyAuth-FR.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="60" selection-start="502" selection-end="502" vertical-scroll-proportion="-4.375" vertical-offset="15" max-vertical-offset="600">
+        <state line="42" column="58" selection-start="1950" selection-end="1950" vertical-scroll-proportion="-15.75" vertical-offset="252" max-vertical-offset="810">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/style/uglyAuth.css">
+    <entry file="file://$PROJECT_DIR$/shared/sha1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="23" selection-start="562" selection-end="562" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="1035">
+        <state line="22" column="372" selection-start="5239" selection-end="5239" vertical-scroll-proportion="9.28" vertical-offset="562" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/uglyAuth-Client.js">
+    <entry file="file://$PROJECT_DIR$/server/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="57" selection-start="5256" selection-end="5256" vertical-scroll-proportion="0.6660959" vertical-offset="1366" max-vertical-offset="3210">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="3" selection-start="877" selection-end="877" vertical-scroll-proportion="-5.375" vertical-offset="96" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="10" selection-start="1010" selection-end="1010" vertical-scroll-proportion="-1.625" vertical-offset="216" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="116" selection-start="1988" selection-end="1988" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="22" selection-start="42" selection-end="42" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="68" selection-start="689" selection-end="689" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/js/dbHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="25" selection-start="900" selection-end="900" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="18" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/js/uglyAuth.socket.io-server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="19" selection-start="1218" selection-end="1218" vertical-scroll-proportion="0.48387095" vertical-offset="210" max-vertical-offset="855">
           <folding />
         </state>
       </provider>
