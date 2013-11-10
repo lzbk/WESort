@@ -10,7 +10,7 @@ var cls = require("./lib/class");
 module.exports = DBHandler = cls.Class.extend({
     init: function(config){
         if(config.type == "mongo"){
-            var collections=['clasCol', 'players'];
+            var collections=['clasCol', 'players', 'actions'];
             this.connectUrl = "mongodb://"+config.user+":"+config.pswd+"@"+config.host+"/"+config.name;
             this.db = require('mongojs').connect(this.connectUrl, collections, this.connectError);
             /**/console.log("1 → db OK");
@@ -28,7 +28,9 @@ module.exports = DBHandler = cls.Class.extend({
             if(err || !saved){
                 ioAuthentication_callback("Could not create player ("+anEmail+", "+aPassword+").", false);
             }
-            else{self.auth(anEmail, aPassword, ioAuthentication_callback);}
+            else{
+                self.auth(anEmail, aPassword, ioAuthentication_callback);
+            }
         });
     },
 

@@ -7,12 +7,21 @@
 
 define(function(){
     var UglyAuth = Class.extend({
-        init: function(id, dataSource){
+        /*extraParameters is a JSON object with the following structure :
+         * {register:{pararegister1:paraValue1, pararegister2:paraValue2, …},
+         *  login:   {paralogin1: paraValue1, paralogin2: paraValue2, …}}
+         */
+
+        init: function(id, dataSource, extraParameters){
             if(typeof dataSource == "string"){
                 dataSource = Util.loadJSON(dataSource);
             }
             this.register = dataSource.form.register ;
             this.login = dataSource.form.login ;
+            if(typeof extraParameters !== "undefined"){
+                this.register.extraP = extraParameters.register;
+                this.login.extraP = extraParameters.login;
+            }
             this.classes = dataSource.form.classes;
             this.loadingSrc = dataSource.form.loadingImg;
             this.text = dataSource.form.text;
@@ -23,7 +32,7 @@ define(function(){
             }
             this.form.appendTo(this.elt);
             this.items = {};
-            //onSendForm should be called once… see client…
+            //onSendForm should be called once… see uglyAuth.socket.io-client…
         },
 
        onSendForm: function(sendFunction){
@@ -252,10 +261,15 @@ define(function(){
         fieldsToUrl: function(){
             var res = this.getFormType();
             if(res !== false){
-                res="?action="+res;
+                var formType = res;
                 var self=this;
+                res="?action="+res;
+                if(typeof this[formType].extraP !== "undefined"){
+                    Object.keys(this[formType].extraP).forEach(function (key) {
+                        res += "&"+ key + "=" + self[formType].extraP[key];
+                    });
+                }
                 Object.keys(this.items).forEach(function (key) {
-
                     res += "&" + key + "=" +encodeURIComponent(self.items[key].elt.val());
                 });
             }

@@ -21,11 +21,13 @@ Existing tags are the following:
 * #msg → create constant file with all messages / translation.
 * #security → test data types, entry values and such
 
-Order in which the javascript files call each other
----------------------------------------------------
-* home calls class / jquery and then main
-* main calls ??
-* card calls position
+Order in which the javascript files call each other (client side)
+-----------------------------------------------------------------
+* home calls utils, class, jquery libraries, the patterns and then main (which can use all those)
+* main calls game and the uglyAuthentication-io package
+* uglyAuth.socket.io-client calls uglyAuth and the socket.io client side library
+* game calls table, card and category
+* card calls position and history
 
 
 List of css classes used:
@@ -35,7 +37,13 @@ List of css classes used:
 * closeButton : for whatever comes in the foreground
 * lock : for cards, where we will put the user's name
 
+List of messages exchanged:
+---------------------------
+* server to client :
+    ** connection established: server granted access
+    ** connection denied: server denied access
+
 TODO
-* Category
-* table
-* card.move()
+* storage
+* authentication
+* chat

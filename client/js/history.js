@@ -5,7 +5,7 @@
  * Content: A class to handle "histories"
  */
 
-define(['lib/utils'], function(Util){
+define(function(){
 
     var History=Class.extend({
         init: function(){

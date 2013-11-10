@@ -6,14 +6,11 @@
 
 define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
     var UglyAuth_io = UglyAuth.extend({
-        init: function(id, configSource){
+        init: function(id, configSource, extraParameters){
             if(typeof configSource == "string"){
                 configSource = Util.loadJSON(configSource);
             }
-            window.alert(configSource.authentication);/**/
-            this._super(id, configSource.authentication);
-//
-//
+            this._super(id, configSource.authentication, extraParameters);
             var self = this;
             this.onSendForm(function(){//only called if form is OK see uglyAuth.js
                 /**/console.log(configSource.websocket.url+
@@ -24,21 +21,19 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
                     +self.fieldsToUrl()
                 );
                 self.initCallbacks(id);
-                self.hideForm();
             });//end send Form
         },
 
         initCallbacks: function(id){
+            var self = this;
             $('#'+id).append("started connection");
-            this.socket.on('news', function (data) {
-                console.log(data);
-                $('#'+id).append("blabla"+JSON.stringify(data));
-                this.socket.emit('my other event', { my: 'data' });
+            this.socket.on("connection established", function(data){
+                $('#res').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");
+                self.hideForm();
             });
-            this.socket.on("content", function(data){
-                $('#'+id).html("<h2>"+data.id+"/"+data.hsd.player+"</h2>");
+            this.socket.on("connection denied", function(data){
+
             });
-            this.socket.on("content", function(data){$('#res').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");});
         },
 
         getSocket: function(){
