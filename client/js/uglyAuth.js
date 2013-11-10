@@ -2,6 +2,7 @@
  * UglyAuthentication
  * User: loizbek
  * Content: Handling authentication forms
+ * Requires: Util
  */
 
 define(function(){
@@ -22,8 +23,7 @@ define(function(){
             }
             this.form.appendTo(this.elt);
             this.items = {};
-            /**/var self = this;
-            /**/this.onSendForm(function(){self.hideForm();});
+            //onSendForm should be called once… see client…
         },
 
        onSendForm: function(sendFunction){
@@ -55,6 +55,7 @@ define(function(){
                 });
                 this.form.append($("<p></p>").append(tmpItem));
             }
+            this.type = "register";
 
         },
 
@@ -70,6 +71,16 @@ define(function(){
                     self.showRegister();
                 });
                 this.form.append($("<p></p>").append(tmpItem));
+            }
+            this.type = "login";
+        },
+
+        getFormType: function(){
+            if(typeof this.type !== undefined){
+                return this.type;
+            }
+            else{
+                return false;
             }
         },
 
@@ -195,8 +206,7 @@ define(function(){
             else{
                 switch(this.items[id].type){
                     case "e-mail":
-                        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                        if (re.test(this.items[id].elt.val())){
+                        if (Util.isEmail(this.items[id].elt.val())){
                             this.fieldOK(this.items[id].elt);
                             res = true;
                         }
@@ -237,6 +247,19 @@ define(function(){
                 result = self.checkField(key) && result;
             });
             return result;
+        },
+
+        fieldsToUrl: function(){
+            var res = this.getFormType();
+            if(res !== false){
+                res="?action="+res;
+                var self=this;
+                Object.keys(this.items).forEach(function (key) {
+
+                    res += "&" + key + "=" +encodeURIComponent(self.items[key].elt.val());
+                });
+            }
+            return res;
         },
 
         showLoading: function(){

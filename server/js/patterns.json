@@ -1,0 +1,15 @@
+{
+    "db":{
+        "failCreateUser":"Could not create user {0}.",
+        "successCreateUser":"user {0} successfully created.",
+        "userNotFound":"Could not log as {0} (maybe the account does not exist, may be the password is wrong…)",
+        "userFound":"Successfully logged as {0} (will play game {1})"
+    },
+
+    "socket":{
+        "denyAuth":"Authorization denied",
+        "grantAuth":"Authorization granted",
+        "connect":"{0} entered room {1}",
+        "connectFailure":"{0} could not connect"
+    }
+}

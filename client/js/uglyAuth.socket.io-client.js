@@ -12,21 +12,42 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
             }
             window.alert(configSource.authentication);/**/
             this._super(id, configSource.authentication);
-            var socket = io.connect(configSource.websocket.url+
+//
+//
+            var self = this;
+            this.onSendForm(function(){//only called if form is OK see uglyAuth.js
+                /**/console.log(configSource.websocket.url+
                     ":"+configSource.websocket.port
-                    /**/+"?user=test&password=azerty&action=register"
+                    +self.fieldsToUrl());
+                self.socket = io.connect(configSource.websocket.url+
+                    ":"+configSource.websocket.port
+                    +self.fieldsToUrl()
                 );
+                self.initCallbacks(id);
+                self.hideForm();
+            });//end send Form
+        },
+
+        initCallbacks: function(id){
             $('#'+id).append("started connection");
-            socket.on('news', function (data) {
+            this.socket.on('news', function (data) {
                 console.log(data);
                 $('#'+id).append("blabla"+JSON.stringify(data));
-                socket.emit('my other event', { my: 'data' });
+                this.socket.emit('my other event', { my: 'data' });
             });
-            socket.on("test", function(data){
-                $('#'+id).append("<h2>"+data.message+"</h2>");
+            this.socket.on("test2", function(data){
+                $('#'+id).html("<h2>"+data.message+"</h2>");
             });
-            socket.on("content", function(data){$('#res').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");});
-            this.socket = socket;
+            this.socket.on("content", function(data){$('#res').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");});
+        },
+
+        getSocket: function(){
+            if(typeof this.socket == "undefined"){
+                return false;
+            }
+            else{
+                return this.socket;
+            }
         }
 
     });

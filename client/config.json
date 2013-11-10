@@ -3,5 +3,5 @@
         "url":"http://localhost",
         "port":9093
     },
-    "authentication":"../shared/uglyAuth-FR.json"
+    "authentication":"uglyAuth.io-FR.json"
 }

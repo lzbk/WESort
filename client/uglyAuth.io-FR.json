@@ -31,18 +31,5 @@
             "errorEmail":"Ce n'est pas une adresse e-mail",
             "errorPsswd":"Mots de passe différents"
         }
-    },
-    "db":{
-        "register":{
-            "username":{"table":"players", "field":"name"},
-            "email":{"table":"players", "field":"email"},
-            "password":{"table":"players", "field":"password"},
-            "avatar":{"table":"players", "field":"image"}
-        },
-        "login":{
-            "username":{"table":"players", "field":"name"},
-            "password":{"table":"players", "field":"password"},
-            "returns":{"table":"players", "field":"clasColId"}
-        }
     }
 }

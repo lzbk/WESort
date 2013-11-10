@@ -22,16 +22,35 @@ module.exports = DBHandler = cls.Class.extend({
     },
 
     createUser: function(aName, aPassword, anEmail, anImage, ioAuthentication_callback){
-        this.db.players.save({name: aName, password: aPassword, email: anEmail, image: anImage });
+        var self=this;
+        this.db.players.save({name: aName, password: aPassword, email: anEmail, image: anImage }, function(){
+        //ioAuthentication_callback(null, true);
+            /**/self.auth(anEmail, aPassword, ioAuthentication_callback);
+        });
     },
 
-    test: function(){/**/
-        this.db.clasCol.find("", function(err, jeu){
+    auth: function(email, password, ioAuthentication_callback){
+        this.db.players.findOne({"email":email,"password": password}, function(err, player){
+            if(err || !player){ioAuthentication_callback("Could not find player ("+email+", "+password+").", false);}
+            else{
+                ioAuthentication_callback({"player":player._id.toHexString(),"game":player.game, "team":player.team}, true);
+            }
+        });
+    },
+
+    test: function(){/*
+        this.db.clasCol.find({}, function(err, jeu){
             console.log("2");
             if(err || !jeu){console.log("merdouille");}
             else{
-                console.log("Top"+jeu[0].dimension.X[0]+jeu[0].dimension.Y[1]);/**/
+                console.log("Top"+jeu[0].dimension.X[0]+jeu[0].dimension.Y[1]);
                 hop="Top"+jeu[0].dimension.X[1]+jeu[0].dimension.Y[0];
+            }
+        });*/
+        this.db.players.find({name:'test',password: 'test'}, function(err, player){
+            if(err || !player){console.log("merdouille");}
+            else{
+                console.log(player);
             }
         });
     },
