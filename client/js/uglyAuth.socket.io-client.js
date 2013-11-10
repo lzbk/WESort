@@ -35,8 +35,8 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
                 $('#'+id).append("blabla"+JSON.stringify(data));
                 this.socket.emit('my other event', { my: 'data' });
             });
-            this.socket.on("test2", function(data){
-                $('#'+id).html("<h2>"+data.message+"</h2>");
+            this.socket.on("content", function(data){
+                $('#'+id).html("<h2>"+data.id+"/"+data.hsd.player+"</h2>");
             });
             this.socket.on("content", function(data){$('#res').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");});
         },

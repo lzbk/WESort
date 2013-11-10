@@ -12,7 +12,6 @@ var Server = cls.Class.extend({
         this.io = require('socket.io').listen(config.websocket.port);
 
         this.init_callbacks();
-        this.auth = new auth(this.io, this.db);
         this.io.sockets.on('connection', this.connect);
     },
 
@@ -24,13 +23,12 @@ var Server = cls.Class.extend({
             socket.join('zeroom');
             socket.leave("");
             self.socketList.push(socket);
-            socket.emit('news', { hello: hop });
+            //socket.emit('news', { hello: hop });
             socket.on('my other event', function (data) {
                 console.log(data);
             });
             console.info('\033[35mcreated socket \033[0m', socket.id);
-            console.log("\033[31m",socket.handshake);
-            socket.emit('content', {"id":socket.id, "hsd":socket.handshake});
+            socket.emit('content', {"id":socket.id, "hsd":socket.handshake.query});
             if(self.socketList.length>1){
                 self.socketList[0].emit('test', {"onsenfout":"rien de rien", "message":"you were the first but now you are "+self.socketList.length});
             }
@@ -39,8 +37,8 @@ var Server = cls.Class.extend({
     }
 });
 
-var hop;
 var theServer = new Server();
+auth(theServer.io, theServer.db); //create authentication handlers
 console.log("3");
 
 /*db.prototype.content = function(){

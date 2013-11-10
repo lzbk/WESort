@@ -23,13 +23,17 @@ module.exports = DBHandler = cls.Class.extend({
 
     createUser: function(aName, aPassword, anEmail, anImage, ioAuthentication_callback){
         var self=this;
-        this.db.players.save({name: aName, password: aPassword, email: anEmail, image: anImage }, function(){
-        //ioAuthentication_callback(null, true);
-            /**/self.auth(anEmail, aPassword, ioAuthentication_callback);
+        this.db.players.save({name: aName, password: aPassword, email: anEmail, image: anImage }, {safe:true}, function(err, saved){
+        /**/console.log("\033[31msaved", JSON.stringify(err), typeof err, saved);
+            if(err || !saved){
+                ioAuthentication_callback("Could not create player ("+anEmail+", "+aPassword+").", false);
+            }
+            else{self.auth(anEmail, aPassword, ioAuthentication_callback);}
         });
     },
 
     auth: function(email, password, ioAuthentication_callback){
+        console.log("\033[36m Auth");/**/
         this.db.players.findOne({"email":email,"password": password}, function(err, player){
             if(err || !player){ioAuthentication_callback("Could not find player ("+email+", "+password+").", false);}
             else{
