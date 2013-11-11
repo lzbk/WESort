@@ -16,7 +16,7 @@
             ]}
         ],
         "login":[
-            {"id":"username", "type":"text", "optional":false, "text":"Nom d'utilisateur"},
+            {"id":"email", "type":"e-mail", "optional":false, "text":"Adresse e-mail"},
             {"id":"password", "type":"password", "optional": false, "text":"Mot de passe"}
         ],
         "classes":{

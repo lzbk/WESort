@@ -20,6 +20,10 @@ var Server = cls.Class.extend({
     init_callbacks: function(){
         var self=this;
         this.connect = function(socket){
+            socket.emit('connection established', {"player":socket.handshake.query.player,
+                "team":socket.handshake.query.team, "game":socket.handshake.query.game});
+            //later on add to the emit, the state of the game
+            //TODO
             socket.join('zeroom');
             socket.leave("");
             self.socketList.push(socket);
@@ -28,7 +32,6 @@ var Server = cls.Class.extend({
                 console.log(data);
             });
             console.info('\033[35mcreated socket \033[0m', socket.id);
-            socket.emit('content', {"id":socket.id, "hsd":socket.handshake.query});
             if(self.socketList.length>1){
                 self.socketList[0].emit('test', {"onsenfout":"rien de rien", "message":"you were the first but now you are "+self.socketList.length});
             }

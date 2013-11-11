@@ -32,28 +32,36 @@ var hash = shaObj.getHash("SHA-1", 'B64');*/
 
 module.exports = uglyAuth = function(io, dbh){
        authorize = function(handshakeData,io_accept){ //io_accept is a socket.io callback function
+
+           //accept update encapsulates this function in order to be able to update handshakeData
+           //called with one parameter it updates handshake data, with 2, it does both (unless param1
+           //is just a string)
            var acceptUpdate = function(newValues, result){
-                   if(result === false){
+                   if((typeof result == "boolean") && (result === false)){
                        io_accept(newValues, result);
                    }
                    else{
                        if(typeof newValues == "object"){
                            Object.keys(newValues).forEach(function (key) {
+                               /**/console.log(key, newValues[key]);
                                handshakeData.query[key]=newValues[key];
                            });
                        }
-                       io_accept(null, true);
+                       if((typeof result == "boolean") && (result === true)){
+                       //this way it can be called just to update handshakeData
+                           io_accept(null, true);
+                       }
                    }
                };
            if (handshakeData.query.action == "register"){
                //registration procedure
-               dbh.createUser(handshakeData.query.username,
+               dbh.createUser(handshakeData.query.gameId, handshakeData.query.username,
                    handshakeData.query.password, handshakeData.query.email,
                    handshakeData.query.avatar, acceptUpdate);
            }
            else if (handshakeData.query.action == "login"){
                //login procedure
-               dbh.auth(handshakeData.query.email, handshakeData.query.password, io_accept);
+               dbh.auth(handshakeData.query.gameId, handshakeData.query.email, handshakeData.query.password, acceptUpdate);
            }
            else{
                io_accept("Action “"+handshakeData.query.action+"” is not allowed", false);
