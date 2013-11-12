@@ -39,8 +39,16 @@ module.exports = DBHandler = cls.Class.extend({
     auth: function(jsonGameId, email, password, ioAuthentication_callback){
         console.log("\033[36m Auth \033[0m- " , jsonGameId);/**/
         var self = this;
-        var query = {"email":email,"password": password};
-        var playerNaming = email+", "+password;
+        if(typeof password == "function"){
+            //it's calling auth using the user id
+            ioAuthentication_callback = password;
+            var query = {"_id":new ObjectId(email)};
+            var playerNaming = "Id: "+email ;
+        }
+        else{
+            var query = {"email":email,"password": password};
+            var playerNaming = email+", "+password;
+        }
         //TODO change query when authenticating from id
         this.db.players.findOne(query, function(err, player){
             if(err || !player){ioAuthentication_callback("Could not find player ("+playerNaming+").", false);}
@@ -59,7 +67,6 @@ module.exports = DBHandler = cls.Class.extend({
                             "game":game, "team":player.team}, true);
                     });
                 self.onCreateGameSuccess(function(err, game){
-                    /**/console.log("Set player", err, game);
                     self.setPlayerGame(player._id, jsonGameId, game._id); //depends on the above 2 callbacks
                 });
                 //the treatment itself
@@ -131,7 +138,6 @@ module.exports = DBHandler = cls.Class.extend({
                 self.setPlayerGameError(err, nbplayers);
             }
             else{
-                console.log("OOOOOOOOk", tempField, playerId);/**/
                 self.setPlayerGameSuccess(tempField);
             }
         });

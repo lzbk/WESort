@@ -4,43 +4,65 @@
  * Date: 20/09/13 (00:45)
  * Content: The game itself, linking cards, table and user
  */
-define(['table', 'card', 'category'], function(Table, Card, Category){
+define(['table', 'card', 'category', 'storage', 'player', 'gameClient'],
+        function(Table, Card, Category, Storage, Player, Client){
     var Game = Class.extend({
-        init: function(dataSource, usr){//dataSource, either an object or a string pointing to a directory containing a game_data.json file (no '/' at the end of the path)
+        init: function(dataSourceBoard, dataSourceConfig){//dataSource, either an object or a string pointing to a directory containing a game_data.json file (no '/' at the end of the path)
             var path="";
-            if(typeof dataSource == "string"){
-                path = dataSource;
-                dataSource = Util.loadJSON(dataSource+"/game_data.json");
+            if(typeof dataSourceBoard == "string"){
+                path = dataSourceBoard;
+                dataSourceBoard = Util.loadJSON(dataSourceBoard+"/game_data.json");
             }
-            this.user = usr;
-            this.id = dataSource.id;//#todo test server before loading
-            dataSource.categories.dim.X = new Category(dataSource.categories.dim.X.id, dataSource.categories.dim.X.caption, dataSource.categories.dim.X.explanation);
-            dataSource.categories.dim.Y = new Category(dataSource.categories.dim.Y.id, dataSource.categories.dim.Y.caption, dataSource.categories.dim.Y.explanation);
-            for(var i=0;i<dataSource.categories.X.length;i++){
-                dataSource.categories.X[i] = new Category(dataSource.categories.X[i].id, dataSource.categories.X[i].caption, dataSource.categories.X[i].explanation, dataSource.categories.dim.X.id);
+            this.class = dataSourceBoard.id;//#todo test server before loading
+            dataSourceBoard.categories.dim.X = new Category(dataSourceBoard.categories.dim.X.id, dataSourceBoard.categories.dim.X.caption, dataSourceBoard.categories.dim.X.explanation);
+            dataSourceBoard.categories.dim.Y = new Category(dataSourceBoard.categories.dim.Y.id, dataSourceBoard.categories.dim.Y.caption, dataSourceBoard.categories.dim.Y.explanation);
+            for(var i=0;i<dataSourceBoard.categories.X.length;i++){
+                dataSourceBoard.categories.X[i] = new Category(dataSourceBoard.categories.X[i].id, dataSourceBoard.categories.X[i].caption, dataSourceBoard.categories.X[i].explanation, dataSourceBoard.categories.dim.X.id);
             }
-            for(i=0;i<dataSource.categories.Y.length;i++){
-                dataSource.categories.Y[i] = new Category(dataSource.categories.Y[i].id, dataSource.categories.Y[i].caption, dataSource.categories.Y[i].explanation, dataSource.categories.dim.Y.id);
+            for(i=0;i<dataSourceBoard.categories.Y.length;i++){
+                dataSourceBoard.categories.Y[i] = new Category(dataSourceBoard.categories.Y[i].id, dataSourceBoard.categories.Y[i].caption, dataSourceBoard.categories.Y[i].explanation, dataSourceBoard.categories.dim.Y.id);
             }
-            this.board = new Table(dataSource.categories, dataSource.title, dataSource.shuffle);
+            this.board = new Table(dataSourceBoard.categories, dataSourceBoard.title, dataSourceBoard.shuffle);
             this.board.spawn();
             this.cards={};
-            for(i=0;i<dataSource.cards.length;i++){
+            for(i=0;i<dataSourceBoard.cards.length;i++){
                 var img;
-                if(Util.isUrl(dataSource.cards[i].img)){
-                    img = dataSource.cards[i].img;
+                if(Util.isUrl(dataSourceBoard.cards[i].img)){
+                    img = dataSourceBoard.cards[i].img;
                 }
                 else{
-                    img = path + "/" + dataSource.cards[i].img;
+                    img = path + "/" + dataSourceBoard.cards[i].img;
                 }
-                dataSource.cards[i]=(new Card(dataSource.cards[i].id, dataSource.cards[i].name, dataSource.cards[i].cat, img, dataSource.cards[i].desc));
+                dataSourceBoard.cards[i]=(new Card(dataSourceBoard.cards[i].id, dataSourceBoard.cards[i].name, dataSourceBoard.cards[i].cat, img, dataSourceBoard.cards[i].desc));
             }
-            dataSource.cards.sort(Card.compare); //Allows to sort them before being able to access them directly through their ids (link evt→object through html element id)
-            for(i=0;i<dataSource.cards.length;i++){
-                this.cards[dataSource.cards[i].id] = dataSource.cards[i];
-                this.cards[dataSource.cards[i].id].spawn(this.user);
+            dataSourceBoard.cards.sort(Card.compare); //Allows to sort them before being able to access them directly through their ids (link evt→object through html element id)
+
+            this.storage = new Storage(this.class, true);
+            var tmpPlayer = this.storage.loadPlayer();
+            if (tmpPlayer !== false){
+                this.Player = new Player({id:tmpPlayer.id, name: tmpPlayer.name},
+                    tmpPlayer.team);
             }
-            $("#help").html(Util.print(Patterns.HELP, [dataSource.help]));
+            else{
+                this.player = new Player();
+            }
+            this.gameId = tmpPlayer.gameId;
+            if(!this.player.isEmpty()){
+                this.client = new Client(dataSourceConfig, this.class, this.player.getId());
+            }
+            else{
+                this.client = new Client(dataSourceConfig, this.class);///pas besoin de récupérer le socket, si ? Appeler les méthodes On du client…
+            }
+
+            //ICITE du storage, de la récupération qui décide si login et la suite… cf. cahier
+
+
+            this.user = "moi";
+            for(i=0;i<dataSourceBoard.cards.length;i++){
+                this.cards[dataSourceBoard.cards[i].id] = dataSourceBoard.cards[i];
+                this.cards[dataSourceBoard.cards[i].id].spawn(this.user);
+            }
+            $("#help").html(Util.print(Patterns.HELP, [dataSourceBoard.help]));
             this.setUpEvents();
         },
 

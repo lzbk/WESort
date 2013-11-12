@@ -61,7 +61,13 @@ module.exports = uglyAuth = function(io, dbh){
            }
            else if (handshakeData.query.action == "login"){
                //login procedure
-               dbh.auth(handshakeData.query.gameId, handshakeData.query.email, handshakeData.query.password, acceptUpdate);
+               if(typeof handshakeData.query.playerId !== "undefined"){
+                   dbh.auth(handshakeData.query.gameId, handshakeData.query.playerId, acceptUpdate);
+               }
+               else{
+                    dbh.auth(handshakeData.query.gameId, handshakeData.query.email,
+                        handshakeData.query.password, acceptUpdate);
+               }
            }
            else{
                io_accept("Action “"+handshakeData.query.action+"” is not allowed", false);

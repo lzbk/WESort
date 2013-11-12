@@ -28,7 +28,7 @@ var Server = cls.Class.extend({
             socket.leave("");
             self.socketList.push(socket);
             //socket.emit('news', { hello: hop });
-            socket.on('my other event', function (data) {
+            socket.on('my other event', function (data){
                 console.log(data);
             });
             console.info('\033[35mcreated socket \033[0m', socket.id);
