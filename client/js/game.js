@@ -4,8 +4,8 @@
  * Date: 20/09/13 (00:45)
  * Content: The game itself, linking cards, table and user
  */
-define(['table', 'card', 'category', 'storage', 'player', 'gameClient'],
-        function(Table, Card, Category, Storage, Player, Client){
+define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-client'],
+        function(Table, Card, Category, Storage, Player, UglyAuth_io){
     var Game = Class.extend({
         init: function(dataSourceBoard, dataSourceConfig){//dataSource, either an object or a string pointing to a directory containing a game_data.json file (no '/' at the end of the path)
             var path="";
@@ -47,11 +47,23 @@ define(['table', 'card', 'category', 'storage', 'player', 'gameClient'],
                 this.player = new Player();
             }
             this.gameId = tmpPlayer.gameId;
+            var extraParam = {"register":{"gameClass":this.class},"login":{"gameClass":this.class}},
+                authenticationSuccess = function(data){
+/**/                $('body>header').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");
+                },
+                authenticationFailure = function(data){
+/**/                $('body>header').append("<h2> RA-TÉ</h2>");
+                };
             if(!this.player.isEmpty()){
-                this.client = new Client(dataSourceConfig, this.class, this.player.getId());
+                this.client = new UglyAuth_io(dataSourceConfig,
+                    authenticationSuccess,
+                    authenticationFailure,
+                    this.player.getId(), this.class, extraParam);
             }
             else{
-                this.client = new Client(dataSourceConfig, this.class);///pas besoin de récupérer le socket, si ? Appeler les méthodes On du client…
+                this.client = new UglyAuth_io(dataSourceConfig,
+                    authenticationSuccess, authenticationFailure,
+                    false, extraParam);
             }
 
             //ICITE du storage, de la récupération qui décide si login et la suite… cf. cahier

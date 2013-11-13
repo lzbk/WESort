@@ -237,10 +237,10 @@ article header{
 }
 
         /*** Hidden ***/
-article .details, article footer, article .closeButton, #overlay,.illustration, #help{display: none;}
+article .details, article footer, article .closeButton, #overlay,.illustration, #overlay article, #help{display: none;}
 
         /*** Visible ***/
-article[open=open] .details, article[open=open] footer, article[open=open] .closeButton, article[open=open] .illustration, #help[open]{
+article[open=open] .details, article[open=open] footer, article[open=open] .closeButton, article[open=open] .illustration, #overlay article[open=open], #help[open]{
     display: block;
 }
 

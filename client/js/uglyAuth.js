@@ -3,6 +3,7 @@
  * User: loizbek
  * Content: Handling authentication forms
  * Requires: Util
+ * Possibility to go from register to login, if text.login is defined and from login to register if text.register is defined
  */
 
 define(function(){
@@ -12,12 +13,13 @@ define(function(){
          *  login:   {paralogin1: paraValue1, paralogin2: paraValue2, …}}
          */
 
-        init: function(id, dataSource, extraParameters){
+        init: function(dataSource, extraParameters){
             if(typeof dataSource == "string"){
                 dataSource = Util.loadJSON(dataSource);
             }
             this.register = dataSource.form.register ;
             this.login = dataSource.form.login ;
+            this.parent = $('#'+dataSource.form.parent);
             if(typeof extraParameters !== "undefined"){
                 this.register.extraP = extraParameters.register;
                 this.login.extraP = extraParameters.login;
@@ -25,7 +27,7 @@ define(function(){
             this.classes = dataSource.form.classes;
             this.loadingSrc = dataSource.form.loadingImg;
             this.text = dataSource.form.text;
-            this.elt = $("<"+dataSource.form.containerTag+' id="'+id+'">'+dataSource.form.header+'</'+dataSource.form.containerTag+'/>');
+            this.elt = $("<"+dataSource.form.containerTag+' id="'+dataSource.form.id+'">'+dataSource.form.header+'</'+dataSource.form.containerTag+'/>');
             this.form = $("<form id='login-form' action='javascript:void(0);'></form>");
             if(typeof this.classes.form !== "undefined"){
                 this.form.addClass(this.classes.form);
@@ -47,12 +49,8 @@ define(function(){
            });
        },
 
-        hideForm:function(){
-            $('#overlay').removeAttr("class");
-        },
-
-        showRegister: function(){
-            this.showForm(this.register);
+        buildRegister: function(){
+            this.buildForm(this.register);
             if (typeof this.register.submit === "undefined"){
                 this.register.submit = "<input type='submit' />";
             }
@@ -60,7 +58,7 @@ define(function(){
             if(typeof this.text.login !== "undefined"){
                 var tmpItem = $("<a>"+this.text.login+"</a>"), self=this;
                 tmpItem.click(function(){
-                    self.showLogin();
+                    self.buildLogin();
                 });
                 this.form.append($("<p></p>").append(tmpItem));
             }
@@ -68,8 +66,8 @@ define(function(){
 
         },
 
-        showLogin: function(){
-            this.showForm(this.login);
+        buildLogin: function(){
+            this.buildForm(this.login);
             if (typeof this.login.submit === "undefined"){
                 this.login.submit = "<input type='submit' />";
             }
@@ -77,7 +75,7 @@ define(function(){
             if(typeof this.text.register !== "undefined"){
                 var self=this, tmpItem = $("<a>"+this.text.register+"</a>");
                 tmpItem.click(function(){
-                    self.showRegister();
+                    self.buildRegister();
                 });
                 this.form.append($("<p></p>").append(tmpItem));
             }
@@ -93,13 +91,12 @@ define(function(){
             }
         },
 
-        showForm: function(aForm){
+        buildForm: function(aForm){
             this.destroyElts();
             for(var i=0; i<aForm.length;i++){
                 this.writeItem(aForm[i]);
             }
-
-            $('#overlay').attr("class", "show").append(this.elt);
+            this.parent.append(this.elt);//if DOM element, append "moves" the element
         },
 
         writeItem: function(item){
@@ -277,7 +274,6 @@ define(function(){
         },
 
         showLoading: function(){
-
             $("#uglyAuth-"+this.elt.id).after('<img src="'+this.loadingSrc+'" />');
         },
 

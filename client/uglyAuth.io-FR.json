@@ -1,7 +1,9 @@
 {
     "form":{
         "header":"<header><h2>Connexion</h2></header>",
+        "parent":"overlay",
         "containerTag":"article",
+        "id":"login",
         "loadingImg" :"assets/sampleUglyAuth/loading.gif",
         "register":[
             {"id":"username", "type":"text", "optional":false, "text":"Nom d'utilisateur"},
@@ -26,7 +28,8 @@
             "selected":"selected"
         },
         "text":{
-            "register":"Vous enregistrer",
+              "register":"Vous enregistrer",
+                 "login":"Vous authentifier",
             "errorEmpty":"Information nécessaire",
             "errorEmail":"Ce n'est pas une adresse e-mail",
             "errorPsswd":"Mots de passe différents"

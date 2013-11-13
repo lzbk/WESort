@@ -6,22 +6,45 @@
 
 define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
     var UglyAuth_io = UglyAuth.extend({
-        init: function(id, url, port, configSource, extraParameters){
-            this._super(id, configSource, extraParameters);
-            var self = this;
-            this.onSendForm(function(){//only called if form is OK see uglyAuth.js
-                self.initCallbacks(id);
-                self.socket = io.connect(url+":"+port+self.fieldsToUrl());
-            });//end send Form
+        //ici id = "login"
+        //    extraParameters = {"register":{"gameClass":gameId},"login"   :{"gameClass":gameId}}
+        init: function(configSource,
+                       authenticationSuccess, authenticationFailure,
+                       playerId, gameClass,
+                       extraParameters){
+            if(typeof configSource == "string"){
+                configSource = Util.loadJSON(configSource);
+            }
+            if(typeof configSource.authentication !== "undefined"){
+                this.onConnectSuccess(authenticationSuccess);
+                this.onConnectFailure(authenticationFailure);
+                //initialize display (_super.init) of authentication no matter what…
+                if(playerId === false){//optional parameters
+                    extraParameters = gameClass;
+                    this._super(configSource.authentication, extraParameters);
+                    var self = this;
+                    this.displayLogin();
+                    this.onSendForm(function(){
+                        //only called if form is OK see uglyAuth.js
+                        self.socket = io.connect(configSource.websocket.url+":"+configSource.websocket.port+self.fieldsToUrl());
+                        self.initCallbacks();
+                    });//end send Form
+                }
+                else{//directly try to connect to server
+                    this._super(id, configSource.authentication, extraParameters);
+                    this.socket = io.connect(configSource.websocket.url+":"+configSource.websocket.port+"?gameClass="+gameId+"&playerId="+playerId);
+                    self.initCallbacks();
+                }
+            }
+            else{
+                window.alert("No player and no authentication driver");
+            }
         },
 
-        initCallbacks: function(id){
+        initCallbacks: function(){
             var self = this;
-            $('#'+id).append("started connection");/**/
             this.socket.on("connection established", function(data){
                 self.connectSucces(data);
-                $('#'+id).append("<h2> Alors…"+JSON.stringify(data)+"</h2>");/**/
-                /**///self.hideForm();
             });
             this.socket.on("connection denied", function(data){
                 self.connectFailure(data);
@@ -38,14 +61,30 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
         },
 
         onConnectSuccess: function(callback){
-            this.connectSucces = callback;
+            var self=this;
+            this.connectSucces = function(data){
+                callback(data);
+                self.hideLogin();
+            };
         },
 
         onConnectFailure: function(callback){
-            this.connectFailure = callback;
-            //Je sais plus où j'en suis réfléchir par rapport au game quand on fait quoi ? ICITE
+            var self=this;
+            this.connectFailure = function(data){
+                callback(data);
+                self.displayLogin();
+            };
         },
 
+        displayLogin: function(){
+            this.buildLogin();
+            this.parent.attr("class", "show");
+            this.elt.attr("open", "open");
+        },
+        hideLogin: function(){
+            this.elt.removeAttr("open");
+            this.parent.removeAttr("class");
+        }
     });
 
     return UglyAuth_io;
