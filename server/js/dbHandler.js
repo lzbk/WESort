@@ -15,6 +15,10 @@ module.exports = DBHandler = cls.Class.extend({
             this.connectUrl = "mongodb://"+config.user+":"+config.pswd+"@"+config.host+"/"+config.name;
             this.db = require('mongojs').connect(this.connectUrl, collections, this.connectError);
             /**/console.log("1 → db OK");
+            /*this.setPlayerTeam(new  ObjectId("528415e6293af74b0d000001"), "mathieu", new ObjectId("52801a8ba3c0d51d6af8dd41"), "guild1");
+            this.setPlayerTeam(new ObjectId("528416956a1fac090e000001"), "test", new ObjectId("52801a8ba3c0d51d6af8dd41"), "guild1");
+            this.setPlayerTeam(new ObjectId("528416ffb62f9b220e000001"), "test2", new ObjectId("52841555c797188f959c62cc"), "guild2");
+            this.setPlayerTeam(new ObjectId("5284177c0ff41e340e000001"), "test3", new ObjectId("52841555c797188f959c62cc"), "guild2");*/
         }
         else{
             console.error("db type" + config.db.type + " is not handled by the system");
@@ -51,9 +55,13 @@ module.exports = DBHandler = cls.Class.extend({
         }
         //TODO change query when authenticating from id
         this.db.players.findOne(query, function(err, player){
+            console.log(query, err, player);/**/
             if(err || !player){ioAuthentication_callback("Could not find player ("+playerNaming+").", false);}
             else{
                 //set up callback sequence
+                //***maybe*** using dbrefs or something would allow to store teams in the players documents and limit
+                //use of manual references and callbacks TODO
+                //see http://docs.mongodb.org/manual/reference/database-references/
                 self.onCreateGameError(function(err, game){
                     ioAuthentication_callback("Could not create a game for "+player._id.toHexString()+".", false);
                 });
@@ -62,28 +70,39 @@ module.exports = DBHandler = cls.Class.extend({
                         ioAuthentication_callback("Could not associate game to "+thePlayer._id.toHexString()+
                             " (consistency of database maybe compromised).", false);
                     });
+
                     self.onSetPlayerGameSuccess(function(game){
-                        ioAuthentication_callback({"player":player._id.toHexString(),
-                            "game":game, "team":player.team}, true);
+                        ioAuthentication_callback({"player":{"id":player._id.toHexString(), "name":player.name},
+                            "game":game}, true);
                     });
                 self.onCreateGameSuccess(function(err, game){
                     self.setPlayerGame(player._id, jsonGameId, game._id); //depends on the above 2 callbacks
+                });
+                self.onGetTeamError(function(err, theTeam){
+                    ioAuthentication_callback("Could not retrieve "+player._id.toHexString()+
+                        "'s team ("+player.team.id+").", false);
+                });
+                self.onGetTeamSuccess(function(err, theTeam){
+                    console.log("\033[1m\033[31mTeam\033[0m → ",{"team":{"id":theTeam._id.toHexString(), "name":theTeam.name, "members":theTeam.members}});/**/
+                    ioAuthentication_callback({"team":theTeam});
+                    if( (typeof player.games == "undefined") ||
+                        (typeof player.games.clasCol == "undefined") ||
+                        (typeof player.games.clasCol[jsonGameId] == "undefined") ){
+                        self.createGame(jsonGameId, player.team);
+                    }
+                    else{
+                        ioAuthentication_callback(
+                            {"player":{"id":player._id.toHexString(), "name":player.name}, "game":player.games.clasCol[jsonGameId]}
+                            , true);
+                    }
                 });
                 //the treatment itself
                 if(typeof player.team == "undefined"){
                     ioAuthentication_callback(player._id.toHexString()+" ("+playerNaming+
                      ") has no team.", false);
                 }
-                else if( (typeof player.game == "undefined") ||
-                         (typeof player.game.clasCol == "undefined") ||
-                         (typeof player.game.clasCol[jsonGameId] == "undefined") ){
-                    self.createGame(jsonGameId, player.team);
-                }
                 else{
-                    ioAuthentication_callback(
-                        {"player":{"id":player._id.toHexString(), "name":player.name},
-                            "team":player.team, "game":player.game.clasCol[jsonGameId]}
-                        , true);
+                    self.getTeam(player._id);
                 }
             }
         });
@@ -91,8 +110,10 @@ module.exports = DBHandler = cls.Class.extend({
 
     getTeam: function(playerId){
         var self = this;
-        this.db.teams.find({"members":{"$elemMatch":{"id": ObjectId("527ef6b3c8b5adde2300000a")/**//*playerId*/}}},
-         {"_id":1}, function(err, team){
+        var exists = {};
+        exists[playerId.toHexString()] = {"$exists": true};
+        this.db.teams.findOne({"members":{"$elemMatch":exists}},
+         function(err, team){
             if(err || !team){
                 self.getTeamError(err, team);
             }
@@ -133,12 +154,36 @@ module.exports = DBHandler = cls.Class.extend({
         var tempField = {};
             tempField[jsonGameId] = gameId ;
         console.log("\033[34mSetPlayer - \033[0m", playerId, jsonGameId, gameId)
-        this.db.players.update({"_id":playerId},{ "$set":{"game.clasCol":tempField}}, function(err, nbplayers){
+        this.db.players.update({"_id":playerId},{ "$set":{"games.clasCol":tempField}}, function(err, nbplayers){
             if(err || (nbplayers !== 1)){
                 self.setPlayerGameError(err, nbplayers);
             }
             else{
                 self.setPlayerGameSuccess(tempField);
+            }
+        });
+    },
+
+    setPlayerTeam: function(playerId, playerName, teamId, teamName){
+        //for administrative support at this point
+        this.onSetPlayerGameError(function(err, nb){console.log(err, nb);});
+        this.onSetPlayerTeamSuccess(function(){console.log("Player added to team");});
+        var self = this;
+        this.db.players.update({"_id":playerId},{ "$set":{"team":{"id":teamId, "name":teamName}}}, function(err, nbplayers){
+            if(err || (nbplayers !== 1)){
+                self.setPlayerTeamError(err, nbplayers);
+            }
+            else{
+                var tmpPlayer = {};
+                tmpPlayer[playerId] = playerName;
+                self.db.teams.update({"_id":teamId}, {"$push":{"members":tmpPlayer}},  function(err, nbteams){
+                    if(err || (nbteams !== 1)){
+                        self.setPlayerTeamError(err, nbteams);
+                    }
+                    else{
+                        self.setPlayerTeamSuccess();
+                    }
+                });
             }
         });
     },
@@ -175,10 +220,10 @@ module.exports = DBHandler = cls.Class.extend({
     },
 
     onGetGameSuccess: function(callback){
-        this.getTeamSuccess = callback
+        this.getGameSuccess = callback
     },
     onGetGameError: function(callback){
-        this.getTeamError = callback
+        this.getGameError = callback
     },
 
     onCreateGameSuccess: function(callback){
@@ -195,4 +240,10 @@ module.exports = DBHandler = cls.Class.extend({
         this.setPlayerGameError = callback;
     },
 
+    onSetPlayerTeamError: function(callback){
+        this.setPlayerTeamError = callback;
+    },
+    onSetPlayerTeamSuccess: function(callback){
+        this.setPlayerTeamSuccess = callback;
+    }
 });

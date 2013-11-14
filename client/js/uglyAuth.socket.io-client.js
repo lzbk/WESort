@@ -19,16 +19,19 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
                 this.onConnectSuccess(authenticationSuccess);
                 this.onConnectFailure(authenticationFailure);
                 //initialize display (_super.init) of authentication no matter what…
+                //in case of error (could be more efficient)
                 if(playerId === false){//optional parameters
                     extraParameters = gameClass;
-                    this._super(configSource.authentication, extraParameters);
-                    var self = this;
+                }
+                this._super(configSource.authentication, extraParameters);
+                var self = this;
+                this.onSendForm(function(){
+                    //only called if form is OK see uglyAuth.js
+                    self.socket = io.connect(configSource.websocket.url+":"+configSource.websocket.port+self.fieldsToUrl());
+                    self.initCallbacks();
+                });//end send Form
+                if(playerId === false){
                     this.displayLogin();
-                    this.onSendForm(function(){
-                        //only called if form is OK see uglyAuth.js
-                        self.socket = io.connect(configSource.websocket.url+":"+configSource.websocket.port+self.fieldsToUrl());
-                        self.initCallbacks();
-                    });//end send Form
                 }
                 else{//directly try to connect to server
                     this._super(id, configSource.authentication, extraParameters);

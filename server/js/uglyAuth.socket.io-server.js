@@ -53,25 +53,27 @@ module.exports = uglyAuth = function(io, dbh){
                        }
                    }
                };
+           //Portion of code that is specific to this application
            if (handshakeData.query.action == "register"){
                //registration procedure
-               dbh.createUser(handshakeData.query.gameId, handshakeData.query.username,
+               dbh.createUser(handshakeData.query.gameClass, handshakeData.query.username,
                    handshakeData.query.password, handshakeData.query.email,
                    handshakeData.query.avatar, acceptUpdate);
            }
            else if (handshakeData.query.action == "login"){
                //login procedure
                if(typeof handshakeData.query.playerId !== "undefined"){
-                   dbh.auth(handshakeData.query.gameId, handshakeData.query.playerId, acceptUpdate);
+                   dbh.auth(handshakeData.query.gameClass, handshakeData.query.playerId, acceptUpdate);
                }
                else{
-                    dbh.auth(handshakeData.query.gameId, handshakeData.query.email,
+                    dbh.auth(handshakeData.query.gameClass, handshakeData.query.email,
                         handshakeData.query.password, acceptUpdate);
                }
            }
            else{
                io_accept("Action “"+handshakeData.query.action+"” is not allowed", false);
            }
+           //End of the portion of code that is specific to this application
            //io_accept called in the db… callback chain
        };
        io.configure(function(){

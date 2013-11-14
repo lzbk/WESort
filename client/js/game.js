@@ -40,14 +40,15 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
             this.storage = new Storage(this.class, true);
             var tmpPlayer = this.storage.loadPlayer();
             if (tmpPlayer !== false){
-                this.Player = new Player({id:tmpPlayer.id, name: tmpPlayer.name},
+                this.player = new Player({id:tmpPlayer.id, name: tmpPlayer.name},
                     tmpPlayer.team);
             }
             else{
                 this.player = new Player();
             }
             this.gameId = tmpPlayer.gameId;
-            var extraParam = {"register":{"gameClass":this.class},"login":{"gameClass":this.class}},
+            var extraParam = {"register":{"gameClass":this.class},
+                              "login":{"gameClass":this.class}}  ,
                 authenticationSuccess = function(data){
 /**/                $('body>header').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");
                 },
@@ -69,7 +70,6 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
             //ICITE du storage, de la récupération qui décide si login et la suite… cf. cahier
 
 
-            this.user = "moi";
             for(i=0;i<dataSourceBoard.cards.length;i++){
                 this.cards[dataSourceBoard.cards[i].id] = dataSourceBoard.cards[i];
                 this.cards[dataSourceBoard.cards[i].id].spawn(this.user);

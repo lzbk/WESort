@@ -37,7 +37,7 @@ define( function(){
                 if(tmp && tmp.player){
                     retval = {
                         name:tmp.player.name,
-                         id:tmp.player._id,
+                          id:tmp.player._id,
                         team:tmp.player[this.teamField],
                       gameId:tmp.player.games[this.gameName][this.gameClass]
                     };
