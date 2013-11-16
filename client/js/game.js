@@ -25,6 +25,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
             this.board = new Table(dataSourceBoard.categories, dataSourceBoard.title, dataSourceBoard.shuffle);
             this.board.spawn();
             this.cards={};
+            var self=this;
             for(i=0;i<dataSourceBoard.cards.length;i++){
                 var img;
                 if(Util.isUrl(dataSourceBoard.cards[i].img)){
@@ -50,7 +51,14 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
             var extraParam = {"register":{"gameClass":this.class},
                               "login":{"gameClass":this.class}}  ,
                 authenticationSuccess = function(data){
-/**/                $('body>header').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");
+/**/ $('body>header').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");
+                    self.player = new Player(data.player, data.team);//TODO update (player vs user)
+                    for(i=0;i<dataSourceBoard.cards.length;i++){
+                        self.cards[dataSourceBoard.cards[i].id] = dataSourceBoard.cards[i];
+                        self.cards[dataSourceBoard.cards[i].id].spawn(self.player);
+                    }
+                    $("#help").html(Util.print(Patterns.HELP, [dataSourceBoard.help]));
+                    self.setUpEvents();
                 },
                 authenticationFailure = function(data){
 /**/                $('body>header').append("<h2> RA-TÉ</h2>");
@@ -66,20 +74,10 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
                     authenticationSuccess, authenticationFailure,
                     false, extraParam);
             }
-
-            //ICITE du storage, de la récupération qui décide si login et la suite… cf. cahier
-
-
-            for(i=0;i<dataSourceBoard.cards.length;i++){
-                this.cards[dataSourceBoard.cards[i].id] = dataSourceBoard.cards[i];
-                this.cards[dataSourceBoard.cards[i].id].spawn(this.user);
-            }
-            $("#help").html(Util.print(Patterns.HELP, [dataSourceBoard.help]));
-            this.setUpEvents();
         },
 
         getSelectedCard: function(){
-            var id = $("[data-selected-by="+this.user+"]").attr("id");
+            var id = $("[data-selected-by="+this.player.getId()+"]").attr("id");
             if(typeof id=="undefined"){
                 return false;
             }
@@ -93,7 +91,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
             $('td[data-cat]').click(function(){
                 var card = self.getSelectedCard();
                 if(card !== false){
-                    card.move(self.user, $(this).attr("data-cat"), $(this).parent().attr("id"));
+                    card.move(self.player, $(this).attr("data-cat"), $(this).parent().attr("id"));
                 }
             });
             //As #stack has no "data-cat" attribute, "undefined" will be provided which is what corresponds to setting a neutral position, which is interpreted as #stack by Card.
@@ -101,7 +99,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
             $("menu").click(function(){
                 var card = self.getSelectedCard();
                 if(card !== false){
-                    card.move(self.user);
+                    card.move(self.player);
                 }
             });
             $("#helpButton").click(function(){

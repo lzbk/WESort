@@ -10,6 +10,9 @@ define(['position', 'history'], function(Position, History) {
 
         var CommentItem = History.Item.extend({
             init: function(usr, com, time){
+                if(usr != "origin"){
+                    usr = usr.getName();
+                }
                 this._super(usr, time);
                 this.comment = com;
             },
@@ -21,6 +24,9 @@ define(['position', 'history'], function(Position, History) {
 
         var PositionItem = History.Item.extend({
             init: function(usr, pos, time){
+                if(usr != "origin"){
+                    usr = usr.getName();
+                }
                 this._super(usr, time);
                 this.position = pos;
             },
@@ -52,6 +58,7 @@ define(['position', 'history'], function(Position, History) {
             //updates the position
             updatePos: function(usr,x,y){
                 //var self = this;
+                console.log("update pos", usr);/**/
                 this.positions.addItem(new PositionItem(usr, new Position(x,y)));
             },
             //gets the position which was assigned by usr or if usr is not provided, the current position
@@ -190,18 +197,20 @@ define(['position', 'history'], function(Position, History) {
             },
 
             selectedBy: function(usr){
+                console.log(usr);/**/
                 if(typeof usr === "undefined"){
                     return $('#'+this.id).attr("data-selected-by") ;
                 }
                 else{
-                    return $('#'+this.id).attr("data-selected-by") == usr ;
+                    /**/console.log('#'+this.id, usr, usr.getId());
+                    return $('#'+this.id).attr("data-selected-by") == usr.getId() ;
                 }
             },
 
             select: function(usr){
                 if(!this.selected()){
-                    $("[data-selected-by="+usr+"]").removeAttr("data-selected-by");
-                    $('#'+this.id).attr("data-selected-by", usr);
+                    $("[data-selected-by="+usr.getId()+"]").removeAttr("data-selected-by");
+                    $('#'+this.id).attr("data-selected-by", usr.getId());
                     $("td[data-cat]").addClass("destination");
                     $("menu").addClass("destination");
                 }
@@ -226,6 +235,7 @@ define(['position', 'history'], function(Position, History) {
 
             move: function(usr,x,y){
                 if(this.selectedBy(usr)){
+                    console.log("ok");/**/
                     this.updatePos(usr,x,y);
                     this.unselect();
                     $('#' + this.id).remove();

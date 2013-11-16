@@ -34,7 +34,7 @@ define(function(){
         },
         setTeam: function(team){
             this.team = {};
-            this.team.id = team.id;
+            this.team.id = team._id;
             this.team.name = team.name;
         },
 
