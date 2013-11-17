@@ -34,7 +34,7 @@ define( function(){
             if(this.hasLocalStorage() &&
                (typeof localStorage[this.localStorageName] !== "undefined")) {
                 var tmp = JSON.parse(localStorage[this.localStorageName]);
-                if(tmp && tmp.player){
+                if(tmp && tmp.player && tmp.player.games){
                     retval = {
                         name:tmp.player.name,
                           id:tmp.player._id,

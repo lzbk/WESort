@@ -52,7 +52,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
                               "login":{"gameClass":this.class}}  ,
                 authenticationSuccess = function(data){
 /**/ $('body>header').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");
-                    self.player = new Player(data.player, data.team);//TODO update (player vs user)
+                    self.player = new Player(data.player, data.team);
                     for(i=0;i<dataSourceBoard.cards.length;i++){
                         self.cards[dataSourceBoard.cards[i].id] = dataSourceBoard.cards[i];
                         self.cards[dataSourceBoard.cards[i].id].spawn(self.player);
@@ -63,7 +63,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
                     self.storage.savePlayer(self.player, self.gameId);
                 },
                 authenticationFailure = function(data){
-/**/                $('body>header').append("<h2> RA-TÉ</h2>");
+/*TODO better message*/ window.alert("La connexion a été refusée par le serveur, reconnectez-vous");
                 };
             if(!this.player.isEmpty()){
                 this.client = new UglyAuth_io(dataSourceConfig,

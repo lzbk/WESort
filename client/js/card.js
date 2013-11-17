@@ -58,7 +58,6 @@ define(['position', 'history'], function(Position, History) {
             //updates the position
             updatePos: function(usr,x,y){
                 //var self = this;
-                console.log("update pos", usr);/**/
                 this.positions.addItem(new PositionItem(usr, new Position(x,y)));
             },
             //gets the position which was assigned by usr or if usr is not provided, the current position
@@ -197,12 +196,10 @@ define(['position', 'history'], function(Position, History) {
             },
 
             selectedBy: function(usr){
-                console.log(usr);/**/
                 if(typeof usr === "undefined"){
                     return $('#'+this.id).attr("data-selected-by") ;
                 }
                 else{
-                    /**/console.log('#'+this.id, usr, usr.getId());
                     return $('#'+this.id).attr("data-selected-by") == usr.getId() ;
                 }
             },
@@ -235,7 +232,6 @@ define(['position', 'history'], function(Position, History) {
 
             move: function(usr,x,y){
                 if(this.selectedBy(usr)){
-                    console.log("ok");/**/
                     this.updatePos(usr,x,y);
                     this.unselect();
                     $('#' + this.id).remove();

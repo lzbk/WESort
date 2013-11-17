@@ -24,18 +24,20 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
                     extraParameters = gameClass;
                 }
                 this._super(configSource.authentication, extraParameters);
+                this.url = configSource.websocket.url;
+                this.port = configSource.websocket.port;
+                this.gameClass = gameClass;
                 var self = this;
                 this.onSendForm(function(){
                     //only called if form is OK see uglyAuth.js
-                    self.socket = io.connect(configSource.websocket.url+":"+configSource.websocket.port+self.fieldsToUrl());
+                    self.socket = io.connect(self.url+":"+self.port+self.fieldsToUrl(),{'force new connection': true});
                     self.initCallbacks();
                 });//end send Form
                 if(playerId === false){
                     this.displayLogin();
                 }
                 else{//directly try to connect to server
-                    this._super(configSource.authentication, extraParameters);
-                    this.socket = io.connect(configSource.websocket.url+":"+configSource.websocket.port+"?action=login&gameClass="+gameClass+"&playerId="+playerId);
+                    this.socket = io.connect(this.url+":"+this.port+"?action=login&gameClass="+this.gameClass+"&playerId="+playerId);
                     self.initCallbacks();
                 }
             }
@@ -49,7 +51,7 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
             this.socket.on("connection established", function(data){
                 self.connectSucces(data);
             });
-            this.socket.on("connection denied", function(data){
+            this.socket.on("error", function(data){
                 self.connectFailure(data);
             });
         },
@@ -61,6 +63,10 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
             else{
                 return this.socket;
             }
+        },
+
+        deleteSocket: function(){
+            delete this.socket;
         },
 
         onConnectSuccess: function(callback){
@@ -75,6 +81,7 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
             var self=this;
             this.connectFailure = function(data){
                 callback(data);
+                self.deleteSocket();
                 self.displayLogin();
             };
         },
