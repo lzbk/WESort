@@ -59,6 +59,8 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
                     }
                     $("#help").html(Util.print(Patterns.HELP, [dataSourceBoard.help]));
                     self.setUpEvents();
+                    self.gameId = data.game;
+                    self.storage.savePlayer(self.player, self.gameId);
                 },
                 authenticationFailure = function(data){
 /**/                $('body>header').append("<h2> RA-TÉ</h2>");

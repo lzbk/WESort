@@ -34,8 +34,8 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
                     this.displayLogin();
                 }
                 else{//directly try to connect to server
-                    this._super(id, configSource.authentication, extraParameters);
-                    this.socket = io.connect(configSource.websocket.url+":"+configSource.websocket.port+"?gameClass="+gameId+"&playerId="+playerId);
+                    this._super(configSource.authentication, extraParameters);
+                    this.socket = io.connect(configSource.websocket.url+":"+configSource.websocket.port+"?action=login&gameClass="+gameClass+"&playerId="+playerId);
                     self.initCallbacks();
                 }
             }

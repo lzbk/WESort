@@ -15,10 +15,10 @@ module.exports = DBHandler = cls.Class.extend({
             this.connectUrl = "mongodb://"+config.user+":"+config.pswd+"@"+config.host+"/"+config.name;
             this.db = require('mongojs').connect(this.connectUrl, collections, this.connectError);
             /**/console.log("1 → db OK");
-            /*this.setPlayerTeam(new  ObjectId("528415e6293af74b0d000001"), "mathieu", new ObjectId("52801a8ba3c0d51d6af8dd41"), "guild1");
-            this.setPlayerTeam(new ObjectId("528416956a1fac090e000001"), "test", new ObjectId("52801a8ba3c0d51d6af8dd41"), "guild1");
-            this.setPlayerTeam(new ObjectId("528416ffb62f9b220e000001"), "test2", new ObjectId("52841555c797188f959c62cc"), "guild2");
-            this.setPlayerTeam(new ObjectId("5284177c0ff41e340e000001"), "test3", new ObjectId("52841555c797188f959c62cc"), "guild2");*/
+            /*this.setPlayerTeam(new ObjectId("5287b70c93b4573f10000001"), "test1", new ObjectId("5287f3e2276941ceebade1e3"), "guild1");
+            this.setPlayerTeam(new ObjectId("5287b72293b4573f10000002"), "test2", new ObjectId("5287f3e2276941ceebade1e3"), "guild1");
+            this.setPlayerTeam(new ObjectId("5287b74093b4573f10000003"), "test3", new ObjectId("5287f62c276941ceebade1e4"), "guild2");
+            this.setPlayerTeam(new ObjectId("5287b76593b4573f10000004"), "test4", new ObjectId("5287f62c276941ceebade1e4"), "guild2");*/
         }
         else{
             console.error("db type" + config.db.type + " is not handled by the system");
@@ -66,17 +66,17 @@ module.exports = DBHandler = cls.Class.extend({
                     ioAuthentication_callback("Could not create a game for "+player._id.toHexString()+".", false);
                 });
 
-                    self.onSetPlayerGameError(function(err, thePlayer){
-                        ioAuthentication_callback("Could not associate game to "+thePlayer._id.toHexString()+
-                            " (consistency of database maybe compromised).", false);
+                    self.onSetTeamGameError(function(err){
+                        ioAuthentication_callback("Could not associate game to "+player.team.id.toHexString()+
+                            " members (consistency of database maybe compromised).", false);
                     });
 
-                    self.onSetPlayerGameSuccess(function(game){
+                    self.onSetTeamGameSuccess(function(game){
                         ioAuthentication_callback({"player":{"id":player._id.toHexString(), "name":player.name},
                             "game":game}, true);
                     });
                 self.onCreateGameSuccess(function(err, game){
-                    self.setPlayerGame(player._id, jsonGameId, game._id); //depends on the above 2 callbacks
+                    self.setTeamGame(player.team.id, jsonGameId, game._id); //depends on the above 2 callbacks
                 });
                 self.onGetTeamError(function(err, theTeam){
                     ioAuthentication_callback("Could not retrieve "+player._id.toHexString()+
@@ -144,22 +144,23 @@ module.exports = DBHandler = cls.Class.extend({
                 self.createGameError(err, game);
             }
             else{
+
                 self.createGameSuccess(err, game);
             }
         });
     },
 
-    setPlayerGame: function(playerId, jsonGameId, gameId){
+    setTeamGame: function(teamId, jsonGameId, gameId){
         var self=this;
         var tempField = {};
             tempField[jsonGameId] = gameId ;
-        console.log("\033[34mSetPlayer - \033[0m", playerId, jsonGameId, gameId)
-        this.db.players.update({"_id":playerId},{ "$set":{"games.clasCol":tempField}}, function(err, nbplayers){
-            if(err || (nbplayers !== 1)){
-                self.setPlayerGameError(err, nbplayers);
+        console.log("\033[34mSetPlayer - \033[0m", teamId, jsonGameId, gameId)
+        this.db.players.update({"team.id":teamId},{ "$set":{"games.clasCol":tempField}}, {multi:true}, function(err, nbplayers){
+            if(err || (nbplayers == 0)){
+                self.setTeamGameError(err, nbplayers);
             }
             else{
-                self.setPlayerGameSuccess(tempField);
+                self.setTeamGameSuccess(tempField);
             }
         });
     },
@@ -233,11 +234,11 @@ module.exports = DBHandler = cls.Class.extend({
         this.createGameError = callback;
     },
 
-    onSetPlayerGameSuccess: function(callback){
-        this.setPlayerGameSuccess = callback;
+    onSetTeamGameSuccess: function(callback){
+        this.setTeamGameSuccess = callback;
     },
-    onSetPlayerGameError: function(callback){
-        this.setPlayerGameError = callback;
+    onSetTeamGameError: function(callback){
+        this.setTeamGameError = callback;
     },
 
     onSetPlayerTeamError: function(callback){

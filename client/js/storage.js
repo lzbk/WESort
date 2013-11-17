@@ -55,6 +55,12 @@ define( function(){
                 if(typeof localStorage[this.localStorageName] !== "undefined") {
                     tmp = JSON.parse(localStorage[this.localStorageName]);
                 }
+                /*if(typeof tmp == "undefined"){
+                    tmp = {};
+                }*/
+                if(typeof tmp.player == "undefined"){
+                    tmp.player={};
+                }
                 tmp.player.name = aPlayer.name;
                 tmp.player._id  = aPlayer.id;
                 tmp.player[this.teamField] = aPlayer.team;
