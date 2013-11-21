@@ -18,6 +18,7 @@ define(function() {
             this.dimensions = {};
             this.categories = {};
             this.title = caption;
+            this.axesInverted = false;
             if(randomize === true){
                  tmp = Util.shuffle([catList.dim.X, catList.dim.Y]);
                  this.dimensions.X=tmp[0];
@@ -29,6 +30,7 @@ define(function() {
                  else{
                      this.categories.Y = Util.shuffle(catList.X);
                      this.categories.X = Util.shuffle(catList.Y);
+                     this.axesInverted = true;
                  }
              }
             else{
@@ -36,6 +38,10 @@ define(function() {
                  this.categories.X = catList.X;
                  this.categories.Y = catList.Y;
              }
+        },
+
+        isInverted: function(){
+            return this.axesInverted;
         },
 
         print:function(){

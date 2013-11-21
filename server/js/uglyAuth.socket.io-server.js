@@ -43,7 +43,6 @@ module.exports = uglyAuth = function(io, dbh){
                    else{
                        if(typeof newValues == "object"){
                            Object.keys(newValues).forEach(function (key) {
-                               /**/console.log(key, newValues[key]);
                                handshakeData.query[key]=newValues[key];
                            });
                        }

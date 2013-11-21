@@ -54,6 +54,12 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
             this.socket.on("error", function(data){
                 self.connectFailure(data);
             });
+            this.socket.on("join", function(data){
+                self.playerJoin(data);
+            });
+            this.socket.on("leave", function(data){
+                self.playerLeave(data);
+            });
         },
 
         getSocket: function(){
@@ -63,6 +69,15 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
             else{
                 return this.socket;
             }
+        },
+
+        emit: function(message, data, callback){
+            console.log("emit", message, data);
+            this.socket.emit(message, data);
+        },
+
+        on: function(message, callback){
+            this.socket.on(message, callback);
         },
 
         deleteSocket: function(){
@@ -85,6 +100,32 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
                 self.displayLogin();
             };
         },
+
+        onSelectCard: function(callback){
+            this.socket.on("selectCard", callback);
+        },
+
+        onUnselectCard: function(callback){
+            this.socket.on("unselectCard", callback);
+        },
+
+        onMoveCard: function(callback){
+            this.socket.on("moveCard", callback);
+        },
+
+        onCommentCard: function(callback){
+            this.socket.on("commentCard", callback);
+        },
+
+
+
+        playerJoin: function(data){
+            $("#users").html(data.message);/**///TODO replace with users class when implemented
+        },
+        playerLeave: function(data){
+            $("#users").html(data.message);/**///TODO replace with users class when implemented
+        },
+
 
         displayLogin: function(){
             this.buildLogin();

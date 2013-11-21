@@ -38,7 +38,7 @@ define(['position', 'history'], function(Position, History) {
 
 
         var Card = Class.extend({
-            init: function(id, name, categories, img, desc){
+            init: function(id, name, categories, img, desc, player){
                 //#security
                 this.id = id;
                 this.name = name;
@@ -46,10 +46,11 @@ define(['position', 'history'], function(Position, History) {
                 this.img = img;
                 this.desc = desc;
                 this.opened = false;
-                this.positions= new History(),
-                this.comments= new History(),
+                this.positions= new History();
+                this.comments= new History();
                 this.updatePos("origin");
-                this.print();
+                this.player = player;
+                this.elt = $(this.print());
             },
 
             //**********************
@@ -57,15 +58,20 @@ define(['position', 'history'], function(Position, History) {
             //**********************
             //updates the position
             updatePos: function(usr,x,y){
-                //var self = this;
                 this.positions.addItem(new PositionItem(usr, new Position(x,y)));
             },
             //gets the position which was assigned by usr or if usr is not provided, the current position
             getPos: function(usr){
                 return this.positions.getLastItem(usr).position;
             },
+
+            //gets the same item as getPos and prints it :
+            printPos: function(usr){
+                return this.positions.getLastItem(usr).print();
+            },
+
             //returns the user who set the card's current position
-            getPosAuthor: function(){
+            getPosAuthorName: function(){
                 var lastPos = this.positions.getLastItem();
                 return (lastPos !== false) && lastPos.getAuthor();
             },
@@ -103,7 +109,7 @@ define(['position', 'history'], function(Position, History) {
             getCommentValue: function(justContent){
                 var comment = this.getComment();
                 if(!comment){
-                    comment="no comments";
+                    comment="no comment";
                 }
                 else{
                     if((typeof justContent !== "undefined") && justContent){
@@ -118,7 +124,11 @@ define(['position', 'history'], function(Position, History) {
 
             setComment: function(usr, textForAComment){
                 this.comments.addItem(new CommentItem(usr, textForAComment));
+                this.elt.find('.comments').html(this.getCommentValue());
+                this.elt.find('.comments').unbind("keydown");
+                this.setUpEvents();
             },
+
 
             //**********************
             // Rendering
@@ -128,24 +138,24 @@ define(['position', 'history'], function(Position, History) {
                     [this.id, this.name, this.img, this.desc, this.getCommentValue(), this.positions.print()]);
             },
 
-            spawn: function(usr){
+            spawn: function(){
                 if(!this.getPos().inTable()){
-                    $('#stack').append(this.print());
+                    $('#stack').append(this.elt);
                 }
                 else{
-                   $('#'+this.getPos().getY()+' [data-cat='+this.getPos().getX()+"]").append(this.print());
+                   $('#'+this.getPos().getY()+' [data-cat='+this.getPos().getX()+"]").append(this.elt);
                 }
-                this.setUpEvents(usr);
+                this.setUpEvents();
             },
 
             open: function(){
-                $('#'+this.id).attr("open", "open");
+                this.elt.attr("open", "open");
                 $('#overlay').attr("class", "show");
                 this.opened = true;
             },
 
             close: function(){
-                $('#'+this.id).removeAttr("open");
+                this.elt.removeAttr("open");
                 $('#overlay').removeAttr("class");
                 this.opened = false;
             },
@@ -159,17 +169,87 @@ define(['position', 'history'], function(Position, History) {
                 }
             },
 
-            setUpEvents: function(usr){
+            setUpEvents: function(){
                 var self=this;
                 if(typeof this.longClick !== "undefined"){
                     this.longClick.unbind();
                 }
-                this.longClick = new Util.longClick('#'+self.id+' h2',
-                    {action:function(){self.toggleSelection(usr);}},
+                this.longClick = new Util.longClick(this.elt.find('h2'),
+                    {action:function(){self.toggleSelection(self.player);}},
                     {action:function(){self.toggleOpenness();}}
                 );
-                $('#'+this.id+' .closeButton').click(function(){self.close();});
-                $('#'+this.id+' .comments').click(function(){
+                $(this.elt).find('.closeButton').click(function(){self.close();});
+                $(this.elt).find('.comments').click(this.prepareSendComment);
+            },
+
+            //**********************
+            // Actions
+            //**********************
+            selected: function(){
+                return (typeof this.elt.attr("data-selected-by") !== "undefined");
+            },
+
+            selectedBy: function(usr){
+                if(typeof usr === "undefined"){
+                    return this.elt.attr("data-selected-by") ;
+                }
+                else{
+                    return this.elt.attr("data-selected-by") == usr.getId();
+                }
+            },
+
+            select: function(usr){
+                if(!this.selected()){
+                    $("[data-selected-by="+usr.getId()+"]").removeAttr("data-selected-by");
+                    this.elt.attr("data-selected-by", usr.getId());
+                    $("td[data-cat]").addClass("destination");
+                    $("menu").addClass("destination");
+                }
+            },
+
+            unselect: function(usr){
+                if(this.selectedBy(usr)){
+                    this.elt.removeAttr("data-selected-by");
+                    $("td[data-cat]").removeClass("destination");
+                    $("menu").removeClass("destination");
+                }
+            },
+
+            toggleSelection: function(usr){//doubles the select test (who cares?)
+                if(!this.selected()){
+                    this.sendSelect(usr);
+                }
+                else if(this.selectedBy(usr)){
+                    this.sendUnselect(usr);
+                }
+                else{
+                    console.log("can't unselect someone else's selection");
+                }
+            },
+
+            move: function(usr,x,y){
+                if(this.selectedBy(usr)){
+                    this.updatePos(usr,x,y);
+                    this.unselect();
+                    this.elt.find(".position").prepend(this.printPos());
+                    this.spawn();
+                }
+                else{
+                    console.log("can't move someone else's selection");
+                }
+            },
+
+            onSendSelect: function(selectFunction){
+                this.sendSelect = selectFunction;
+            },
+
+            onSendUnselect: function(unselectFunction){
+                this.sendUnselect = unselectFunction;
+            },
+
+            forSendingComment: function(sendCommentFunction){
+                var self = this;
+                this.prepareSendComment = function(){
                     $(this).html(Util.print(Patterns.COMMENTING, [self.getCommentValue(true)]));
                     $(this).unbind("click");
                     $(this).find('#commentInput').focus();
@@ -179,67 +259,11 @@ define(['position', 'history'], function(Position, History) {
                         var key = e.which,
                             val = $(this).find('#commentInput').val();
                         if(key === 13) {//enter
-                            self.setComment(usr, val);
-                            $(this).html(self.getCommentValue());
-                            $(this).unbind("keydown");
-                            self.setUpEvents(usr);
+                            sendCommentFunction(val, self.id);
                         }
                     });
-                });
-            },
-
-            //**********************
-            // Actions
-            //**********************
-            selected: function(){
-                return (typeof $('#'+this.id).attr("data-selected-by") !== "undefined");
-            },
-
-            selectedBy: function(usr){
-                if(typeof usr === "undefined"){
-                    return $('#'+this.id).attr("data-selected-by") ;
-                }
-                else{
-                    return $('#'+this.id).attr("data-selected-by") == usr.getId() ;
-                }
-            },
-
-            select: function(usr){
-                if(!this.selected()){
-                    $("[data-selected-by="+usr.getId()+"]").removeAttr("data-selected-by");
-                    $('#'+this.id).attr("data-selected-by", usr.getId());
-                    $("td[data-cat]").addClass("destination");
-                    $("menu").addClass("destination");
-                }
-            },
-
-            unselect: function(usr){
-                if(this.selectedBy(usr)){
-                    $('#'+this.id).removeAttr("data-selected-by");
-                    $("td[data-cat]").removeClass("destination");
-                    $("menu").removeClass("destination");
-                }
-            },
-
-            toggleSelection: function(usr){
-                if(!this.selected()){ //doubles the select test (who cares?)
-                    this.select(usr);
-                }
-                else{
-                    this.unselect(usr); //will unselect only if selected by usr
-                }
-            },
-
-            move: function(usr,x,y){
-                if(this.selectedBy(usr)){
-                    this.updatePos(usr,x,y);
-                    this.unselect();
-                    $('#' + this.id).remove();
-                    this.spawn(usr);
-                }
+                };
             }
-
-
 
         });
 

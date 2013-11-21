@@ -5,8 +5,6 @@ var auth = new require('./uglyAuth.socket.io-server');
 
 var Server = cls.Class.extend({
     init: function(){
-        this.socketList = [];
-        this.tst=[];
         this.db = new dbh(config.db);
         this.db.test();
         this.io = require('socket.io').listen(config.websocket.port);
@@ -19,23 +17,39 @@ var Server = cls.Class.extend({
 
     init_callbacks: function(){
         var self=this;
+        //connection event
         this.connect = function(socket){
             socket.emit('connection established', {"player":socket.handshake.query.player,
                 "team":socket.handshake.query.team, "game":socket.handshake.query.game});
             //later on add to the emit, the state of the game
-            //TODO
-            socket.join('zeroom');
+            socket.join(socket.handshake.query.game);
             socket.leave("");
-            self.socketList.push(socket);
-            //socket.emit('news', { hello: hop });
-            socket.on('my other event', function (data){
-                console.log(data);
-            });
-            console.info('\033[35mcreated socket \033[0m', socket.id);
-            if(self.socketList.length>1){
-                self.socketList[0].emit('test', {"onsenfout":"rien de rien", "message":"you were the first but now you are "+self.socketList.length});
-            }
-            self.io.sockets.in('zeroom').emit('test', {"message": self.socketList.length+" users connected"});
+            socket.on('selectCard', self.selectCard);
+            socket.on('unselectCard', self.unselectCard);
+            socket.on('moveCard', self.moveCard);
+            socket.on('commentCard', self.commentCard);
+            self.io.sockets.in(socket.handshake.query.game).emit('join', {message: socket.handshake.query.player.name+" vient de se connecter"});
+        };
+
+        //selectCard event
+        this.selectCard = function(data){
+            console.log("select card", data);
+            self.io.sockets.in(data.gameId).emit("selectCard", {usr:data.usr, cardId:data.cardId});
+        };
+
+        //unselectCard event
+        this.unselectCard = function(data){
+            self.io.sockets.in(data.gameId).emit("unselectCard", {usr:data.usr, cardId:data.cardId});
+        };
+
+        //moveCard event
+        this.moveCard = function(data){
+            self.io.sockets.in(data.gameId).emit("moveCard", {usr:data.usr, cardId:data.cardId, coords:data.coords});
+        };
+
+        //moveCard event
+        this.commentCard = function(data){
+            self.io.sockets.in(data.gameId).emit("commentCard", {usr:data.usr, cardId:data.cardId, comment: data.comment});
         };
     }
 });

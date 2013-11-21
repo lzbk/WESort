@@ -14,7 +14,6 @@ module.exports = DBHandler = cls.Class.extend({
             var collections=['clasCol', 'players', 'teams', 'actions'];
             this.connectUrl = "mongodb://"+config.user+":"+config.pswd+"@"+config.host+"/"+config.name;
             this.db = require('mongojs').connect(this.connectUrl, collections, this.connectError);
-            /**/console.log("1 → db OK");
             /*this.setPlayerTeam(new ObjectId("5287b70c93b4573f10000001"), "test1", new ObjectId("5287f3e2276941ceebade1e3"), "guild1");
             this.setPlayerTeam(new ObjectId("5287b72293b4573f10000002"), "test2", new ObjectId("5287f3e2276941ceebade1e3"), "guild1");
             this.setPlayerTeam(new ObjectId("5287b74093b4573f10000003"), "test3", new ObjectId("5287f62c276941ceebade1e4"), "guild2");
@@ -30,7 +29,6 @@ module.exports = DBHandler = cls.Class.extend({
         var self=this;
         this.db.players.save({name: aName, password: aPassword, email: anEmail, image: anImage },
          {safe:true}, function(err, saved){
-        /**/console.log("\033[31msaved", JSON.stringify(err), typeof err, saved);
             if(err || !saved){
                 ioAuthentication_callback("Could not create player ("+anEmail+", "+aPassword+").", false);
             }
@@ -41,7 +39,6 @@ module.exports = DBHandler = cls.Class.extend({
     },
 
     auth: function(jsonGameId, email, password, ioAuthentication_callback){
-        console.log("\033[36m Auth \033[0m- " , jsonGameId);/**/
         var self = this;
         if(typeof password == "function"){
             //it's calling auth using the user id
@@ -55,7 +52,6 @@ module.exports = DBHandler = cls.Class.extend({
         }
         //TODO change query when authenticating from id
         this.db.players.findOne(query, function(err, player){
-            console.log(query, err, player);/**/
             if(err || !player){ioAuthentication_callback("Could not find player ("+playerNaming+").", false);}
             else{
                 //set up callback sequence
@@ -83,7 +79,6 @@ module.exports = DBHandler = cls.Class.extend({
                         "'s team ("+player.team.id+").", false);
                 });
                 self.onGetTeamSuccess(function(err, theTeam){
-                    console.log("\033[1m\033[31mTeam\033[0m → ",{"team":{"id":theTeam._id.toHexString(), "name":theTeam.name, "members":theTeam.members}});/**/
                     ioAuthentication_callback({"team":theTeam});
                     if( (typeof player.games == "undefined") ||
                         (typeof player.games.clasCol == "undefined") ||
@@ -138,7 +133,6 @@ module.exports = DBHandler = cls.Class.extend({
 
     createGame: function(jsonGameId, teamId){
         var self=this;
-        /**/console.log("Create game", jsonGameId, teamId);
         this.db.clasCol.save({"class":jsonGameId, "team":teamId}, function(err, game){
             if(err || !game){
                 self.createGameError(err, game);

@@ -34,8 +34,10 @@ define(function(){
         },
         setTeam: function(team){
             this.team = {};
-            this.team.id = team._id;
-            this.team.name = team.name;
+            if(typeof team !== "undefined"){
+                this.team.id = team._id;
+                this.team.name = team.name;
+            }
         },
 
         getId: function(){
@@ -44,11 +46,25 @@ define(function(){
         getName: function(){
             return this.name;
         },
+        getPlayerOnly: function(){
+            return {id: this.id, name: this.name};
+        },
+
         getTeamId: function(){
-            return this.team.id;
+            if(this.team == {}){
+                return false;
+            }
+            else{
+                return this.team.id;
+            }
         },
         getTeamName: function(){
-            return this.team.name;
+            if(this.team == {}){
+                return false;
+            }
+            else{
+                return this.team.name;
+            }
         },
         getMembersNames: function(){
             var res = [], self = this;
