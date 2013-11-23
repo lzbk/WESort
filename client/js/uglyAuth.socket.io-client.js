@@ -27,6 +27,8 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
                 this.url = configSource.websocket.url;
                 this.port = configSource.websocket.port;
                 this.gameClass = gameClass;
+                this.playerJoin = function(){};
+                this.playerLeave = function(){};
                 var self = this;
                 this.onSendForm(function(){
                     //only called if form is OK see uglyAuth.js
@@ -49,6 +51,7 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
         initCallbacks: function(){
             var self = this;
             this.socket.on("connection established", function(data){
+                console.log(data);/**/
                 self.connectSucces(data);
             });
             this.socket.on("error", function(data){
@@ -119,11 +122,15 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
 
 
 
-        playerJoin: function(data){
-            $("#users").html(data.message);/**///TODO replace with users class when implemented
+        onPlayerJoin: function(callback){
+            this.playerJoin = callback;
+            //TODO mettre un message dans le chat quand il y sera…
+            //$("#users").html(data.message);/**///TODO replace with users class when implemented
         },
-        playerLeave: function(data){
-            $("#users").html(data.message);/**///TODO replace with users class when implemented
+        onPlayerLeave: function(callback){
+            this.playerLeave = callback;
+            //TODO mettre un message dans le chat quand il y sera…
+            //$("#users").html(data.message);/**///TODO replace with users class when implemented
         },
 
 

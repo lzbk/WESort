@@ -63,7 +63,7 @@ define( function(){
                 }
                 tmp.player.name = aPlayer.name;
                 tmp.player._id  = aPlayer.id;
-                tmp.player[this.teamField] = aPlayer.team;
+                //TODO #team tmp.player[this.teamField] = aPlayer.team;
                 if(typeof tmp.player.games == "undefined"){
                     tmp.player.games = {};
                 }

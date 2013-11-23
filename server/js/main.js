@@ -8,19 +8,17 @@ var Server = cls.Class.extend({
         this.db = new dbh(config.db);
         this.db.test();
         this.io = require('socket.io').listen(config.websocket.port);
-
+        this.onlinePlayers={};
         this.init_callbacks();
         this.io.sockets.on('connection', this.connect);
     },
-
-
 
     init_callbacks: function(){
         var self=this;
         //connection event
         this.connect = function(socket){
             socket.emit('connection established', {"player":socket.handshake.query.player,
-                "team":socket.handshake.query.team, "game":socket.handshake.query.game});
+                "team":socket.handshake.query.team, "online":self.onlinePlayers[socket.handshake.query.game], "game":socket.handshake.query.game});
             //later on add to the emit, the state of the game
             socket.join(socket.handshake.query.game);
             socket.leave("");
@@ -28,7 +26,8 @@ var Server = cls.Class.extend({
             socket.on('unselectCard', self.unselectCard);
             socket.on('moveCard', self.moveCard);
             socket.on('commentCard', self.commentCard);
-            self.io.sockets.in(socket.handshake.query.game).emit('join', {message: socket.handshake.query.player.name+" vient de se connecter"});
+            self.addOnlinePlayer(socket.handshake.query.player, socket.handshake.query.game);
+            self.io.sockets.in(socket.handshake.query.game).emit('join', {player: socket.handshake.query.player});
         };
 
         //selectCard event
@@ -51,6 +50,23 @@ var Server = cls.Class.extend({
         this.commentCard = function(data){
             self.io.sockets.in(data.gameId).emit("commentCard", {usr:data.usr, cardId:data.cardId, comment: data.comment});
         };
+    },
+
+    addOnlinePlayer: function(player, gameId){
+        if(typeof this.onlinePlayers[gameId] == "undefined"){
+            this.onlinePlayers[gameId] = [];
+        }
+        if(this.onlinePlayers[gameId].indexOf(player.id) == -1){
+            this.onlinePlayers[gameId].push(player.id);
+        }
+    },
+    removeOnlinePlayer: function(player, gameId){
+        if( (typeof this.onlinePlayers[gameId] !== "undefined") ){
+            var i = this.onlinePlayers[gameId].indexOf(player.id);
+            if(i>=0){
+                this.onlinePlayers[gameId].splice(i,1);
+            }
+        }
     }
 });
 

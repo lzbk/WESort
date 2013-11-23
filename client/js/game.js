@@ -4,15 +4,14 @@
  * Date: 20/09/13 (00:45)
  * Content: The game itself, linking cards, table and user
  */
-define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-client'],
-        function(Table, Card, Category, Storage, Player, UglyAuth_io){
+define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.socket.io-client'],
+        function(Table, Card, Category, Storage, Player, Team, UglyAuth_io){
     var Game = Class.extend({
         init: function(dataSourceBoard, dataSourceConfig){//dataSource, either an object or a string pointing to a directory containing a game_data.json file (no '/' at the end of the path)
             this.storage = new Storage(this.class, true);
             var tmpPlayer = this.storage.loadPlayer();
             if (tmpPlayer !== false){
-                this.player = new Player({id:tmpPlayer.id, name: tmpPlayer.name},
-                    tmpPlayer.team);
+                this.player = new Player({id:tmpPlayer.id, name: tmpPlayer.name});
             }
             else{
                 this.player = new Player();
@@ -22,8 +21,8 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
             var extraParam = {"register":{"gameClass":this.class},
                               "login":{"gameClass":this.class}}  ,
                 authenticationSuccess = function(data){
-/**/ $('body>header').append("<h2> Alors…"+JSON.stringify(data)+"</h2>");
-                    self.player = new Player(data.player, data.team);
+                    self.player = new Player(data.player);
+                    self.team = new Team("users", data.team, self.player, data.online);
                     self.gameId = data.game;
                     self.loadBoard(dataSourceBoard);
                     self.setUpEvents();
@@ -163,6 +162,8 @@ define(['table', 'card', 'category', 'storage', 'player', 'uglyAuth.socket.io-cl
             this.client.onCommentCard(function(data){
                 self.cards[data.cardId].setComment(new Player(data.usr), data.comment);
             });
+            this.client.onPlayerJoin(function(data){console.log(data);/**/self.team.connect(data.player.id);});
+            this.client.onPlayerLeave(function(data){self.team.disconnect(data.player.id);});
         }
     });
     return Game;

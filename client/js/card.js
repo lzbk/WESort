@@ -200,8 +200,8 @@ define(['position', 'history'], function(Position, History) {
 
             select: function(usr){
                 if(!this.selected()){
-                    $("[data-selected-by="+usr.getId()+"]").removeAttr("data-selected-by");
-                    this.elt.attr("data-selected-by", usr.getId());
+                    $("[data-selected-by="+usr.getId()+"]").removeAttr("title").removeAttr("data-selected-by");
+                    this.elt.attr("data-selected-by", usr.getId()).attr("title", Util.print(Patterns.SELECTED, [usr.getName()]));
                     $("td[data-cat]").addClass("destination");
                     $("menu").addClass("destination");
                 }
@@ -209,7 +209,7 @@ define(['position', 'history'], function(Position, History) {
 
             unselect: function(usr){
                 if(this.selectedBy(usr)){
-                    this.elt.removeAttr("data-selected-by");
+                    this.elt.removeAttr("data-selected-by").removeAttr("title");
                     $("td[data-cat]").removeClass("destination");
                     $("menu").removeClass("destination");
                 }

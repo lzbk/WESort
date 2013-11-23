@@ -215,18 +215,7 @@ article:hover{
 }
 
         /*Selection*/
-article[data-selected-by]{
-    background: #f3f3f3;
-    color: black;
-    background:
-        linear-gradient(45deg,  transparent 0.3rem, #f3f3f3 0.3rem),
-        linear-gradient(225deg, transparent 0.3rem, #f3f3f3 0.3rem),
-        linear-gradient(135deg,  transparent 0.3rem, #f3f3f3 0.3rem),
-        linear-gradient(315deg, transparent 0.3rem, #f3f3f3 0.3rem);
-    background-position: bottom left, top right, top left, bottom right;
-    background-size:50% 50%;
-    background-repeat:no-repeat;
-}
+/*see Patterns.js*/
 
     /*Content*/
         /*Common layout*/
@@ -398,7 +387,12 @@ article header .lock{
     float: right;
 }
 
-
+/* Users */
+#users div{
+    padding:0.2rem;
+    margin-right: 1rem;
+    margin-bottom:0.2rem;
+}
 
 /* Table */
 
@@ -505,6 +499,3 @@ td[data-cat]{
     vertical-align: top;
     background: #c1bfbf;
 }
-
-
-
