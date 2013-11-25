@@ -372,6 +372,30 @@ article[open=open] footer .comments{
     cursor: pointer;
 }
 
+        /*Team*/
+#users .validation{
+    float:right;
+    margin: 0;
+    padding: 0;
+    width:11px;
+    height: 11px;
+    background-image: url('../assets/tick.png');
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+}
+
+#users .validated .validation{
+    background-position: 0px -11px;
+}
+
+.validation:active {
+    -webkit-box-shadow: 0px 1px 0px rgba(175,175,175,1), 0px 1px 2px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 1px 0px rgba(175,175,175,1), 0px 1px 2px rgba(0,0,0,.9);
+    box-shadow: 0px 1px 0px rgba(175,175,175,1), 0px 1px 2px rgba(0,0,0,.9);
+    position: relative;
+    top: 2px;
+}
+
         /*Common layout*/
 
 

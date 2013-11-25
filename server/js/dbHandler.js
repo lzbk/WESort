@@ -149,6 +149,7 @@ module.exports = DBHandler = cls.Class.extend({
         var tempField = {};
             tempField[jsonGameId] = gameId ;
         console.log("\033[34mSetPlayer - \033[0m", teamId, jsonGameId, gameId)
+        //#moreThanOne
         this.db.players.update({"team.id":teamId},{ "$set":{"games.clasCol":tempField}}, {multi:true}, function(err, nbplayers){
             if(err || (nbplayers == 0)){
                 self.setTeamGameError(err, nbplayers);

@@ -87,6 +87,7 @@ define(function(){
                 }
                 $("head style").append(Util.print(Patterns.TEAMMEMBER.STYLE, [id, Patterns.TEAMMEMBER.COLORS[colorId].background, Patterns.TEAMMEMBER.COLORS[colorId].text]));
             });
+            this.initEvents(gamePlayer.getId());
         },
 
         connect: function(playerId){
@@ -98,15 +99,16 @@ define(function(){
         },
 
         demandValidation: function(playerId){
+            console.log(playerId);
             this.validate.push(playerId);
-            this.elt.find("#p"+playerId).addClass("validate").attr("title", Util.print(Patterns.VALIDATE, [this.getMemberName(playerId)]));
+            this.elt.find("#p"+playerId).addClass("validated").attr("title", Util.print(Patterns.VALIDATED, [this.getMemberName(playerId)]));
         },
         cancelValidation: function(playerId){
             var i = this.validate.indexOf(playerId);
             if(i >= 0){
                 this.validate.splice(i, 1);
-                this.elt.find("#p"+playerId).removeClass("validate").removeAttr("title");
             }
+            this.elt.find("#p"+playerId).removeClass("validated").attr("title", Util.print(Patterns.VALIDATE, []));
         },
 
         validate: function(){
@@ -115,6 +117,18 @@ define(function(){
                 res = res && (this.getMemberName(this.validate[i]) !== false);
             }
             return res;
+        },
+
+        initEvents: function(playerId){
+            var self=this;
+            this.elt.find("#p"+playerId+" .validation").click(function(){
+                if(! $(this).parent().hasClass("validated")){
+                    self.demandValidation(playerId);
+                }
+                else{
+                    self.cancelValidation(playerId);
+                }
+            }).attr("style","cursor:pointer");
         }
 
     });

@@ -18,14 +18,15 @@ Patterns = {
         "\n\t\t<ul class='position'>{5}</ul>"+
         "\n\t\t</footer>\n</article>",
     SELECTED:"{0} a sélectionné cette carte et s'apprête à la placer…",
-    VALIDATE:"{0} a demandé la validation de votre tableau, pour effectivement savoir si vous avez répondu à la question, tous les membres de l'équipe doivent avoir demandé la validation",
+    VALIDATE:"Cliquer ici pour demander la validation de votre grille",
+    VALIDATED:"{0} a demandé la validation de votre tableau, pour effectivement savoir si vous avez répondu à la question, tous les membres de l'équipe doivent avoir demandé la validation",
     HELP:"<header><h2>Aide</h2><div class='closeButton'></div></header>\n"+
          "<section class='details'>{0}</section>",
     COMMENTING://'<form accept-charset="utf-8">' +
             "\n\t<input id='commentInput' type='text' value="+'"{0}">',/*+
             "</form>",*/
     TEAMMEMBER:{ //the id is preceded by letter p, because an HTML id cannot start with a number…
-        ELEMENT: "<div id='p{0}'>{1}</div>",
+        ELEMENT: "<div id='p{0}'>{1}<div class='validation'></div></div>",
         STYLE  : 'article[data-selected-by="{0}"]{o}background: {1};'+
                  "color: {2};"+
                  "background:"+

@@ -8,7 +8,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
         function(Table, Card, Category, Storage, Player, Team, UglyAuth_io){
     var Game = Class.extend({
         init: function(dataSourceBoard, dataSourceConfig){//dataSource, either an object or a string pointing to a directory containing a game_data.json file (no '/' at the end of the path)
-            this.storage = new Storage(this.class, true);
+            this.storage = new Storage(this.getBoardContent(dataSourceBoard), true);
             var tmpPlayer = this.storage.loadPlayer();
             if (tmpPlayer !== false){
                 this.player = new Player({id:tmpPlayer.id, name: tmpPlayer.name});
@@ -18,13 +18,13 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             }
             this.gameId = tmpPlayer.gameId;
             var self=this;
-            var extraParam = {"register":{"gameClass":this.class},
-                              "login":{"gameClass":this.class}}  ,
+            var extraParam = {"register":{"gameClass":this.gameClass},
+                              "login":{"gameClass":this.gameClass}}  ,
                 authenticationSuccess = function(data){
                     self.player = new Player(data.player);
                     self.team = new Team("users", data.team, self.player, data.online);
                     self.gameId = data.game;
-                    self.loadBoard(dataSourceBoard);
+                    self.loadBoard();
                     self.setUpEvents();
                     self.storage.savePlayer(self.player, self.gameId);
                     self.setUpMessages();
@@ -36,7 +36,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                 this.client = new UglyAuth_io(dataSourceConfig,
                     authenticationSuccess,
                     authenticationFailure,
-                    this.player.getId(), this.class, extraParam);
+                    this.player.getId(), this.gameClass, extraParam);
             }
             else{
                 this.client = new UglyAuth_io(dataSourceConfig,
@@ -55,53 +55,64 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             }
         },
 
-        loadBoard: function(dataSourceBoard){
-            var path="", self=this;
+        getBoardContent: function(dataSourceBoard){
             if(typeof dataSourceBoard == "string"){
-                path = dataSourceBoard;
-                dataSourceBoard = Util.loadJSON(dataSourceBoard+"/game_data.json");
+                this.data = Util.loadJSON(dataSourceBoard+"/game_data.json");
+                this.data.path = dataSourceBoard;
             }
-            this.class = dataSourceBoard.id;//#todo test server before loading
-            dataSourceBoard.categories.dim.X = new Category(dataSourceBoard.categories.dim.X.id, dataSourceBoard.categories.dim.X.caption, dataSourceBoard.categories.dim.X.explanation);
-            dataSourceBoard.categories.dim.Y = new Category(dataSourceBoard.categories.dim.Y.id, dataSourceBoard.categories.dim.Y.caption, dataSourceBoard.categories.dim.Y.explanation);
-            for(var i=0;i<dataSourceBoard.categories.X.length;i++){
-                dataSourceBoard.categories.X[i] = new Category(dataSourceBoard.categories.X[i].id, dataSourceBoard.categories.X[i].caption, dataSourceBoard.categories.X[i].explanation, dataSourceBoard.categories.dim.X.id);
-            }
-            for(i=0;i<dataSourceBoard.categories.Y.length;i++){
-                dataSourceBoard.categories.Y[i] = new Category(dataSourceBoard.categories.Y[i].id, dataSourceBoard.categories.Y[i].caption, dataSourceBoard.categories.Y[i].explanation, dataSourceBoard.categories.dim.Y.id);
-            }
-            this.board = new Table(dataSourceBoard.categories, dataSourceBoard.title, dataSourceBoard.shuffle);
-            this.board.spawn();
-            this.cards={};
-            for(i=0;i<dataSourceBoard.cards.length;i++){
-                var img;
-                if(Util.isUrl(dataSourceBoard.cards[i].img)){
-                    img = dataSourceBoard.cards[i].img;
+            this.gameClass = this.data.id;
+            return this.gameClass;
+        },
+        //getBoard must have been called before
+        loadBoard: function(){
+            if(typeof this.data !== "undefined"){
+                var self=this;
+                //#todo test server before loading
+                 this.data.categories.dim.X = new Category( this.data.categories.dim.X.id,  this.data.categories.dim.X.caption,  this.data.categories.dim.X.explanation);
+                 this.data.categories.dim.Y = new Category( this.data.categories.dim.Y.id,  this.data.categories.dim.Y.caption,  this.data.categories.dim.Y.explanation);
+                for(var i=0;i< this.data.categories.X.length;i++){
+                     this.data.categories.X[i] = new Category( this.data.categories.X[i].id,  this.data.categories.X[i].caption,  this.data.categories.X[i].explanation,  this.data.categories.dim.X.id);
                 }
-                else{
-                    img = path + "/" + dataSourceBoard.cards[i].img;
+                for(i=0;i< this.data.categories.Y.length;i++){
+                     this.data.categories.Y[i] = new Category( this.data.categories.Y[i].id,  this.data.categories.Y[i].caption,  this.data.categories.Y[i].explanation,  this.data.categories.dim.Y.id);
                 }
-                dataSourceBoard.cards[i]=(new Card(dataSourceBoard.cards[i].id, dataSourceBoard.cards[i].name, dataSourceBoard.cards[i].cat, img, dataSourceBoard.cards[i].desc, this.player));
-            }
-            dataSourceBoard.cards.sort(Card.compare); //Allows to sort them before being able to access them directly through their ids (link evt→object through html element id)
-            for(i=0;i<dataSourceBoard.cards.length;i++){
-                this.cards[dataSourceBoard.cards[i].id] = dataSourceBoard.cards[i];
-                this.cards[dataSourceBoard.cards[i].id].forSendingComment(
-                    function(aComment, aCard){//encapsulated in a function, "this" is not the card…
-                        self.client.emit("commentCard", {gameId: self.gameId, cardId: aCard, usr:self.player.getPlayerOnly(), comment:aComment});
+                this.board = new Table( this.data.categories,  this.data.title,  this.data.shuffle);
+                this.board.spawn();
+                this.cards={};
+                for(i=0;i< this.data.cards.length;i++){
+                    var img;
+                    if(Util.isUrl( this.data.cards[i].img)){
+                        img =  this.data.cards[i].img;
                     }
-                );
-                this.cards[dataSourceBoard.cards[i].id].onSendUnselect(function(){
-                    //"this" is the card
-                    self.client.emit("unselectCard",{gameId: self.gameId, cardId: this.id, usr:self.player.getPlayerOnly()});
-                });
-                this.cards[dataSourceBoard.cards[i].id].spawn();
-                this.cards[dataSourceBoard.cards[i].id].onSendSelect(function(usr){
-                    //"this" is the card
-                    self.client.emit("selectCard",{gameId: self.gameId, cardId: this.id, usr:usr.getPlayerOnly()});
-                });
+                    else{
+                        img =  this.data.path + "/" +  this.data.cards[i].img;
+                    }
+                     this.data.cards[i]=(new Card( this.data.cards[i].id,  this.data.cards[i].name,  this.data.cards[i].cat, img,  this.data.cards[i].desc, this.player));
+                }
+                 this.data.cards.sort(Card.compare); //Allows to sort them before being able to access them directly through their ids (link evt→object through html element id)
+                for(i=0;i< this.data.cards.length;i++){
+                    this.cards[ this.data.cards[i].id] =  this.data.cards[i];
+                    this.cards[ this.data.cards[i].id].forSendingComment(
+                        function(aComment, aCard){//encapsulated in a function, "this" is not the card…
+                            self.client.emit("commentCard", {gameId: self.gameId, cardId: aCard, usr:self.player.getPlayerOnly(), comment:aComment});
+                        }
+                    );
+                    this.cards[ this.data.cards[i].id].onSendUnselect(function(){
+                        //"this" is the card
+                        self.client.emit("unselectCard",{gameId: self.gameId, cardId: this.id, usr:self.player.getPlayerOnly()});
+                    });
+                    this.cards[ this.data.cards[i].id].spawn();
+                    this.cards[ this.data.cards[i].id].onSendSelect(function(usr){
+                        //"this" is the card
+                        self.client.emit("selectCard",{gameId: self.gameId, cardId: this.id, usr:usr.getPlayerOnly()});
+                    });
+                }
+                $("#help").html(Util.print(Patterns.HELP, [ this.data.help]));
+                delete this.data;
             }
-            $("#help").html(Util.print(Patterns.HELP, [dataSourceBoard.help]));
+            else{
+                console.error("#loaderror, trying to load a board that has not been “got” yet.");
+            }
         },
 
         /***
@@ -162,7 +173,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             this.client.onCommentCard(function(data){
                 self.cards[data.cardId].setComment(new Player(data.usr), data.comment);
             });
-            this.client.onPlayerJoin(function(data){console.log(data);/**/self.team.connect(data.player.id);});
+            this.client.onPlayerJoin(function(data){self.team.connect(data.player.id);});
             this.client.onPlayerLeave(function(data){self.team.disconnect(data.player.id);});
         }
     });
