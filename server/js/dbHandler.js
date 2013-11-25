@@ -41,7 +41,7 @@ module.exports = DBHandler = cls.Class.extend({
     auth: function(jsonGameId, email, password, ioAuthentication_callback){
         var self = this;
         if(typeof password == "function"){
-            //it's calling auth using the user id
+            //it's calling auth using the user id (stored in the e-mail variable, though)
             ioAuthentication_callback = password;
             var query = {"_id":new ObjectId(email)};
             var playerNaming = "Id: "+email ;
@@ -50,7 +50,6 @@ module.exports = DBHandler = cls.Class.extend({
             var query = {"email":email,"password": password};
             var playerNaming = email+", "+password;
         }
-        //TODO change query when authenticating from id
         this.db.players.findOne(query, function(err, player){
             if(err || !player){ioAuthentication_callback("Could not find player ("+playerNaming+").", false);}
             else{
@@ -87,7 +86,7 @@ module.exports = DBHandler = cls.Class.extend({
                     }
                     else{
                         ioAuthentication_callback(
-                            {"player":{"id":player._id.toHexString(), "name":player.name}, "game":player.games.clasCol[jsonGameId]}
+                            {"player":{"id":player._id.toHexString(), "name":player.name}, "game":player.games.clasCol[jsonGameId].id}
                             , true);
                     }
                 });
@@ -147,10 +146,9 @@ module.exports = DBHandler = cls.Class.extend({
     setTeamGame: function(teamId, jsonGameId, gameId){
         var self=this;
         var tempField = {};
-            tempField[jsonGameId] = gameId ;
+            tempField["games.clasCol."+jsonGameId+".id"] = gameId ;
         console.log("\033[34mSetPlayer - \033[0m", teamId, jsonGameId, gameId)
-        //#moreThanOne
-        this.db.players.update({"team.id":teamId},{ "$set":{"games.clasCol":tempField}}, {multi:true}, function(err, nbplayers){
+        this.db.players.update({"team.id":teamId},{ "$set":tempField}, {multi:true}, function(err, nbplayers){
             if(err || (nbplayers == 0)){
                 self.setTeamGameError(err, nbplayers);
             }
