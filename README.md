@@ -20,7 +20,7 @@ Existing tags are the following:
 * #render → Improve rendering ;
 * #msg → create constant file with all messages / translation.
 * #security → test data types, entry values and such
-* #moreThanOne → if you want the same profile to play more than one instance of this game
+* #genericity → to improve functions in order to be closer to an API
 
 Order in which the javascript files call each other (client side)
 -----------------------------------------------------------------

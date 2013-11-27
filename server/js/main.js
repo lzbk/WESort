@@ -12,7 +12,6 @@ var Server = cls.Class.extend({
         this.init_callbacks();
         this.io.sockets.on('connection', this.connect);
     },
-
     init_callbacks: function(){
         var self=this;
         //connection event
@@ -26,6 +25,8 @@ var Server = cls.Class.extend({
             socket.on('unselectCard', self.unselectCard);
             socket.on('moveCard', self.moveCard);
             socket.on('commentCard', self.commentCard);
+            socket.on('request validation', self.requestValidation);
+            socket.on('cancel validation', self.cancelValidation);
             self.addOnlinePlayer(socket.handshake.query.player, socket.handshake.query.game);
             self.io.sockets.in(socket.handshake.query.game).emit('join', {player: socket.handshake.query.player});
         };
@@ -50,6 +51,23 @@ var Server = cls.Class.extend({
         this.commentCard = function(data){
             self.io.sockets.in(data.gameId).emit("commentCard", {usr:data.usr, cardId:data.cardId, comment: data.comment});
         };
+
+        //requestValidation
+        this.requestValidation = function(data){
+            self.db.requestValidation(data.usr.id, data.gameId, data.gameClass, function(){
+                self.io.sockets.in(data.gameId).emit("request validation", {player:data.usr});
+                self.db.isToValidate(data.gameId, data.gameClass, function(){
+                    self.io.sockets.in(data.gameId).emit("validation", {});
+                });
+            });
+        };
+        //cancelValidation
+        this.cancelValidation = function(data){
+            self.db.cancelValidation(data.usr.id, data.gameId, data.gameClass, function(){
+                self.io.sockets.in(data.gameId).emit("cancel validation", {player:data.usr});
+            });
+        };
+
     },
 
     addOnlinePlayer: function(player, gameId){

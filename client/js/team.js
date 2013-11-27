@@ -69,8 +69,9 @@ define(function(){
             }
         },
 
+        //gamePlayer is the player who loads the client
         display: function(gamePlayer){
-            var self=this, i=1; //0 is for the player…
+            var self=this, i=1; //0 is for the client player…
             this.forEachMember(function(id, name){
                 var colorId;
                 if(gamePlayer.getId() == id){
@@ -98,7 +99,7 @@ define(function(){
             this.elt.find("#p"+playerId).removeClass("online");
         },
 
-        demandValidation: function(playerId){
+        validationRequest: function(playerId){
             console.log(playerId);
             this.validate.push(playerId);
             this.elt.find("#p"+playerId).addClass("validated").attr("title", Util.print(Patterns.VALIDATED, [this.getMemberName(playerId)]));
@@ -119,14 +120,22 @@ define(function(){
             return res;
         },
 
+        onSendValidationRequest: function(sendRequest){
+            this.sendValidationRequest = sendRequest;
+        },
+
+        onSendCancelValidation: function(sendCancel){
+            this.sendCancelValidation = sendCancel;
+        },
+
         initEvents: function(playerId){
             var self=this;
             this.elt.find("#p"+playerId+" .validation").click(function(){
                 if(! $(this).parent().hasClass("validated")){
-                    self.demandValidation(playerId);
+                    self.sendValidationRequest();
                 }
                 else{
-                    self.cancelValidation(playerId);
+                    self.sendCancelValidation();
                 }
             }).attr("style","cursor:pointer");
         }

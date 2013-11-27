@@ -121,6 +121,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
 
         setUpEvents: function(){
             var self = this;
+            /***** CARDS *****/
             $('td[data-cat]').click(function(){
                 var card = self.getSelectedCard();
                 if(card !== false){
@@ -135,13 +136,24 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                 }
             });
             //As #stack has no "data-cat" attribute, "undefined" will be provided which is what corresponds to setting a neutral position, which is interpreted as #stack by Card.
-            //used menu, because stack only extends as far as the last card in the column uncomfortable for a click… #security
+            //used menu, because stack only extends as far as the last card in the stack and we want the whole surface of the menu, not just the stack div #security
             $("menu").click(function(){
                 var card = self.getSelectedCard();
                 if(card !== false){
                     card.move(self.player);
                 }
             });
+
+            /***** TEAM *****/
+            //to be called on button push initiated in class Team
+            this.team.onSendValidationRequest(function(){
+                self.client.emit("request validation", {gameId:self.gameId, usr:self.player.getPlayerOnly(), gameClass:self.gameClass});
+            });
+            this.team.onSendCancelValidation(function(){
+                self.client.emit("cancel validation", {gameId:self.gameId, usr:self.player.getPlayerOnly(), gameClass:self.gameClass});
+            });
+
+            /***** HELP *****/
             $("#helpButton").click(function(){
                 $("#help").attr("open", "open");
                 $('#overlay').attr("class", "show");
@@ -173,8 +185,22 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             this.client.onCommentCard(function(data){
                 self.cards[data.cardId].setComment(new Player(data.usr), data.comment);
             });
-            this.client.onPlayerJoin(function(data){self.team.connect(data.player.id);});
-            this.client.onPlayerLeave(function(data){self.team.disconnect(data.player.id);});
+            this.client.onPlayerJoin(function(data){
+                self.team.connect(data.player.id);
+            });
+            this.client.onPlayerLeave(function(data){
+                self.team.disconnect(data.player.id);
+            });
+            this.client.onValidationRequest(function(data){
+                self.team.validationRequest(data.player.id);
+            });
+            this.client.onCancelValidation(function(data){
+                self.team.cancelValidation(data.player.id);
+            });
+            this.client.onValidation(function(data){
+               //TODO validation & feedback
+                window.alert('wouhouuu tout le monde a validé !!');
+            });
         }
     });
     return Game;

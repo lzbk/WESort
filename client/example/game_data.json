@@ -1,4 +1,4 @@
-{   "id" : "act1",
+{   "id" : "act01",
     "categories":{
         "dim": {"X":{"id":"typ", "caption":"Type de Monument", "explanation":"Les monuments n&apos;ont pas tous la même fonction, c&apos;est un critère de classement"},
               "Y":{"id":"loc", "caption":"Lieu", "explanation":"Dans plusieurs civilisations on retrouve des bâtiments ayant la même fonction, cependant selon les époques et les endroits, ils ont leurs spécificités architecturales"}},

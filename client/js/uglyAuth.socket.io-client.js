@@ -121,7 +121,6 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
         },
 
 
-
         onPlayerJoin: function(callback){
             this.playerJoin = callback;
             //TODO mettre un message dans le chat quand il y sera…
@@ -133,6 +132,15 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
             //$("#users").html(data.message);/**///TODO replace with users class when implemented
         },
 
+        onValidationRequest: function(callback){
+            this.socket.on("request validation", callback);
+        },
+        onCancelValidation: function(callback){
+            this.socket.on("cancel validation", callback);
+        },
+        onValidation: function(callback){
+            this.socket.on("validation", callback);
+        },
 
         displayLogin: function(){
             this.buildLogin();
