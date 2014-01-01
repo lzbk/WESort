@@ -5,7 +5,7 @@
  * So far only handles mongoDB
  */
 
-//TODO database design is probably too "relational"
+//TODO database design is probably terrible… (too "relational" for instance the player collection could contain teams and use new ObjectId() to add users to it…)
 //TODO change functions to be able to include the callback #genericity (to reuse those functions)
 
 var cls = require("./lib/class");
@@ -41,6 +41,7 @@ module.exports = DBHandler = cls.Class.extend({
         });
     },
 
+    /*Does everything, it authentifies and depending on the case (succesfully authentified or not, first connection to this game or not, team already having launched a game or not, etc) calls the appropriate methods to update the state of the DB*/
     auth: function(jsonGameId, email, password, ioAuthentication_callback){
         var self = this;
         if(typeof password == "function"){
@@ -85,7 +86,7 @@ module.exports = DBHandler = cls.Class.extend({
                     if( (typeof player.games == "undefined") ||
                         (typeof player.games.clasCol == "undefined") ||
                         (typeof player.games.clasCol[jsonGameId] == "undefined") ){
-                        self.createGame(jsonGameId, player.team);
+                        self.createGame(jsonGameId, theTeam);
                     }
                     else{
                         ioAuthentication_callback(
@@ -133,9 +134,13 @@ module.exports = DBHandler = cls.Class.extend({
         });
     },
 
-    createGame: function(jsonGameId, teamId){
-        var self=this;
-        this.db.clasCol.save({"class":jsonGameId, "team":teamId}, function(err, game){
+    createGame: function(jsonGameId, aTeam){
+        var self=this, validationRequests = {true:[], false:[]};
+        aTeam.members.forEach(function(item){
+           validationRequests["false"].push(Object.keys(item)[0]);
+        });
+        console.log("createGame", validationRequests);
+        this.db.clasCol.save({"class":jsonGameId, "team":aTeam._id, "validationRequests":validationRequests}, function(err, game){
             if(err || !game){
                 self.createGameError(err, game);
             }
@@ -146,6 +151,8 @@ module.exports = DBHandler = cls.Class.extend({
         });
     },
 
+    //associate game (jsonGameId → the class of the game; gameId its id in the collection)
+    //to each player documents of the team (teamId)
     setTeamGame: function(teamId, jsonGameId, gameId){
         var self=this;
         var tempField = {};
@@ -156,7 +163,7 @@ module.exports = DBHandler = cls.Class.extend({
                 self.setTeamGameError(err, nbplayers);
             }
             else{
-                self.setTeamGameSuccess(tempField);
+                self.setTeamGameSuccess(gameId.toHexString());
             }
         });
     },
@@ -186,58 +193,54 @@ module.exports = DBHandler = cls.Class.extend({
     },
 
     requestValidation: function(playerId, gameId, jsonGameId, callback){
-        //#security, what if undefined ?
-        if(typeof playerId == "string"){
-            playerId = new ObjectId(playerId);
+        //#security, what if undefined ?, what if wrongly called, no  background check pulls all values though
+        if(typeof playerId !== "string"){
+            playerId = playerId.toHexString();
         }
         if(typeof gameId == "string"){
             gameId = new ObjectId(gameId);
         }
-        var query = {};
-        query["games.clasCol."+jsonGameId+".requestedValidation"] = true;
+        var query = {"$pull":{"validationRequests.false":playerId}, "$push":{"validationRequests.true":playerId}};
         console.log(query);/**/
-        this.db.players.update({"_id":playerId}, {"$set":query}, function(err, nbplayers){
+        this.db.clasCol.update({"_id":gameId}, query, function(err, nbgames){
             if(err || (nbplayers !== 1)){
-                console.log(err, nbplayers, "could not request validation for player "+playerId);
+                console.log(err, nbgames, "could not request validation for player "+playerId);
             }
             else{
                 callback();
             }
         });
     },
-    cancelValidation: function(playerId, gameId, jsonGameId, callback){
-        //#security, what if undefined ?
-        if(typeof playerId == "string"){
-            playerId = new ObjectId(playerId);
+    cancelValidation: function(playerId, gameId, callback){
+        //#security, what if undefined ?, what if wrongly called, no  background check pulls all values though
+        if(typeof playerId !== "string"){
+            playerId = playerId.toHexString();
         }
         if(typeof gameId == "string"){
             gameId = new ObjectId(gameId);
         }
-        var query = {};
-        query["games.clasCol."+jsonGameId+".requestedValidation"] = false;
-        this.db.players.update({"_id":playerId}, {"$set":query}, function(err, nbplayers){
+        var query = {"$push":{"validationRequests.false":playerId}, "$pull":{"validationRequests.true":playerId}};
+        console.log(query);/**/
+        this.db.clasCol.update({"_id":gameId}, query, function(err, nbgames){
             if(err || (nbplayers !== 1)){
-                console.log(err, nbplayers, "could not request validation for player "+playerId);
+                console.log(err, nbgames, "could not request validation for player "+playerId);
             }
             else{
                 callback();
             }
         });
     },
-    isToValidate: function(gameId, jsonGameId, validate_callback){
+    isToValidate: function(gameId, validate_callback){
         if(typeof gameId == "string"){
             gameId = new ObjectId(gameId);
         }
-        var query = {};
-        query["games.clasCol."+jsonGameId+".id"] = gameId;
-        query["games.clasCol."+jsonGameId+".requestedValidation"]={"$nin":[true]};
-        this.db.players.findOne(query, {"_id":1}, function(err, player){
+        this.db.clasCol.findOne({"_id" : gameId, "validationRequests.false":{"$size":0}}, {"_id":1}, function(err, game){
             if(err){
                 console.log(err, "error in isToValidate");
             }
             else{
-                console.log("\033[34misToValidate? - \033[0m",player, query);
-                if(player == null){ //if the query yields no result the validation is on…
+                console.log("\033[34misToValidate? - \033[0m",game, query);
+                if(game !== null){ //if the query yields no result the validation is on…
                     validate_callback();
                 }
             }
