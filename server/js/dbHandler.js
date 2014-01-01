@@ -192,7 +192,7 @@ module.exports = DBHandler = cls.Class.extend({
         });
     },
 
-    requestValidation: function(playerId, gameId, jsonGameId, callback){
+    requestValidation: function(playerId, gameId, callback){
         //#security, what if undefined ?, what if wrongly called, no  background check pulls all values though
         if(typeof playerId !== "string"){
             playerId = playerId.toHexString();
@@ -203,7 +203,7 @@ module.exports = DBHandler = cls.Class.extend({
         var query = {"$pull":{"validationRequests.false":playerId}, "$push":{"validationRequests.true":playerId}};
         console.log(query);/**/
         this.db.clasCol.update({"_id":gameId}, query, function(err, nbgames){
-            if(err || (nbplayers !== 1)){
+            if(err || (nbgames !== 1)){
                 console.log(err, nbgames, "could not request validation for player "+playerId);
             }
             else{
@@ -222,7 +222,7 @@ module.exports = DBHandler = cls.Class.extend({
         var query = {"$push":{"validationRequests.false":playerId}, "$pull":{"validationRequests.true":playerId}};
         console.log(query);/**/
         this.db.clasCol.update({"_id":gameId}, query, function(err, nbgames){
-            if(err || (nbplayers !== 1)){
+            if(err || (nbgames !== 1)){
                 console.log(err, nbgames, "could not request validation for player "+playerId);
             }
             else{
@@ -239,7 +239,7 @@ module.exports = DBHandler = cls.Class.extend({
                 console.log(err, "error in isToValidate");
             }
             else{
-                console.log("\033[34misToValidate? - \033[0m",game, query);
+                console.log("\033[34misToValidate? - \033[0m",game);
                 if(game !== null){ //if the query yields no result the validation is on…
                     validate_callback();
                 }

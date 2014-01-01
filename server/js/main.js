@@ -54,16 +54,16 @@ var Server = cls.Class.extend({
 
         //requestValidation
         this.requestValidation = function(data){
-            self.db.requestValidation(data.usr.id, data.gameId, data.gameClass, function(){
+            self.db.requestValidation(data.usr.id, data.gameId, function(){
                 self.io.sockets.in(data.gameId).emit("request validation", {player:data.usr});
-                self.db.isToValidate(data.gameId, data.gameClass, function(){
+                self.db.isToValidate(data.gameId, function(){
                     self.io.sockets.in(data.gameId).emit("validation", {});
                 });
             });
         };
         //cancelValidation
         this.cancelValidation = function(data){
-            self.db.cancelValidation(data.usr.id, data.gameId, data.gameClass, function(){
+            self.db.cancelValidation(data.usr.id, data.gameId, function(){
                 self.io.sockets.in(data.gameId).emit("cancel validation", {player:data.usr});
             });
         };

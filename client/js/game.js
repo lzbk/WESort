@@ -147,10 +147,10 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             /***** TEAM *****/
             //to be called on button push initiated in class Team
             this.team.onSendValidationRequest(function(){
-                self.client.emit("request validation", {gameId:self.gameId, usr:self.player.getPlayerOnly(), gameClass:self.gameClass});
+                self.client.emit("request validation", {gameId:self.gameId, usr:self.player.getPlayerOnly()});
             });
             this.team.onSendCancelValidation(function(){
-                self.client.emit("cancel validation", {gameId:self.gameId, usr:self.player.getPlayerOnly(), gameClass:self.gameClass});
+                self.client.emit("cancel validation", {gameId:self.gameId, usr:self.player.getPlayerOnly()});
             });
 
             /***** HELP *****/
