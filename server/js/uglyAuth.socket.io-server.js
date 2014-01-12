@@ -37,21 +37,21 @@ module.exports = uglyAuth = function(io, dbh){
            //called with one parameter it updates handshake data, with 2, it does both (unless param1
            //is just a string)
            var acceptUpdate = function(newValues, result){
-                   if((typeof result == "boolean") && (result === false)){
-                       io_accept(newValues, result);
+               if((typeof result == "boolean") && (result === false)){
+                   io_accept(newValues, false);
+               }
+               else{
+                   if(typeof newValues == "object"){
+                       Object.keys(newValues).forEach(function (key) {
+                           handshakeData.query[key]=newValues[key];
+                       });
                    }
-                   else{
-                       if(typeof newValues == "object"){
-                           Object.keys(newValues).forEach(function (key) {
-                               handshakeData.query[key]=newValues[key];
-                           });
-                       }
-                       if((typeof result == "boolean") && (result === true)){
-                       //this way it can be called just to update handshakeData
-                           io_accept(null, true);
-                       }
+                   if((typeof result == "boolean") && (result === true)){
+                   //this way it can be called just to update handshakeData
+                       io_accept(null, true);
                    }
-               };
+               }
+           };
            //Portion of code that is specific to this application
            if (handshakeData.query.action == "register"){
                //registration procedure

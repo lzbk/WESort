@@ -16,10 +16,11 @@ var Server = cls.Class.extend({
         var self=this;
         //connection event
         this.connect = function(socket){
+            console.log("Emit connection established with game → ", socket.handshake.query.game);/**/
             socket.emit('connection established', {"player":socket.handshake.query.player,
                 "team":socket.handshake.query.team, "online":self.onlinePlayers[socket.handshake.query.game], "game":socket.handshake.query.game});
             //later on add to the emit, the state of the game
-            socket.join(socket.handshake.query.game);
+            socket.join(socket.handshake.query.game.id);
             socket.leave("");
             socket.on('selectCard', self.selectCard);
             socket.on('unselectCard', self.unselectCard);
@@ -28,7 +29,7 @@ var Server = cls.Class.extend({
             socket.on('request validation', self.requestValidation);
             socket.on('cancel validation', self.cancelValidation);
             self.addOnlinePlayer(socket.handshake.query.player, socket.handshake.query.game);
-            self.io.sockets.in(socket.handshake.query.game).emit('join', {player: socket.handshake.query.player});
+            self.io.sockets.in(socket.handshake.query.game.id).emit('join', {player: socket.handshake.query.player});
         };
 
         //selectCard event
@@ -55,6 +56,7 @@ var Server = cls.Class.extend({
         //requestValidation
         this.requestValidation = function(data){
             self.db.requestValidation(data.usr.id, data.gameId, function(){
+                console.log("request vaalidation", data);
                 self.io.sockets.in(data.gameId).emit("request validation", {player:data.usr});
                 self.db.isToValidate(data.gameId, function(){
                     self.io.sockets.in(data.gameId).emit("validation", {});

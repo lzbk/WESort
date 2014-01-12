@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a34b93bc-380f-454f-96d5-1f6266d0f8f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/js/dbHandler.js" afterPath="$PROJECT_DIR$/server/js/dbHandler.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/game.js" afterPath="$PROJECT_DIR$/client/js/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/example/game_data.json" afterPath="$PROJECT_DIR$/client/example/game_data.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/js/main.js" afterPath="$PROJECT_DIR$/server/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/team.js" afterPath="$PROJECT_DIR$/client/js/team.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js" afterPath="$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ClasCol.iws" />
@@ -26,143 +23,37 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="uglyAuth.js" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/client/js/uglyAuth.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="61" column="19" selection-start="2625" selection-end="2625" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="4545">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="uglyAuth.socket.io-server.js" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/server/js/uglyAuth.socket.io-server.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="40" column="52" selection-start="2055" selection-end="2055" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1290">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="dbHandler.js" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/server/js/dbHandler.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="123" column="30" selection-start="5767" selection-end="5767" vertical-scroll-proportion="1.4958677" vertical-offset="653" max-vertical-offset="4740">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="uglyAuth.socket.io-client.js" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="137" column="40" selection-start="4956" selection-end="4956" vertical-scroll-proportion="0.0" vertical-offset="2055" max-vertical-offset="2430">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="player.js" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/client/js/player.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="21" column="17" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="825">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="patterns.js" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/client/js/patterns.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="21" column="166" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1425">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/server/js/main.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="57" column="91" selection-start="2635" selection-end="2635" vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="1665">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="ClasCol" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="team.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/js/team.js">
+      <file leaf-file-name="uglyAuth.socket.io-client.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="17" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.20426065" vertical-offset="1052" max-vertical-offset="2355">
+            <state line="137" column="31" selection-start="4947" selection-end="4947" vertical-scroll-proportion="-18.68" vertical-offset="1588" max-vertical-offset="2505">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/tmp/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18405" column="135" selection-start="782679" selection-end="782679" vertical-scroll-proportion="0.0" vertical-offset="276075" max-vertical-offset="334815">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clascol.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/style/clascol.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="388" column="0" selection-start="8754" selection-end="8754" vertical-scroll-proportion="0.0" vertical-offset="5565" max-vertical-offset="7950">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="uglyAuth.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/style/uglyAuth.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="1" selection-start="1221" selection-end="1514" vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="1095">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="card.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/card.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="21" selection-start="8676" selection-end="8676" vertical-scroll-proportion="0.0" vertical-offset="3540" max-vertical-offset="4365">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="game.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="132" selection-start="8086" selection-end="8086" vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="3180">
-              <folding />
+            <state line="37" column="0" selection-start="1833" selection-end="1833" vertical-scroll-proportion="0.6181319" vertical-offset="180" max-vertical-offset="2565">
+              <folding>
+                <element signature="e#6927#9045#0" expanded="false" />
+                <element signature="e#9081#10568#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery-2.0.3.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/lib/jquery-2.0.3.min.js">
+      <file leaf-file-name="team.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/team.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="4310" selection-start="68468" selection-end="68468" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="180">
+            <state line="46" column="27" selection-start="1653" selection-end="1653" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2400">
               <folding />
             </state>
           </provider>
@@ -171,7 +62,7 @@
       <file leaf-file-name="game_data.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/example/game_data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="1183" selection-start="2444" selection-end="2444" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="810">
+            <state line="28" column="38" selection-start="3195" selection-end="3195" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
@@ -180,16 +71,52 @@
       <file leaf-file-name="uglyAuth.io-FR.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/uglyAuth.io-FR.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="21" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="645">
+            <state line="8" column="17" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="645">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="config.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="68" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="825">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="history.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/history.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="8" selection-start="1920" selection-end="1920" vertical-scroll-proportion="0.0" vertical-offset="419" max-vertical-offset="1215">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uglyAuth.socket.io-server.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/js/uglyAuth.socket.io-server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="17" selection-start="1886" selection-end="1886" vertical-scroll-proportion="0.0" vertical-offset="359" max-vertical-offset="1290">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dbHandler.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/js/dbHandler.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="214" column="19" selection-start="9901" selection-end="9916" vertical-scroll-proportion="17.52" vertical-offset="3648" max-vertical-offset="5715">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="64" column="10" selection-start="2973" selection-end="2973" vertical-scroll-proportion="18.44" vertical-offset="1421" max-vertical-offset="1875">
               <folding />
             </state>
           </provider>
@@ -213,30 +140,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/client/js/uglyAuth.js" />
         <option value="$PROJECT_DIR$/client/js/table.js" />
-        <option value="$PROJECT_DIR$/server/js/uglyAuth.socket.io-server.js" />
         <option value="$PROJECT_DIR$/client/js/player.js" />
         <option value="$PROJECT_DIR$/client/js/storage.js" />
         <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/client/js/card.js" />
-        <option value="$PROJECT_DIR$/client/style/clascol.css" />
         <option value="$PROJECT_DIR$/client/js/patterns.js" />
         <option value="$PROJECT_DIR$/client/example/game_data.json" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/client/style/clascol.css" />
+        <option value="$PROJECT_DIR$/server/js/dbHandlerFake.js" />
+        <option value="$PROJECT_DIR$/server/js/uglyAuth.socket.io-server.js" />
+        <option value="$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js" />
+        <option value="$PROJECT_DIR$/server/js/dbHandler.js" />
+        <option value="$PROJECT_DIR$/server/js/main.js" />
         <option value="$PROJECT_DIR$/client/js/team.js" />
         <option value="$PROJECT_DIR$/client/js/game.js" />
-        <option value="$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js" />
-        <option value="$PROJECT_DIR$/server/js/main.js" />
-        <option value="$PROJECT_DIR$/server/js/dbHandler.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="959" />
+    <option name="x" value="960" />
     <option name="y" value="25" />
     <option name="width" value="961" />
-    <option name="height" value="993" />
+    <option name="height" value="994" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -252,7 +179,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -264,6 +191,102 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ClasCol">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ClasCol">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="server">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ClasCol">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="server">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ClasCol">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ClasCol">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ClasCol">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="example">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -272,155 +295,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClasCol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,14 +326,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -468,15 +336,23 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -490,7 +366,7 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="StructureViewFactory">
-    <option name="ACTIVE_ACTIONS" value="ALPHA_COMPARATOR" />
+    <option name="ACTIVE_ACTIONS" value="SHOW_INHERITED_FROM_OBJECT,SHOW_INHERITED,ALPHA_COMPARATOR" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -521,26 +397,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="959" y="25" width="961" height="993" extended-state="0" />
+    <frame x="960" y="25" width="961" height="994" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35419127" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278328" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12282551" sideWeight="0.64466447" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29594016" sideWeight="0.64580876" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3498818" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278328" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32033098" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.258547" sideWeight="0.64817" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29594016" sideWeight="0.65011823" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35643566" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35643566" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928178" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32343236" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -557,9 +433,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24893162" sideWeight="0.64356434" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24465811" sideWeight="0.64395607" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -576,113 +452,114 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/server/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/tmp/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18260" column="36" selection-start="771622" selection-end="771622" vertical-scroll-proportion="401.1815" vertical-offset="0" max-vertical-offset="395400" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/style/clascol.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="384" column="1" selection-start="8685" selection-end="8685" vertical-scroll-proportion="0.0" vertical-offset="5610" max-vertical-offset="7950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/node_modules/mongojs/tests/test-group.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="14" selection-start="184" selection-end="185" vertical-scroll-proportion="0.34351146" vertical-offset="0" max-vertical-offset="525" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/uglyAuth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="40" selection-start="7023" selection-end="7023" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="4545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/card.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="21" selection-start="8676" selection-end="8676" vertical-scroll-proportion="0.0" vertical-offset="1855" max-vertical-offset="4515">
+        <state line="20" column="58" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="4365">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/client/js/lib/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="68" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+        <state line="104" column="37" selection-start="3722" selection-end="3722" vertical-scroll-proportion="0.0" vertical-offset="1169" max-vertical-offset="1965">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/README.md">
+    <entry file="file://$PROJECT_DIR$/client/js/history.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870" />
+        <state line="66" column="8" selection-start="1920" selection-end="1920" vertical-scroll-proportion="0.0" vertical-offset="419" max-vertical-offset="1215">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/uglyAuth.io-FR.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="21" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="645">
+        <state line="8" column="17" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="524">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/example/game_data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="1183" selection-start="2444" selection-end="2444" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/tmp/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18405" column="135" selection-start="782679" selection-end="782679" vertical-scroll-proportion="0.0" vertical-offset="332287" max-vertical-offset="395400">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/lib/jquery-2.0.3.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="4310" selection-start="68468" selection-end="68468" vertical-scroll-proportion="0.0" vertical-offset="13732" max-vertical-offset="17100">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="132" selection-start="8086" selection-end="8086" vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="3180">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/uglyAuth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="19" selection-start="2625" selection-end="2625" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="4545">
+        <state line="28" column="38" selection-start="3195" selection-end="3195" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="810">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/js/uglyAuth.socket.io-server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="52" selection-start="2055" selection-end="2055" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="40" selection-start="4956" selection-end="4956" vertical-scroll-proportion="0.0" vertical-offset="1485" max-vertical-offset="2445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="17" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="825">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/patterns.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="166" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1455">
+        <state line="38" column="17" selection-start="1886" selection-end="1886" vertical-scroll-proportion="0.0" vertical-offset="359" max-vertical-offset="1290">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="91" selection-start="2635" selection-end="2635" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1680">
+        <state line="64" column="10" selection-start="2973" selection-end="2973" vertical-scroll-proportion="18.44" vertical-offset="1421" max-vertical-offset="1875">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/js/dbHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="30" selection-start="5767" selection-end="5767" vertical-scroll-proportion="1.4958677" vertical-offset="653" max-vertical-offset="4740">
+        <state line="214" column="19" selection-start="9901" selection-end="9916" vertical-scroll-proportion="17.52" vertical-offset="3648" max-vertical-offset="5715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/uglyAuth.socket.io-client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="31" selection-start="4947" selection-end="4947" vertical-scroll-proportion="-18.68" vertical-offset="1588" max-vertical-offset="2505">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/team.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="17" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.20426065" vertical-offset="1052" max-vertical-offset="2355">
+        <state line="46" column="27" selection-start="1653" selection-end="1653" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2400">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1833" selection-end="1833" vertical-scroll-proportion="0.6181319" vertical-offset="180" max-vertical-offset="2565">
+          <folding>
+            <element signature="e#6927#9045#0" expanded="false" />
+            <element signature="e#9081#10568#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

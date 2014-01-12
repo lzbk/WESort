@@ -61,6 +61,19 @@ module.exports = DBHandler = cls.Class.extend({
                 //***maybe*** using dbrefs or something would allow to store teams in the players documents and limit
                 //use of manual references and callbacks TODO
                 //see http://docs.mongodb.org/manual/reference/database-references/
+
+                self.onGetGameError(function(err, game, gameId){
+                    ioAuthentication_callback("Could not find a game with id "+gameId+".", false);
+                });
+
+                self.onGetGameSuccess(function(game){
+                    ioAuthentication_callback({
+                        "player":{"id":player._id.toHexString(), "name":player.name},
+                        "game":  {"id": game._id, "validationRequests": game.validationRequests}
+                    }, true);//TODO ICITE je dois tester si objet == {a:{e:f}} et objet["a.b"] = c → objet=={a:{b:c, e:f}}, ensuite il faut ajouter l'état des validations puis traiter le côté client qui déjà n'a pas le champ id pour game dans les données reçues…
+                });
+
+
                 self.onCreateGameError(function(err, game){
                     ioAuthentication_callback("Could not create a game for "+player._id.toHexString()+".", false);
                 });
@@ -70,9 +83,10 @@ module.exports = DBHandler = cls.Class.extend({
                             " members (consistency of database maybe compromised).", false);
                     });
 
-                    self.onSetTeamGameSuccess(function(game){
+                    self.onSetTeamGameSuccess(function(gameId){
                         ioAuthentication_callback({"player":{"id":player._id.toHexString(), "name":player.name},
-                            "game":game}, true);
+                            "game":{"id":gameId}});
+                        self.getGame(gameId);
                     });
                 self.onCreateGameSuccess(function(err, game){
                     self.setTeamGame(player.team.id, jsonGameId, game._id); //depends on the above 2 callbacks
@@ -90,8 +104,9 @@ module.exports = DBHandler = cls.Class.extend({
                     }
                     else{
                         ioAuthentication_callback(
-                            {"player":{"id":player._id.toHexString(), "name":player.name}, "game":player.games.clasCol[jsonGameId].id}
-                            , true);
+                            {"player":{"id":player._id.toHexString(), "name":player.name},
+                             "game":{"id":player.games.clasCol[jsonGameId].id}});
+                        self.getGame(player.games.clasCol[jsonGameId].id);
                     }
                 });
                 //the treatment itself
@@ -124,12 +139,17 @@ module.exports = DBHandler = cls.Class.extend({
 
     getGame: function(gameId){
         var self = this;
-        this.db.clasCol.findOne({"id":gameId}, function(err, game){
+        if(typeof gameId === "string"){
+            gameId = new ObjectId(gameId);
+        }
+        this.db.clasCol.findOne({"_id":gameId}, function(err, game){
             if(err || !game){
-                self.getGameError(err, game);
+                /**/console.log('db.clasCol.findOne({"id":'+gameId+'})');
+                self.getGameError(err, game, gameId);
             }
             else{
-                self.getGameSuccess(err, game);
+                /**/console.log(game);
+                self.getGameSuccess(game);
             }
         });
     },
@@ -158,7 +178,7 @@ module.exports = DBHandler = cls.Class.extend({
         var tempField = {};
             tempField["games.clasCol."+jsonGameId+".id"] = gameId ;
         console.log("\033[34mSetPlayer - \033[0m", teamId, jsonGameId, gameId)
-        this.db.players.update({"team.id":teamId},{ "$set":tempField}, {multi:true}, function(err, nbplayers){
+        this.db.players.update({"team.id":teamId},{"$set":tempField}, {multi:true}, function(err, nbplayers){
             if(err || (nbplayers == 0)){
                 self.setTeamGameError(err, nbplayers);
             }
@@ -201,7 +221,7 @@ module.exports = DBHandler = cls.Class.extend({
             gameId = new ObjectId(gameId);
         }
         var query = {"$pull":{"validationRequests.false":playerId}, "$push":{"validationRequests.true":playerId}};
-        console.log(query);/**/
+        console.log('db.clasCol.update({"_id":',gameId,'}, ',query,')');/**/
         this.db.clasCol.update({"_id":gameId}, query, function(err, nbgames){
             if(err || (nbgames !== 1)){
                 console.log(err, nbgames, "could not request validation for player "+playerId);
@@ -220,10 +240,10 @@ module.exports = DBHandler = cls.Class.extend({
             gameId = new ObjectId(gameId);
         }
         var query = {"$push":{"validationRequests.false":playerId}, "$pull":{"validationRequests.true":playerId}};
-        console.log(query);/**/
+        console.log('db.clasCol.update({"_id":'+gameId+'}, '+query+')');/**/
         this.db.clasCol.update({"_id":gameId}, query, function(err, nbgames){
             if(err || (nbgames !== 1)){
-                console.log(err, nbgames, "could not request validation for player "+playerId);
+                console.log(err, nbgames, "could not cancel validation for player "+playerId);
             }
             else{
                 callback();

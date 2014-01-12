@@ -23,11 +23,22 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                 authenticationSuccess = function(data){
                     self.player = new Player(data.player);
                     self.team = new Team("users", data.team, self.player, data.online);
-                    self.gameId = data.game;
+                    self.gameId = data.game.id;
                     self.loadBoard();
                     self.setUpEvents();
                     self.storage.savePlayer(self.player, self.gameId);
                     self.setUpMessages();
+
+                    //Load game content
+                        //validation requests…
+                    for(var i=0; i<data.game.validationRequests.true.length; i++){
+                        self.team.validationRequest(
+                            data.game.validationRequests.true[i]);
+                    }
+                    if(self.team.getTeamSize()==
+                        data.game.validationRequests.true.length){
+                        self.validate();
+                    }
                 },
                 authenticationFailure = function(data){
 /*TODO better message*/ window.alert("La connexion a été refusée par le serveur, reconnectez-vous");
@@ -67,7 +78,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
         loadBoard: function(){
             if(typeof this.data !== "undefined"){
                 var self=this;
-                //#todo test server before loading
+                //#todo test server before loading why? I don't remember
                  this.data.categories.dim.X = new Category( this.data.categories.dim.X.id,  this.data.categories.dim.X.caption,  this.data.categories.dim.X.explanation);
                  this.data.categories.dim.Y = new Category( this.data.categories.dim.Y.id,  this.data.categories.dim.Y.caption,  this.data.categories.dim.Y.explanation);
                 for(var i=0;i< this.data.categories.X.length;i++){
@@ -113,6 +124,10 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             else{
                 console.error("#loaderror, trying to load a board that has not been “got” yet.");
             }
+        },
+
+        validate: function(){
+            window.alert('wouhouuu tout le monde a validé !!');
         },
 
         /***
@@ -198,8 +213,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                 self.team.cancelValidation(data.player.id);
             });
             this.client.onValidation(function(data){
-               //TODO validation & feedback
-                window.alert('wouhouuu tout le monde a validé !!');
+               self.validate();
             });
         }
     });

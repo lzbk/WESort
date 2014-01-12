@@ -32,12 +32,12 @@ define(function() {
                      this.categories.X = Util.shuffle(catList.Y);
                      this.axesInverted = true;
                  }
-             }
+            }
             else{
                  this.dimensions = catList.dim;
                  this.categories.X = catList.X;
                  this.categories.Y = catList.Y;
-             }
+            }
         },
 
         isInverted: function(){

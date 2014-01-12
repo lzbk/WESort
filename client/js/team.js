@@ -49,6 +49,9 @@ define(function(){
         getName: function(){
             return this.name;
         },
+        getTeamSize: function(){
+            return Object.keys(this.members).length;
+        },
         getMembersNames: function(){
             var res = [], self = this;
             this.forEachMember(function(key,value){res.push(value);});
