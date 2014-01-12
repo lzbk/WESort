@@ -57,8 +57,8 @@ define(['position', 'history'], function(Position, History) {
             // Position Handling
             //**********************
             //updates the position
-            updatePos: function(usr,x,y){
-                this.positions.addItem(new PositionItem(usr, new Position(x,y)));
+            updatePos: function(usr,x,y,time){
+                this.positions.addItem(new PositionItem(usr, new Position(x,y,time)));
             },
             //gets the position which was assigned by usr or if usr is not provided, the current position
             getPos: function(usr){
@@ -227,9 +227,9 @@ define(['position', 'history'], function(Position, History) {
                 }
             },
 
-            move: function(usr,x,y){
+            move: function(usr,x,y,time){
                 if(this.selectedBy(usr)){
-                    this.updatePos(usr,x,y);
+                    this.updatePos(usr,x,y,time);
                     this.unselect();
                     this.elt.find(".position").prepend(this.printPos());
                     this.spawn();

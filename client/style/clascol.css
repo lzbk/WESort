@@ -91,6 +91,7 @@ body>header, body>footer{
 }
 
 body>footer{
+    position: relative;
     height: calc(7.5% - 1rem);
     background:
         linear-gradient(45deg,  transparent 1.5rem, #f3f3f3 1.5rem),
@@ -370,6 +371,41 @@ article[open=open] footer .comments{
 .comments:hover {
     background-color:  #e44a4a;
     cursor: pointer;
+}
+
+
+        /*Chatbox*/
+#chatbox{
+    color: white;
+    background:
+        linear-gradient(45deg,  transparent 1.3rem, #16528d 1.3rem),
+        linear-gradient(315deg, #16528d 1.3rem, #16528d 1.3rem);
+    background-position: left, right;
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+    background-size:50% 100%;
+    background-repeat:no-repeat;
+    vertical-align: bottom;
+    position: absolute;
+    overflow: hidden;
+    box-sizing: border-box;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    right: 0.4rem;
+    top:0px;
+}
+
+#chatbox:hover{
+    overflow-y: auto;
+    top: -15rem;
+}
+
+.author{
+    color: lightgray;
+    font-weight: bold;
+}
+.date{
+    color:#808080;
 }
 
         /*Team*/
