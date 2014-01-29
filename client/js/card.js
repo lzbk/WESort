@@ -38,11 +38,17 @@ define(['position', 'history'], function(Position, History) {
 
 
         var Card = Class.extend({
-            init: function(id, name, categories, img, desc, player){
+            init: function(id, name, inverted, categories, img, desc, player){
+                console.log(id, name, inverted, categories, img, desc, player);/**/
                 //#security
                 this.id = id;
                 this.name = name;
-                this.categories = categories;
+                if(inverted){
+                    this.categories=[categories[1], categories[0]];
+                }
+                else{
+                    this.categories=[categories[0], categories[1]];
+                }
                 this.img = img;
                 this.desc = desc;
                 this.opened = false;
@@ -76,6 +82,8 @@ define(['position', 'history'], function(Position, History) {
                 return (lastPos !== false) && lastPos.getAuthor();
             },
 
+
+
             //**********************
             // Result Handling
             //**********************
@@ -86,7 +94,7 @@ define(['position', 'history'], function(Position, History) {
                     return this.categories;
                 }
                 else{
-                    var found = false
+                    var found = false;
                     for(var i=0; !found && i<this.categories.length; i++){
                         found = (this.categories[i] == cat);
                     }

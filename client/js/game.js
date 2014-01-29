@@ -79,8 +79,9 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             if(typeof this.data !== "undefined"){
                 var self=this;
                 //#todo test server before loading why? I don't remember
-                 this.data.categories.dim.X = new Category( this.data.categories.dim.X.id,  this.data.categories.dim.X.caption,  this.data.categories.dim.X.explanation);
-                 this.data.categories.dim.Y = new Category( this.data.categories.dim.Y.id,  this.data.categories.dim.Y.caption,  this.data.categories.dim.Y.explanation);
+                this.feedback = this.data.feedback;
+                this.data.categories.dim.X = new Category( this.data.categories.dim.X.id,  this.data.categories.dim.X.caption,  this.data.categories.dim.X.explanation);
+                this.data.categories.dim.Y = new Category( this.data.categories.dim.Y.id,  this.data.categories.dim.Y.caption,  this.data.categories.dim.Y.explanation);
                 for(var i=0;i< this.data.categories.X.length;i++){
                      this.data.categories.X[i] = new Category( this.data.categories.X[i].id,  this.data.categories.X[i].caption,  this.data.categories.X[i].explanation,  this.data.categories.dim.X.id);
                 }
@@ -98,7 +99,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                     else{
                         img =  this.data.path + "/" +  this.data.cards[i].img;
                     }
-                     this.data.cards[i]=(new Card( this.data.cards[i].id,  this.data.cards[i].name,  this.data.cards[i].cat, img,  this.data.cards[i].desc, this.player));
+                    this.data.cards[i]=(new Card( this.data.cards[i].id,  this.data.cards[i].name, this.board.isInverted(), this.data.cards[i].categories, img,  this.data.cards[i].desc, this.player));
                 }
                  this.data.cards.sort(Card.compare); //Allows to sort them before being able to access them directly through their ids (link evt→object through html element id)
                 for(i=0;i< this.data.cards.length;i++){
@@ -126,8 +127,38 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             }
         },
 
+        testBoard: function(){
+            var res = 0, self=this;
+            Object.keys(this.cards).forEach(function (key) {
+                if(self.cards[key].evaluate()===false){
+                    res++;
+                }
+            });
+            if (res == 0){
+                res = true;
+            }
+            return res;
+        },
+
         validate: function(){
-            window.alert('wouhouuu tout le monde a validé !!');
+            var title, content, res = this.testBoard();
+            if(res === true){
+                title = this.feedback.true.title;
+                content = this.feedback.true.content;
+            }
+            else{
+                title = Util.print(this.feedback.false.title, [res]);
+                content = this.feedback.false.content;
+            }
+            //#todo #bug for some reason overlay does not show
+            //when the next line is called on connection
+            $("#overlay").attr("class", "show");
+            $("#message").html(Util.print(Patterns.VALIDATION, [title,content]));
+            $("#message").attr("open", "open");
+            $("#message .closeButton").click(function(){
+                $("#message").removeAttr("open");
+                $("#overlay").removeAttr("class");
+            });
         },
 
         /***

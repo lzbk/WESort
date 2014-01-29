@@ -227,10 +227,10 @@ article header{
 }
 
         /*** Hidden ***/
-article .details, article footer, article .closeButton, #overlay,.illustration, #overlay article, #help{display: none;}
+article .details, article footer, article .closeButton, #overlay,.illustration, #overlay article, #help, #message{display: none;}
 
         /*** Visible ***/
-article[open=open] .details, article[open=open] footer, article[open=open] .closeButton, article[open=open] .illustration, #overlay article[open=open], #help[open]{
+article[open=open] .details, article[open=open] footer, article[open=open] .closeButton, article[open=open] .illustration, #overlay article[open=open], #help[open], #message[open]{
     display: block;
 }
 
@@ -292,7 +292,7 @@ article[open=open], article[open=open]:hover{
     cursor: default;
 }
 
-#help[open], #login[open]{
+#message[open], #help[open], #login[open]{
     position:fixed;
     left:25%;
     right:25%;
@@ -315,7 +315,7 @@ article[open=open], article[open=open]:hover{
     z-index: 20;
 }
 
-#help[open] header, #login[open] header{
+#message[open] header, #help[open] header, #login[open] header{
     padding-left: 2.82rem;
     padding-right: 2.82rem;
     padding-top: 0.5rem;
@@ -323,14 +323,14 @@ article[open=open], article[open=open]:hover{
     height: 1.82rem;
     border-bottom: solid 1px;
 }
-#help[open] .details, #login[open] .details{
+#message[open] .details, #help[open] .details, #login[open] .details{
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     margin-bottom: 2.82rem;
     border-bottom: solid 1px;
 }
 
-#help[open] p{
+#message[open] p, #help[open] p{
     padding-top: 0.5rem;
 }
 

@@ -62,6 +62,7 @@ define(function(){
                 }
                 return res;
             },
+
             print: function(){
                 if(!this.inTable()){
                     return "";

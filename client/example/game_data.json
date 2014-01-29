@@ -13,6 +13,14 @@
     "shuffle": true,
     "title": "Un exemple de jeu collab",
     "help" : "<p>Ce jeu n&apos;est pas bien compliqué, sauf que vous n&apos;avez pas — à vous tout seul — toutes les « cartes en main » (hehe) pour pouvoir y répondre. Vous allez devoir collaborer…</p>\n<p>En cliquant, vous pouvez sélectionner les cartes « monument », puis, toujours en cliquant, les placer soit dans une case du tableau, soit les remettre dans la pile. Quand un joueur sélectionne une carte, elle est vérouillée pour les autres joueurs et ne sera dévérouillée qu&apos;après déplacement (ou un nouveau clic sur la carte).</p>\n<p>Pour avoir plus d&apos;informations sur un monument vous pouvez faire un « clic long » sur la carte correspondante. Ce sera également l&apos;occasion de laisser à vos collègues un commentaire sur le monument en question (en cliquant sur la zone correspondante) et de voir toutes les positions qu&apos;a occupé la carte.</p>\n<p>Enfin quand vous pensez avoir obtenu la solution, vous pouvez demander une validation (qui n&apos;aboutira que quand tous les joueurs de votre guilde seront d&apos;accord pour effectuer la demande). La validation se contentera de vous dire si votre tri est juste ou non. Par contre, le nombre de validations demandées sera pris en compte dans votre score&nbsp;: mieux vaut bien discuter entre vous avant… Une zone de chat est prévue à cet effet.</p>",
+    "feedback":{
+        "true":{
+            "title":"Bravo !",
+            "content":"<p>Wohouuu, c'est dans la poche!</p>"},
+        "false":{
+            "title":"Vous avez fait {0} erreur(s)",
+            "content":"<p>Oui bon là on pourrait aussi traiter tout les cas d'erreur (il faudrait changer la structure du fichier de jeu et son traitement, ça deviendrait compliqué) et puis les concaténer pour tout dire au joueur, mais on a décidé que c'était mieux de vous laisser faire vos hypothèses et réfléchir…</p>"}
+    },
     "cards":[
         {"id": "c_Len",
          "name": "Мавзолей Ленина",

@@ -17,7 +17,8 @@ module.exports = DBHandler = cls.Class.extend({
             var collections=['clasCol', 'players', 'teams', 'actions'];
             this.connectUrl = "mongodb://"+config.user+":"+config.pswd+"@"+config.host+"/"+config.name;
             this.db = require('mongojs').connect(this.connectUrl, collections, this.connectError);
-            /*this.setPlayerTeam(new ObjectId("5287b70c93b4573f10000001"), "test1", new ObjectId("5287f3e2276941ceebade1e3"), "guild1");
+            /*this.setPlayerTeam(new ObjectId("52d306d413e7de8910000001"), "Gérard", new ObjectId("5287f3e2276941ceebade1e3"), "guild1");
+            this.setPlayerTeam(new ObjectId("5287b70c93b4573f10000001"), "test1", new ObjectId("5287f3e2276941ceebade1e3"), "guild1");
             this.setPlayerTeam(new ObjectId("5287b72293b4573f10000002"), "test2", new ObjectId("5287f3e2276941ceebade1e3"), "guild1");
             this.setPlayerTeam(new ObjectId("5287b74093b4573f10000003"), "test3", new ObjectId("5287f62c276941ceebade1e4"), "guild2");
             this.setPlayerTeam(new ObjectId("5287b76593b4573f10000004"), "test4", new ObjectId("5287f62c276941ceebade1e4"), "guild2");*/
@@ -190,7 +191,7 @@ module.exports = DBHandler = cls.Class.extend({
 
     setPlayerTeam: function(playerId, playerName, teamId, teamName){
         //for administrative support at this point
-        this.onSetPlayerGameError(function(err, nb){console.log(err, nb);});
+        //?this.onSetPlayerGameError(function(err, nb){console.log(err, nb);});
         this.onSetPlayerTeamSuccess(function(){console.log("Player added to team");});
         var self = this;
         this.db.players.update({"_id":playerId},{ "$set":{"team":{"id":teamId, "name":teamName}}}, function(err, nbplayers){

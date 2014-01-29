@@ -22,6 +22,8 @@ Patterns = {
     VALIDATED:"{0} a demandé la validation de votre tableau, pour effectivement savoir si vous avez répondu à la question, tous les membres de l'équipe doivent avoir demandé la validation",
     HELP:"<header><h2>Aide</h2><div class='closeButton'></div></header>\n"+
          "<section class='details'>{0}</section>",
+    VALIDATION:"<header><h2>{0}</h2><div class='closeButton'></div></header>\n"+
+        "<section class='details'>{1}</section>",
     COMMENTING://'<form accept-charset="utf-8">' +
             "\n\t<input id='commentInput' type='text' value="+'"{0}">',/*+
             "</form>",*/
