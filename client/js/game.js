@@ -28,7 +28,8 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                     self.setUpEvents();
                     self.storage.savePlayer(self.player, self.gameId);
                     self.setUpMessages();
-
+                    $("#overlay").removeAttr("class");
+                    $("#loading").remove();
                     //Load game content
                         //validation requests…
                     for(var i=0; i<data.game.validationRequests.true.length; i++){
@@ -88,7 +89,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                 for(i=0;i< this.data.categories.Y.length;i++){
                      this.data.categories.Y[i] = new Category( this.data.categories.Y[i].id,  this.data.categories.Y[i].caption,  this.data.categories.Y[i].explanation,  this.data.categories.dim.Y.id);
                 }
-                this.board = new Table( this.data.categories,  this.data.title,  this.data.shuffle);
+                this.board = new Table( this.data.categories,  this.data.title, Util.print(Patterns.LOADING,[this.data.loadingMessage]),  this.data.shuffle);
                 this.board.spawn();
                 this.cards={};
                 for(i=0;i< this.data.cards.length;i++){
@@ -150,8 +151,6 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                 title = Util.print(this.feedback.false.title, [res]);
                 content = this.feedback.false.content;
             }
-            //#todo #bug for some reason overlay does not show
-            //when the next line is called on connection
             $("#overlay").attr("class", "show");
             $("#message").html(Util.print(Patterns.VALIDATION, [title,content]));
             $("#message").attr("open", "open");

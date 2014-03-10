@@ -235,6 +235,16 @@ define(['position', 'history'], function(Position, History) {
                 }
             },
 
+            restoreMoves: function(moves){
+                //to move a card during loading
+                for(var i=0; i<moves.length ; i++){
+                    this.updatePos(usr,x,y,time);//TODO, les bons champs
+                    this.elt.find(".position").prepend(this.printPos());
+                }
+                this.spawn();
+
+            },
+
             move: function(usr,x,y,time){
                 if(this.selectedBy(usr)){
                     this.updatePos(usr,x,y,time);

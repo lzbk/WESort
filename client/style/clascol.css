@@ -235,7 +235,7 @@ article[open=open] .details, article[open=open] footer, article[open=open] .clos
 }
 
 #overlay.show{
-    display:block;
+    display:flex;
     position:fixed;
     top:0px;
     bottom:0px;
@@ -243,6 +243,18 @@ article[open=open] .details, article[open=open] footer, article[open=open] .clos
     right:0px;
     z-index:18;
     background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+#overlay>p{
+    color:white;
+    text-align: center;
+    font-weight: bold;
+}
+
+#overlay p br{
+    margin-bottom: 2px;
 }
 
 .closeButton{

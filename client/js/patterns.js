@@ -46,6 +46,7 @@ Patterns = {
                   {"text": "black" , "background": "#86ABD9"},
                   {"text": "black" , "background": "#ECD898"}]
     },
+    LOADING:"{0}<br /><img src='assets/loading.gif'>",
     /**
      * 0 → caption;
      * 1 → dimX ;

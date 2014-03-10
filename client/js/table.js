@@ -13,11 +13,12 @@ define(function() {
          */
 
 
-        init:function(catList, caption, randomize){
+        init:function(catList, caption, loadingMessage, randomize){
             var tmp;
             this.dimensions = {};
             this.categories = {};
             this.title = caption;
+            this.loading = loadingMessage;
             this.axesInverted = false;
             if(randomize === true){
                  tmp = Util.shuffle([catList.dim.X, catList.dim.Y]);
@@ -47,6 +48,7 @@ define(function() {
         print:function(){
             var res, tds="", thc="";
             $('title').html(this.title);
+            $('#loading').html(this.loading);
             for(var i=0; i<this.categories.X.length; i++){
                 tds += Util.print(Patterns.tableP.TD, [this.categories.X[i].id]);
                 thc += Util.print(Patterns.tableP.THC, [this.categories.X[i].explanation, this.categories.X[i].caption]);

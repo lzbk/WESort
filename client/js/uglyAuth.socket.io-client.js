@@ -144,12 +144,12 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
 
         displayLogin: function(){
             this.buildLogin();
-            this.parent.attr("class", "show");
+            //this.parent.attr("class", "show");
             this.elt.attr("open", "open");
         },
         hideLogin: function(){
             this.elt.removeAttr("open");
-            this.parent.removeAttr("class");
+            //this.parent.removeAttr("class");
         }
     });
 

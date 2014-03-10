@@ -12,6 +12,7 @@
     },
     "shuffle": true,
     "title": "Un exemple de jeu collab",
+    "loadingMessage":"Chargement des données du jeu en cours,<br />veuillez patienter",
     "help" : "<p>Ce jeu n&apos;est pas bien compliqué, sauf que vous n&apos;avez pas — à vous tout seul — toutes les « cartes en main » (hehe) pour pouvoir y répondre. Vous allez devoir collaborer…</p>\n<p>En cliquant, vous pouvez sélectionner les cartes « monument », puis, toujours en cliquant, les placer soit dans une case du tableau, soit les remettre dans la pile. Quand un joueur sélectionne une carte, elle est vérouillée pour les autres joueurs et ne sera dévérouillée qu&apos;après déplacement (ou un nouveau clic sur la carte).</p>\n<p>Pour avoir plus d&apos;informations sur un monument vous pouvez faire un « clic long » sur la carte correspondante. Ce sera également l&apos;occasion de laisser à vos collègues un commentaire sur le monument en question (en cliquant sur la zone correspondante) et de voir toutes les positions qu&apos;a occupé la carte.</p>\n<p>Enfin quand vous pensez avoir obtenu la solution, vous pouvez demander une validation (qui n&apos;aboutira que quand tous les joueurs de votre guilde seront d&apos;accord pour effectuer la demande). La validation se contentera de vous dire si votre tri est juste ou non. Par contre, le nombre de validations demandées sera pris en compte dans votre score&nbsp;: mieux vaut bien discuter entre vous avant… Une zone de chat est prévue à cet effet.</p>",
     "feedback":{
         "true":{
@@ -41,7 +42,7 @@
          "name":"Théâtre antique d&apos;Orange",
          "categories": ["art", "gal"],
          "img": "http://upload.wikimedia.org/wikipedia/commons/7/70/Le_Th%C3%A9%C3%A2tre_Antique_d%27Orange%2C_2007.jpg",
-         "desc": "Parce qu&apos;Orange, c&apos;est autre chose qu&apos;un opérateur historique privatisé et une ville avec une forte propension à voter FN : Orange c&apos;est aussi un climat sympa et de jolis vestiges"},
+         "desc": "Parce qu&apos;Orange, c&apos;est autre chose qu&apos;un opérateur historique : Orange c&apos;est aussi un climat sympa et de jolis vestiges"},
         {"id": "c_bol",
          "name": "Большой Театр",
          "categories": ["art", "rus"],
