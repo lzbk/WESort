@@ -6,7 +6,7 @@
  */
 // For score handling see git branch "withScore", to be completed…
 
-define(['position', 'history'], function(Position, History) {
+define(['position', 'history', 'player'], function(Position, History, Player) {
 
         var CommentItem = History.Item.extend({
             init: function(usr, com, time){
@@ -238,7 +238,9 @@ define(['position', 'history'], function(Position, History) {
             restoreMoves: function(moves){
                 //to move a card during loading
                 for(var i=0; i<moves.length ; i++){
-                    this.updatePos(usr,x,y,time);//TODO, les bons champs
+                    this.updatePos(new Player(moves[i].player),moves[i].position.X,moves[i].position.Y,moves[i].timestamp);//TODO, les bons champs
+                    console.log("après mouvement #", i, "pos :" , this.getPos(), "table?" , this.getPos().inTable());
+
                     this.elt.find(".position").prepend(this.printPos());
                 }
                 this.spawn();

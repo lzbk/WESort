@@ -11,6 +11,7 @@ var Server = cls.Class.extend({
         this.onlinePlayers={};
         this.init_callbacks();
         this.io.sockets.on('connection', this.connect);
+        this.io.sockets.on('disconnect', function(userId){console.log(userId);});
     },
     init_callbacks: function(){
         var self=this;
@@ -45,7 +46,11 @@ var Server = cls.Class.extend({
 
         //moveCard event
         this.moveCard = function(data){
-            self.io.sockets.in(data.gameId).emit("moveCard", {usr:data.usr, cardId:data.cardId, coords:data.coords});
+            self.db.moveCard(data.gameId, data.cardId, data.usr, data.coords,
+                function(){
+                    self.io.sockets.in(data.gameId).emit("moveCard", {usr:data.usr, cardId:data.cardId, coords:data.coords});
+                }
+            );
         };
 
         //moveCard event

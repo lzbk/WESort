@@ -70,7 +70,7 @@ module.exports = DBHandler = cls.Class.extend({
                 self.onGetGameSuccess(function(game){
                     ioAuthentication_callback({
                         "player":{"id":player._id.toHexString(), "name":player.name},
-                        "game":  {"id": game._id, "validationRequests": game.validationRequests}
+                        "game":  {"id": game._id, "validationRequests": game.validationRequests, "state": game.cards}
                     }, true);//TODO ICITE je dois tester si objet == {a:{e:f}} et objet["a.b"] = c → objet=={a:{b:c, e:f}}, ensuite il faut ajouter l'état des validations puis traiter le côté client qui déjà n'a pas le champ id pour game dans les données reçues…
                 });
 
@@ -285,6 +285,31 @@ module.exports = DBHandler = cls.Class.extend({
         });
     },
 
+    //#todo: 1 day it would be nice to replace the author name by something linked to their id
+    storeComment: function(gameId, cardId, author, content, callback){
+
+    },
+
+    moveCard: function(gameId, cardId, author, position, callback){
+        if(typeof gameId == "string"){
+            gameId = new ObjectId(gameId);
+        }
+        var self=this, pushQuery={};
+        pushQuery["cards."+cardId+".lastPositions"]= {$each:
+            [{"player":author, "position":position, "timestamp":new Date()}],
+            $slice: -5
+        };
+        this.db.clasCol.update({ "_id" : gameId}, {$push:pushQuery},
+            function(err, nbgames){
+            if(err || (nbgames !== 1)){//#todo check 1 is OK
+                self.moveCardError(err, nbgames);
+            }
+            else{
+                callback();
+            }
+        });
+    },
+
     /***
      * Callbacks
      */
@@ -325,5 +350,9 @@ module.exports = DBHandler = cls.Class.extend({
     },
     onSetPlayerTeamSuccess: function(callback){
         this.setPlayerTeamSuccess = callback;
+    },
+
+    moveCardError: function(err, count){
+        console.log("moveCard yielded an error → ", err, "("+count+")");
     }
 });

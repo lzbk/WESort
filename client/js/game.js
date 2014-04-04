@@ -24,7 +24,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                     self.player = new Player(data.player);
                     self.team = new Team("users", data.team, self.player, data.online);
                     self.gameId = data.game.id;
-                    self.loadBoard();
+                    self.loadBoard(data.game.state);
                     self.setUpEvents();
                     self.storage.savePlayer(self.player, self.gameId);
                     self.setUpMessages();
@@ -76,7 +76,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             return this.gameClass;
         },
         //getBoard must have been called before
-        loadBoard: function(){
+        loadBoard: function(state){
             if(typeof this.data !== "undefined"){
                 var self=this;
                 //#todo test server before loading why? I don't remember
@@ -115,6 +115,12 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                         self.client.emit("unselectCard",{gameId: self.gameId, cardId: this.id, usr:self.player.getPlayerOnly()});
                     });
                     this.cards[ this.data.cards[i].id].spawn();
+                    if(typeof state[this.data.cards[i].id] !== "undefined"){
+                        if(typeof state[this.data.cards[i].id].lastPositions !== "undefined"){
+                            this.cards[ this.data.cards[i].id].restoreMoves(state[this.data.cards[i].id].lastPositions);
+                        }
+                        //TODO last comment
+                    }
                     this.cards[ this.data.cards[i].id].onSendSelect(function(usr){
                         //"this" is the card
                         self.client.emit("selectCard",{gameId: self.gameId, cardId: this.id, usr:usr.getPlayerOnly()});
@@ -218,6 +224,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                 self.cards[data.cardId].unselect(new Player(data.usr));
             });
             this.client.onMoveCard(function(data){
+                /**/console.log("Move card", data);
                 var coords;
                 if(self.board.isInverted()){
                     coords={X:data.coords.Y, Y:data.coords.X};
