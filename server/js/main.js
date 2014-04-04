@@ -19,7 +19,7 @@ var Server = cls.Class.extend({
             console.log("Emit connection established with game → ", socket.handshake.query.game);/**/
             socket.emit('connection established', {"player":socket.handshake.query.player,
                 "team":socket.handshake.query.team, "online":self.onlinePlayers[socket.handshake.query.game], "game":socket.handshake.query.game});
-            //later on add to the emit, the state of the game
+            //#todo later on add to the emit, the comments on the cards
             socket.join(socket.handshake.query.game.id);
             socket.leave("");
             socket.on('selectCard', self.selectCard);

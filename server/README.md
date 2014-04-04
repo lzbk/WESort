@@ -19,6 +19,7 @@ INSTALL :
         *** db.players.ensureIndex({email:1}, {unique:true, dropDups: true })
 * now you can install the node server :
     ** copy server where you want it
+    ** in a terminal go to the root of the server directory
     ** type "npm install -d" to install the dependencies
 * configuration :
     ** open file config.json and edit the appropriate field to configure websocket port and mongodb access (only db system handled so far).

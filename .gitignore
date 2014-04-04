@@ -1,7 +1,5 @@
-/README.md~
-/server/node_modules/
-/.gitignore
-/.gitignore~
-/.idea/
-/.idea/workspace.xml
-/npm-debug.log
+README.md~
+server/node_modules/
+.gitignore~
+.idea/
+npm-debug.log
