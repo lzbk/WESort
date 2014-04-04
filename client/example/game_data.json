@@ -20,7 +20,7 @@
             "content":"<p>Wohouuu, c'est dans la poche!</p>"},
         "false":{
             "title":"Vous avez fait {0} erreur(s)",
-            "content":"<p>Oui bon là on pourrait aussi traiter tout les cas d'erreur (il faudrait changer la structure du fichier de jeu et son traitement, ça deviendrait compliqué) et puis les concaténer pour tout dire au joueur, mais on a décidé que c'était mieux de vous laisser faire vos hypothèses et réfléchir…</p>"}
+            "content":"<p>Oui bon là on pourrait aussi traiter tous les cas d'erreur (il faudrait changer la structure du fichier de jeu et son traitement, ça deviendrait compliqué) et puis les concaténer pour tout dire au joueur, mais on a décidé que c'était mieux de vous laisser faire vos hypothèses et réfléchir…</p>"}
     },
     "cards":[
         {"id": "c_Len",

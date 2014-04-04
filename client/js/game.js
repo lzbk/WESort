@@ -24,10 +24,11 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                     self.player = new Player(data.player);
                     self.team = new Team("users", data.team, self.player, data.online);
                     self.gameId = data.game.id;
-                    self.loadBoard(data.game.state);
+                    self.loadBoard();
                     self.setUpEvents();
                     self.storage.savePlayer(self.player, self.gameId);
                     self.setUpMessages();
+                    self.restoreState(data.game.state);
                     $("#overlay").removeAttr("class");
                     $("#loading").remove();
                     //Load game content
@@ -76,7 +77,7 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             return this.gameClass;
         },
         //getBoard must have been called before
-        loadBoard: function(state){
+        loadBoard: function(){
             if(typeof this.data !== "undefined"){
                 var self=this;
                 //#todo test server before loading why? I don't remember
@@ -115,13 +116,6 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                         self.client.emit("unselectCard",{gameId: self.gameId, cardId: this.id, usr:self.player.getPlayerOnly()});
                     });
                     this.cards[ this.data.cards[i].id].spawn();
-                    if( (typeof state !== "undefined") &&
-                        (typeof state[this.data.cards[i].id] !== "undefined")){
-                        if(typeof state[this.data.cards[i].id].lastPositions !== "undefined"){
-                            this.cards[ this.data.cards[i].id].restoreMoves(state[this.data.cards[i].id].lastPositions);
-                        }
-                        //TODO last comment
-                    }
                     this.cards[ this.data.cards[i].id].onSendSelect(function(usr){
                         //"this" is the card
                         self.client.emit("selectCard",{gameId: self.gameId, cardId: this.id, usr:usr.getPlayerOnly()});
@@ -133,6 +127,16 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
             else{
                 console.error("#loaderror, trying to load a board that has not been “got” yet.");
             }
+        },
+
+        restoreState: function(state){
+            var self = this;
+            Object.keys(state).forEach(function (card){
+                if(typeof state[card].lastPositions !== "undefined"){
+                    self.cards[card].restoreMoves(self.board.isInverted(),state[card].lastPositions);
+                }
+                //TODO last comment
+            });
         },
 
         testBoard: function(){

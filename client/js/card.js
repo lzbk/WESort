@@ -234,19 +234,31 @@ define(['position', 'history', 'player'], function(Position, History, Player) {
                 }
             },
 
-            restoreMoves: function(moves){
+            restoreMoves: function(inverted, moves){
                 //to move a card during loading
-                for(var i=0; i<moves.length ; i++){
-                    this.updatePos(new Player(moves[i].player),moves[i].position.X,moves[i].position.Y,moves[i].timestamp);//TODO, les bons champs
-                    console.log("après mouvement #", i, "pos :" , this.getPos(), "table?" , this.getPos().inTable());
-
-                    this.elt.find(".position").prepend(this.printPos());
+                if(inverted){
+                    for(var i=0; i<moves.length ; i++){
+                        this.updatePos(new Player(moves[i].player),
+                            moves[i].position.Y,
+                            moves[i].position.X,
+                            moves[i].timestamp);
+                        this.elt.find(".position").prepend(this.printPos());
+                    }
+                }
+                else{
+                    for(var i=0; i<moves.length ; i++){
+                        this.updatePos(new Player(moves[i].player),
+                            moves[i].position.X,
+                            moves[i].position.Y,
+                            moves[i].timestamp);
+                        this.elt.find(".position").prepend(this.printPos());
+                    }
                 }
                 this.spawn();
-
             },
 
             move: function(usr,x,y,time){
+                console.log("move", x, y);/**/
                 if(this.selectedBy(usr)){
                     this.updatePos(usr,x,y,time);
                     this.unselect();
