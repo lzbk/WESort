@@ -1,5 +1,5 @@
 /**
- * ClasCol
+ * WESort
  * User: loizbek
  * Date: 21/11/13
  * minimal team handling

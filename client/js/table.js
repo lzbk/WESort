@@ -1,5 +1,5 @@
 /**
- * ClasCol
+ * WESort
  * User: loizbek
  * Date: 19/09/13 (10:40)
  * Content: Generate the table

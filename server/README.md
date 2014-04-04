@@ -1,7 +1,7 @@
-ClasCol
+WESort
 ============
 
-Server side for the ClasCol project. See ClasCol README for more info
+Server side for the WESort project. See WESort README for more info
 
 INSTALL :
 * install mongo db

@@ -1,5 +1,5 @@
 /**
- * ClasCol
+ * WESort
  * User: loizbek
  * Date: 13/09/13 (14:55)
  * Content: A class to handle "histories"

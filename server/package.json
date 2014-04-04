@@ -1,6 +1,6 @@
 {
-    "name": "ClasCol",
-    "description": "A server for the ClasCol app (developed for janus)",
+    "name": "WESort",
+    "description": "A server for the WESort app (developed for janus)",
     "author": "lzbk",
     "version": "0.0.1",
     "main": "main.js",

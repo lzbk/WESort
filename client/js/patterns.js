@@ -1,5 +1,5 @@
 /**
- * ClasCol
+ * WESort
  * User: loizbek
  * Date: 18/09/13 (10:32)
  * Content: The list of element structures used in the system

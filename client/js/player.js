@@ -1,5 +1,5 @@
 /**
- * ClasCol
+ * WESort
  * User: loizbek
  * Date: 12/11/13
  * minimal player handling

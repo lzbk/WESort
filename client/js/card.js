@@ -1,5 +1,5 @@
 /**
- * ClasCol
+ * WESort
  * User: loizbek
  * Date: 10/09/13 (10:32)
  * Content: A class to describe the cards, x & y are the ids of the categories in the category class…

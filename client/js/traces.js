@@ -1,5 +1,5 @@
 /**
- * ClasCol
+ * WESort
  * User: loizbek
  * Date: 10/09/13 (11:05)
  * Content: A class to handle traces   ??

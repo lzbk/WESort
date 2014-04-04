@@ -1,5 +1,5 @@
 /**
- * ClasCol
+ * WESort
  * User: loizbek
  * Date: 16/09/13 (10:32)
  * Content: A class to describe the categories to which the cards belong

@@ -1,5 +1,5 @@
 /**
- * ClasCol
+ * WESort
  * User: loizbek
  * Date: 20/09/13 (00:45)
  * Content: The game itself, linking cards, table and user
