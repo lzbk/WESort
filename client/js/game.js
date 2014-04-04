@@ -115,7 +115,8 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                         self.client.emit("unselectCard",{gameId: self.gameId, cardId: this.id, usr:self.player.getPlayerOnly()});
                     });
                     this.cards[ this.data.cards[i].id].spawn();
-                    if(typeof state[this.data.cards[i].id] !== "undefined"){
+                    if( (typeof state !== "undefined") &&
+                        (typeof state[this.data.cards[i].id] !== "undefined")){
                         if(typeof state[this.data.cards[i].id].lastPositions !== "undefined"){
                             this.cards[ this.data.cards[i].id].restoreMoves(state[this.data.cards[i].id].lastPositions);
                         }
@@ -224,7 +225,6 @@ define(['table', 'card', 'category', 'storage', 'player', 'team', 'uglyAuth.sock
                 self.cards[data.cardId].unselect(new Player(data.usr));
             });
             this.client.onMoveCard(function(data){
-                /**/console.log("Move card", data);
                 var coords;
                 if(self.board.isInverted()){
                     coords={X:data.coords.Y, Y:data.coords.X};

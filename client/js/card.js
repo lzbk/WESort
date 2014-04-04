@@ -39,7 +39,6 @@ define(['position', 'history', 'player'], function(Position, History, Player) {
 
         var Card = Class.extend({
             init: function(id, name, inverted, categories, img, desc, player){
-                console.log(id, name, inverted, categories, img, desc, player);/**/
                 //#security
                 this.id = id;
                 this.name = name;

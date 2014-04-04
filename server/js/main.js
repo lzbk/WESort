@@ -11,7 +11,6 @@ var Server = cls.Class.extend({
         this.onlinePlayers={};
         this.init_callbacks();
         this.io.sockets.on('connection', this.connect);
-        this.io.sockets.on('disconnect', function(userId){console.log(userId);});
     },
     init_callbacks: function(){
         var self=this;
@@ -29,6 +28,10 @@ var Server = cls.Class.extend({
             socket.on('commentCard', self.commentCard);
             socket.on('request validation', self.requestValidation);
             socket.on('cancel validation', self.cancelValidation);
+            socket.on('disconnect', function(){
+                self.io.sockets.in(this.handshake.query.game.id).emit('leave', {player: this.handshake.query.player});
+            });
+
             self.addOnlinePlayer(socket.handshake.query.player, socket.handshake.query.game);
             self.io.sockets.in(socket.handshake.query.game.id).emit('join', {player: socket.handshake.query.player});
         };

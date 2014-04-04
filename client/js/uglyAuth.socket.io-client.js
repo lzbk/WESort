@@ -51,7 +51,6 @@ define(['uglyAuth', 'lib/socket.io.min'], function(UglyAuth, io){
         initCallbacks: function(){
             var self = this;
             this.socket.on("connection established", function(data){
-                console.log(data);/**/
                 self.connectSucces(data);
             });
             this.socket.on("error", function(data){

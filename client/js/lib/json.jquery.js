@@ -15,7 +15,7 @@
                 success = function(data){theJSON = data;};
             }
             if(typeof success !== "function"){
-                success = function(){window.alert('success');/**/null;};
+                success = function(){/*window.alert('success');*/null;};
             }
             $.ajax({url: url,
                 dataType: "json",
