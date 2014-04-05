@@ -2,7 +2,7 @@
     "name": "WESort",
     "description": "A server for the WESort app (developed for janus)",
     "author": "lzbk",
-    "version": "0.1",
+    "version": "0.1.0",
     "main": "main.js",
     "private": true,
     "dependencies": {
